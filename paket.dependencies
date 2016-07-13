@@ -1,6 +1,9 @@
 source https://nuget.org/api/v2
 
 nuget FSharp.Core redirects: force
+nuget Newtonsoft.Json
+nuget SharpZipLib
+nuget suave
 
 group Build
   source https://nuget.org/api/v2

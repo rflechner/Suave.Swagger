@@ -1,4 +1,7 @@
 FSharp.Core
+suave
+Newtonsoft.Json
+SharpZipLib
 group Test
 NUnit
 NUnit.Runners
