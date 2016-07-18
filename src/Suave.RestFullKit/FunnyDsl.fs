@@ -18,22 +18,21 @@ module FunnyDsl =
   open Swagger
 
   let is (x:'a) = x
-    
+  
   let descriptionOf (route:DocBuildState) (f:string -> string) x =
     route.Documents(fun doc -> { doc with Description = (f x) })
-    
+  
   let Of (x:'a) = x
-    
-  let response (route:DocBuildState) (statusCode:int) (desc:string) (modelType:Type option) =
+  
+  let addResponse (statusCode:int) (desc:string) (modelType:Type option) (route:DocBuildState) =
     let s,rs = 
       match modelType with
       | Some ty -> 
         let v1 = { route with Models=(ty :: route.Models) }
-        let v2 = { Description="return the first found customer"
-                   Schema=Some(ty.Describes()) }
+        let v2 = { Description=desc; Schema=Some(ty.Describes()) }
         v1,v2
       | None -> 
-        route, { Description="return the first found customer"; Schema=None }
+        route, { Description=desc; Schema=None }
     let rsd = 
       s.Current.Description.Responses
       |> Seq.map (fun kv -> kv.Key,kv.Value)
@@ -46,7 +45,7 @@ module FunnyDsl =
                   Description =
                     { s.Current.Description
                         with
-                          Responses = (200, rs) :: rsd |> dict
+                          Responses = (statusCode, rs) :: rsd |> List.distinctBy(fun (k,_) -> k) |> dict
                     }
             }
     }

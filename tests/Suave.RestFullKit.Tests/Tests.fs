@@ -27,7 +27,7 @@ and Rent = Car * Customer
 let ``When describing a very simple schema`` () =
   let desc = typeof<Customer>.Describes()
   let expected = 
-    { Id="Suave.RestFullKit.Tests+Customer"
+    { Id="Customer"
       Properties = 
         [ ("Name", Primitive("string","string"))
           ("FirstName", Primitive("string","string"))
@@ -43,13 +43,13 @@ let ``When describing a very simple schema`` () =
 let ``When describing a more complex schema`` () =
   let desc = typeof<Car>.Describes()
   let expBrandDef = 
-    { Id="Suave.RestFullKit.Tests+Brand"
+    { Id="Brand"
       Properties = 
         [ ("Name", Primitive("string","string"))
           ("CountryName", Primitive("string","string")) ] |> dict
     }
   let expected = 
-    { Id="Suave.RestFullKit.Tests+Car"
+    { Id="Car"
       Properties = 
         [ ("ModelName", Primitive("string","string"))
           ("Brand", Ref(expBrandDef)) ] |> dict
