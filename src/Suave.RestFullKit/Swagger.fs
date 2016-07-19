@@ -91,12 +91,13 @@ module Swagger =
       Summary: string
       OperationId: string
       Produces: string list
+      Consumes: string list
       Params: ParamDescriptor list
       Verb:HttpVerb
       Responses:IDictionary<int, ResponseDoc> }
     static member Empty =
       { Template=""; Description=""; Params=[]; Verb=Get; Summary=""
-        OperationId=""; Produces=[]; Responses=dict Seq.empty }
+        OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[] }
   and ResponseDoc = 
     { Description:string
       Schema:ObjectDefinition option }
@@ -152,81 +153,107 @@ module Swagger =
   and ObjectDefinition =
     { Id:string
       Properties:IDictionary<string, PropertyDefinition> }
-    member __.ToJObject() =
-      let token = JToken.FromObject
-      let o = JObject()
-      let props = JObject()
-      o.Add("type", token "object")
-      for p in __.Properties do
-        match p.Value with
-        | Primitive (t,f) ->
-            let v = JObject()
-            v.Add("type", token t)
-            v.Add("format", token f)
-            props.Add(p.Key, v)
-        | Ref ref ->
-            props.Add("$ref", token <| sprintf "#/definitions/%s" ref.Id)
-      o.Add("properties", props)
-      o
-
   and PathDefinition =
     { Summary:string
       Description:string
       OperationId:string
       Consumes:string list
+      Produces:string list
       Parameters:ParamDefinition list
       Responses:IDictionary<int, ResponseDoc> }
-  and PathDefinitionConverter() =
-      inherit JsonConverter()
-        override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
-          writer.WriteRawValue """{"coucou":"123"}"""
-          writer.Flush()
-        override __.ReadJson(reader:JsonReader,objectType:Type,existingValue:obj,serializer:JsonSerializer) =
-          unbox ""
-        override __.CanConvert(objectType:Type) = 
-          objectType = typeof<PathDefinition>
   and ResponseDocConverter() =
     inherit JsonConverter()
-        override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
           let rs = unbox<ResponseDoc>(value)
-//          writer.WriteRawValue 
-//            <| """{
-//description: "successful operation",
-//schema: {
-//type: "array",
-//items: {
-//$ref: "#/definitions/Pet"
-//}"""
 
-//schema: {
-//$ref: "#/definitions/Pet"
-//}
           writer.WriteStartObject()
           writer.WritePropertyName "description"
           writer.WriteValue rs.Description
 
           writer.WritePropertyName "schema"
           writer.WriteStartObject()
-//          writer.WritePropertyName "type"
-//          writer.WriteValue "object"
           match rs.Schema with
           | Some sch -> 
             writer.WritePropertyName "$ref"
             writer.WriteValue (sprintf "#/definitions/%s" sch.Id)
-          | None ->
-            ()
+          | None ->()
           writer.WriteEndObject()
 
           writer.WriteEndObject()
           writer.Flush()
-        override __.ReadJson(reader:JsonReader,objectType:Type,existingValue:obj,serializer:JsonSerializer) =
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
         override __.CanConvert(objectType:Type) = 
           objectType = typeof<ResponseDoc>
+  and PropertyDefinitionConverter()=
+    inherit JsonConverter()
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
+          let p = unbox<PropertyDefinition>(value)
+          writer.WriteStartObject()
+          writer.WriteRawValue (p.ToJson())
+          writer.WriteEndObject()
+          writer.Flush()
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+          unbox ""
+        override __.CanConvert(objectType:Type) = 
+          objectType = typeof<PropertyDefinition>
+  and DefinitionsConverter() =
+    inherit JsonConverter()
+      override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
+          let d = unbox<IDictionary<string,ObjectDefinition>>(value)
+          writer.WriteStartObject()
+          let c = ObjectDefinitionConverter()
+          for k in d.Keys do
+            writer.WritePropertyName k
+            let v = d.Item k
+            c.WriteJson(writer, v, serializer)
+          writer.WriteEndObject()
+          writer.Flush()
+      override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+            unbox ""
+      override __.CanConvert(objectType:Type) = 
+        typeof<IDictionary<string,ObjectDefinition>>.IsAssignableFrom objectType
+  and ObjectDefinitionConverter() =
+    inherit JsonConverter()
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
+          let d = unbox<ObjectDefinition>(value)
+          
+          writer.WriteStartObject()
+          
+          writer.WritePropertyName "id"
+          writer.WriteValue d.Id
+
+          writer.WritePropertyName "type"
+          writer.WriteValue "object"
+
+          writer.WritePropertyName "properties"
+          writer.WriteStartObject()
+          for p in d.Properties do
+            writer.WritePropertyName p.Key
+            writer.WriteRawValue (p.Value.ToJson())
+          writer.WriteEndObject()
+
+          writer.WriteEndObject()
+          writer.Flush()
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+          unbox ""
+        override __.CanConvert(objectType:Type) = 
+          objectType = typeof<ObjectDefinition>
 
   and PropertyDefinition =
     | Primitive of Type:string*Format:string
     | Ref of ObjectDefinition
+    member __.ToJObject() : JObject =
+      let v = JObject()
+      match __ with
+      | Primitive (t,f) ->
+          v.Add("type", JToken.FromObject t)
+          v.Add("format", JToken.FromObject f)
+      | Ref ref ->
+          v.Add("$ref", JToken.FromObject <| sprintf "#/definitions/%s" ref.Id)
+      v
+    member __.ToJson() : string =
+      __.ToJObject().ToString()
   and ParamDefinition = 
     { Name:string
       Type:string
@@ -243,17 +270,11 @@ module Swagger =
     member __.ToJson() =
       let settings = new JsonSerializerSettings()
       settings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
-//      settings.Converters.Add(new PathDefinitionConverter())
       settings.Converters.Add(new ResponseDocConverter())
-      let tmp = JsonConvert.SerializeObject(__, settings)
-      let json = JObject.Parse tmp
-      json.Remove "definitions" |> ignore
-      let definitions = JObject()
-      for def in __.Definitions do
-        let token = def.Value.ToJObject()
-        definitions.Add(def.Key, token)
-      json.Add("definitions", definitions)
-      json.ToString()
+      settings.Converters.Add(new PropertyDefinitionConverter())
+      settings.Converters.Add(new ObjectDefinitionConverter())
+      settings.Converters.Add(new DefinitionsConverter())
+      JsonConvert.SerializeObject(__, settings)
 
    module TypeHelpers =
         //http://swagger.io/specification/ -> Data Types
@@ -288,7 +309,7 @@ module Swagger =
             Some (TypeHelpers.typeFormatsNames.Item (typeof<string>))
           | _ -> None
 
-      member this.Describes() =
+      member this.Describes() : ObjectDefinition =
         let props = 
           this.GetProperties()
           |> Seq.map (
@@ -298,7 +319,7 @@ module Swagger =
                 | None -> 
                     p.Name, Ref(p.PropertyType.Describes())
           ) |> dict
-        {Id=this.FullName; Properties=props}
+        {Id=this.Name; Properties=props}
 
 
   let findInZip (zip:ZipInputStream) (f:ZipEntry -> bool) =
@@ -391,7 +412,6 @@ module Swagger =
           |> List.map (fun kv -> kv.Key, kv.Value)
           |> dict
         let m = other.Models @ this.Models |> List.distinct
-        let cc = m.Length
         { this with 
             Routes = (this.Routes @ other.Routes)
             Current = 
@@ -404,6 +424,8 @@ module Swagger =
                           Template = t
                           Params = p
                           Responses = rs
+                          Consumes = o.Consumes @ state.Consumes |> List.distinct
+                          Produces = o.Produces @ state.Produces |> List.distinct
                       }
               }
             Models=m
@@ -439,13 +461,22 @@ module Swagger =
                         { Summary=p.Summary
                           Description=p.Description
                           OperationId=p.OperationId
-                          Consumes=[]
+                          Consumes=p.Consumes
+                          Produces=p.Produces
                           Parameters=par
                           Responses=p.Responses }
                       yield p.Verb, pa
                   } |> dict
                 (k,vs)
             ) |> Seq.toList |> dict
+
+        for d in List.ofSeq definitions.Values do
+          for p in d.Properties do
+            match p.Value with
+            | Ref r -> 
+              if not <| definitions.ContainsKey r.Id
+              then definitions.Add(r.Id, r)
+            | _ -> ()
 
         { Definitions=definitions
           BasePath=""; Host=""; Schemes=["http"]
@@ -475,4 +506,5 @@ module Swagger =
     member __.Delay (func:unit->DocBuildState) : DocBuildState =
         func()
 
+  let swagger = new SwaggerBuilder()
 
