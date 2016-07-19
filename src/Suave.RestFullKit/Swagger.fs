@@ -491,7 +491,7 @@ module Swagger =
                 (k,vs)
             ) |> Seq.toList |> dict
 
-        for d in definitions.Values do
+        for d in List.ofSeq definitions.Values do
           for p in d.Properties do
             match p.Value with
             | Ref r -> 
