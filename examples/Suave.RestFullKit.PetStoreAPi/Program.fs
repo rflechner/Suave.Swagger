@@ -68,10 +68,10 @@ let api =
         yield description Of route is "Search a pet by id"
         yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
       
-      for route in getting <| urlFormat "/category/%d" findCategoryById do
-        yield description Of route is "Search a category by id"
-        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
-      
+//      for route in getting <| urlFormat "/category/%d" findCategoryById do
+//        yield description Of route is "Search a category by id"
+//        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
+//      
 //       Classic routes with manual documentation
 
 //      for route in bye do

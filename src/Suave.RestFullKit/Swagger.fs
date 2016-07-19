@@ -333,7 +333,7 @@ module Swagger =
             Some (TypeHelpers.typeFormatsNames.Item (typeof<string>))
           | _ -> None
 
-      member this.Describes() =
+      member this.Describes() : ObjectDefinition =
         let props = 
           this.GetProperties()
           |> Seq.map (
@@ -490,6 +490,14 @@ module Swagger =
                   } |> dict
                 (k,vs)
             ) |> Seq.toList |> dict
+
+        for d in definitions.Values do
+          for p in d.Properties do
+            match p.Value with
+            | Ref r -> 
+              if not <| definitions.ContainsKey r.Id
+              then definitions.Add(r.Id, r)
+            | _ -> ()
 
         { Definitions=definitions
           BasePath=""; Host=""; Schemes=["http"]
