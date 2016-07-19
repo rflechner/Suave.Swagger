@@ -15,9 +15,17 @@ open Rest
 open FunnyDsl
 open Swagger
 
+let now1 : WebPart =
+  fun (x : HttpContext) ->
+    async {
+      return! OK (DateTime.Now.ToString()) x
+    }
+
 let now : WebPart =
   fun (x : HttpContext) ->
     async {
+      // The MODEL helper checks the "Accept" header 
+      // and switches between XML and JSON format
       return! MODEL DateTime.Now x
     }
 
@@ -45,20 +53,21 @@ let findCategoryById id =
       Id=id; Name=(sprintf "cat_%d" id)
     }
 
+let time1 = GET >=> path "/time1" >=> now
 let bye = GET >=> path "/bye" >=> OK "bye. @++"
 
 let api = 
   swagger {
       
-      // syntax 1
-      for route in getting (simpleUrl "/time" |> thenReturns now) do
-        yield description Of route is "What time is it ?"
-
-      // another syntax
+//      // syntax 1
+//      for route in getting (simpleUrl "/time" |> thenReturns now) do
+//        yield description Of route is "What time is it ?"
+//
+//      // another syntax
 //      for route in getOf (path "/time2" >=> now) do
 //        yield description Of route is "What time is it 2 ?"
 //        yield urlTemplate Of route is "/time2"
-
+//
 //      for route in getting <| urlFormat "/substract/%d/%d" substract do
 //        yield description Of route is "Substracts two numbers"
 //
@@ -73,22 +82,22 @@ let api =
         yield route |> consumes "application/json"
         yield route |> consumes "application/xml"
       
-//      for route in getting <| urlFormat "/category/%d" findCategoryById do
-//        yield description Of route is "Search a category by id"
-//        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
-//      
+      for route in getting <| urlFormat "/category/%d" findCategoryById do
+        yield description Of route is "Search a category by id"
+        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
+      
 //       Classic routes with manual documentation
 
 //      for route in bye do
 //        yield route.Documents(fun doc -> { doc with Description = "Say good bye." })
 //        yield route.Documents(fun doc -> { doc with Template = "/bye"; Verb=Get })
-//
+
 //      for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a + b).ToString()))) do
 //        yield description Of route is "Compute a simple addition"
 //        yield urlTemplate Of route is "/add/{number1}/{number2}"
 //        yield parameter "number1" Of route (fun p -> { p with TypeName = "integer"; In=Path })
 //        yield parameter "number2" Of route (fun p -> { p with TypeName = "integer"; In=Path })
-//
+
 //      for route in getOf (path "/hello" >=> OK "coucou") do
 //        yield description Of route is "Say hello"
 //        yield urlTemplate Of route is "/hello"
@@ -111,3 +120,4 @@ let main argv =
   } |> Async.Start
   startWebServer defaultConfig api.App
   0 // return an integer exit code
+

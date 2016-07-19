@@ -1,14 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{63297B98-5CED-492C-A5B7-A5B4F73CF142}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
 		paket.lock = paket.lock
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suave.RestFullKit", "src\Suave.RestFullKit\Suave.RestFullKit.fsproj", "{EA450D1B-395E-46ED-A152-6219370A803E}"
 EndProject
@@ -19,18 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{BF60
 		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{83F16175-43B1-4C90-A1EE-8E351C33435D}"
-	ProjectSection(SolutionItems) = preProject
-		docs\tools\generate.fsx = docs\tools\generate.fsx
-		docs\tools\templates\template.cshtml = docs\tools\templates\template.cshtml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{8E6D5255-776D-4B61-85F9-73C37AA1FB9A}"
-	ProjectSection(SolutionItems) = preProject
-		docs\content\index.fsx = docs\content\index.fsx
-		docs\content\tutorial.fsx = docs\content\tutorial.fsx
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suave.RestFullKit.Tests", "tests\Suave.RestFullKit.Tests\Suave.RestFullKit.Tests.fsproj", "{59F3A0F7-E605-4639-A1E2-6C9D534473C5}"
@@ -38,6 +24,17 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{44CB1BFD-5012-4633-87DD-61E10D3695C9}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suave.RestFullKit.PetStoreAPi", "examples\Suave.RestFullKit.PetStoreAPi\Suave.RestFullKit.PetStoreAPi.fsproj", "{92851465-0E9E-4577-A799-9E227C8A41E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "slides", "slides", "{2B02ED52-1738-4321-B3A5-E7C02DCEE7D9}"
+	ProjectSection(SolutionItems) = preProject
+		slides\custom.css = slides\custom.css
+		slides\index.fsx = slides\index.fsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{86B411D5-ACCF-48B4-B430-9F38192B535C}"
+	ProjectSection(SolutionItems) = preProject
+		slides\images\logo.png = slides\images\logo.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,9 +59,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
-		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{59F3A0F7-E605-4639-A1E2-6C9D534473C5} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{92851465-0E9E-4577-A799-9E227C8A41E0} = {44CB1BFD-5012-4633-87DD-61E10D3695C9}
+		{86B411D5-ACCF-48B4-B430-9F38192B535C} = {2B02ED52-1738-4321-B3A5-E7C02DCEE7D9}
 	EndGlobalSection
 EndGlobal
