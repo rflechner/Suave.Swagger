@@ -119,9 +119,6 @@
 <div class="tip" id="fs71">val typeof&lt;&#39;T&gt; : Type<br /><br />Full name: Microsoft.FSharp.Core.Operators.typeof</div>
 <div class="tip" id="fs72">val produces : mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.produces</div>
 <div class="tip" id="fs73">val consumes : mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.consumes</div>
-<div class="tip" id="fs74">val a : DocBuildState</div>
-<div class="tip" id="fs75">member DocBuildState.Describes : f:(ApiDescription -&gt; ApiDescription) -&gt; DocBuildState</div>
-<div class="tip" id="fs76">val d : ApiDescription</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
@@ -139,7 +136,7 @@
 <section >
 <h2>Why using Swagger ?</h2>
 <ul>
-<li>To have beautyfull interactive documentations.</li>
+<li>To have beautiful interactive documentations.</li>
 <li>To improve productivity during developments.</li>
 <li>To give a possibility for API users to generate clients.</li>
 </ul>
@@ -265,6 +262,7 @@
 <p>Creating a service returning calculation results</p>
 </section>
 <section >
+<h4>Code</h4>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -309,6 +307,9 @@
 </code></pre></td>
 </tr>
 </table>
+</section>
+<section >
+<h4>Some comments</h4>
 <ul>
 <li>urlFormat will extract parameters from the PrintfFormat, documente them and build the Suave's native "pathScan"</li>
 <li>we can use directly a pathScan and manually document the pathScan route.</li>
@@ -399,12 +400,6 @@
 <span class="l">18: </span>
 <span class="l">19: </span>
 <span class="l">20: </span>
-<span class="l">21: </span>
-<span class="l">22: </span>
-<span class="l">23: </span>
-<span class="l">24: </span>
-<span class="l">25: </span>
-<span class="l">26: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs68', 142)" onmouseover="showTip(event, 'fs68', 142)" class="i">api3</span> <span class="o">=</span> 
   <span onmouseout="hideTip(event, 'fs30', 143)" onmouseover="showTip(event, 'fs30', 143)" class="i">swagger</span> {
@@ -418,19 +413,13 @@
       
       <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 165)" onmouseover="showTip(event, 'fs31', 165)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 166)" onmouseover="showTip(event, 'fs32', 166)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 167)" onmouseover="showTip(event, 'fs46', 167)" class="f">urlFormat</span> <span class="s">&quot;/category/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs67', 168)" onmouseover="showTip(event, 'fs67', 168)" class="f">findCategoryById</span> <span class="k">do</span>
         <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 169)" onmouseover="showTip(event, 'fs35', 169)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 170)" onmouseover="showTip(event, 'fs36', 170)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 171)" onmouseover="showTip(event, 'fs31', 171)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 172)" onmouseover="showTip(event, 'fs37', 172)" class="f">is</span> <span class="s">&quot;Search a category by id&quot;</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 173)" onmouseover="showTip(event, 'fs31', 173)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs69', 174)" onmouseover="showTip(event, 'fs69', 174)" class="f">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found category&quot;</span> (<span onmouseout="hideTip(event, 'fs70', 175)" onmouseover="showTip(event, 'fs70', 175)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs71', 176)" onmouseover="showTip(event, 'fs71', 176)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs61', 177)" onmouseover="showTip(event, 'fs61', 177)" class="t">PetCategory</span><span class="o">&gt;</span>)
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 173)" onmouseover="showTip(event, 'fs31', 173)" class="i">route</span> 
+          <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs69', 174)" onmouseover="showTip(event, 'fs69', 174)" class="f">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found category&quot;</span> (<span onmouseout="hideTip(event, 'fs70', 175)" onmouseover="showTip(event, 'fs70', 175)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs71', 176)" onmouseover="showTip(event, 'fs71', 176)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs61', 177)" onmouseover="showTip(event, 'fs61', 177)" class="t">PetCategory</span><span class="o">&gt;</span>)
     }
-  <span class="o">|&gt;</span> <span class="k">fun</span> <span onmouseout="hideTip(event, 'fs74', 178)" onmouseover="showTip(event, 'fs74', 178)" class="i">a</span> <span class="k">-&gt;</span>
-      <span onmouseout="hideTip(event, 'fs74', 179)" onmouseover="showTip(event, 'fs74', 179)" class="i">a</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs75', 180)" onmouseover="showTip(event, 'fs75', 180)" class="f">Describes</span>(
-        <span class="k">fun</span> <span onmouseout="hideTip(event, 'fs76', 181)" onmouseover="showTip(event, 'fs76', 181)" class="i">d</span> <span class="k">-&gt;</span> 
-          { 
-            <span onmouseout="hideTip(event, 'fs76', 182)" onmouseover="showTip(event, 'fs76', 182)" class="i">d</span> <span class="k">with</span> 
-                <span class="i">Title</span> <span class="o">=</span> <span class="s">&quot;Swagger and Suave.io&quot;</span>
-                <span class="i">Description</span> <span class="o">=</span> <span class="s">&quot;A simple swagger with Suave.io example&quot;</span>
-          })
-[&lt;<span onmouseout="hideTip(event, 'fs38', 183)" onmouseover="showTip(event, 'fs38', 183)" class="t">EntryPoint</span>&gt;]
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 184)" onmouseover="showTip(event, 'fs39', 184)" class="f">main</span> <span onmouseout="hideTip(event, 'fs40', 185)" onmouseover="showTip(event, 'fs40', 185)" class="i">argv</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs21', 186)" onmouseover="showTip(event, 'fs21', 186)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 187)" onmouseover="showTip(event, 'fs22', 187)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs68', 188)" onmouseover="showTip(event, 'fs68', 188)" class="i">api3</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 189)" onmouseover="showTip(event, 'fs41', 189)" class="f">App</span>
+  
+[&lt;<span onmouseout="hideTip(event, 'fs38', 178)" onmouseover="showTip(event, 'fs38', 178)" class="t">EntryPoint</span>&gt;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 179)" onmouseover="showTip(event, 'fs39', 179)" class="f">main</span> <span onmouseout="hideTip(event, 'fs40', 180)" onmouseover="showTip(event, 'fs40', 180)" class="i">argv</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs21', 181)" onmouseover="showTip(event, 'fs21', 181)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 182)" onmouseover="showTip(event, 'fs22', 182)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs68', 183)" onmouseover="showTip(event, 'fs68', 183)" class="i">api3</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 184)" onmouseover="showTip(event, 'fs41', 184)" class="f">App</span>
   <span class="n">0</span>
 </code></pre></td>
 </tr>
