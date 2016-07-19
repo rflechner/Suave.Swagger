@@ -1,7 +1,7 @@
 
 # Suave.RestFullKit
 
-Documentation: https://github.com/rflechner/Suave.RestFullKit
+Documentation: https://rflechner.github.io/Suave.RestFullKit/#/
 
 ## Build Status
 
