@@ -32,7 +32,7 @@ Using Swagger with Suave
 
 ## Why using Swagger ?
 
-- To have beautyfull interactive documentations.
+- To have beautiful interactive documentations.
 - To improve productivity during developments.
 - To give a possibility for API users to generate clients.
 
@@ -126,6 +126,8 @@ Creating a service returning calculation results
 
 ---
 
+#### Code
+
 *)
 
 
@@ -151,6 +153,10 @@ let api2 =
 }
 
 (**
+
+---
+
+#### Some comments
 
 - urlFormat will extract parameters from the PrintfFormat, documente them and build the Suave's native "pathScan"
 - we can use directly a pathScan and manually document the pathScan route.
@@ -222,16 +228,10 @@ let api3 =
       
       for route in getting <| urlFormat "/category/%d" findCategoryById do
         yield description Of route is "Search a category by id"
-        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
+        yield route 
+          |> addResponse 200 "The found category" (Some typeof<PetCategory>)
     }
-  |> fun a ->
-      a.Describes(
-        fun d -> 
-          { 
-            d with 
-                Title = "Swagger and Suave.io"
-                Description = "A simple swagger with Suave.io example"
-          })
+  
 [<EntryPoint>]
 let main argv = 
   startWebServer defaultConfig api3.App
