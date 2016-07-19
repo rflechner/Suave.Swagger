@@ -176,15 +176,6 @@ module Swagger =
       Consumes:string list
       Parameters:ParamDefinition list
       Responses:IDictionary<int, ResponseDoc> }
-//  and PathDefinitionConverter() =
-//      inherit JsonConverter()
-//        override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
-//          writer.WriteRawValue """{"coucou":"123"}"""
-//          writer.Flush()
-//        override __.ReadJson(reader:JsonReader,objectType:Type,existingValue:obj,serializer:JsonSerializer) =
-//          unbox ""
-//        override __.CanConvert(objectType:Type) = 
-//          objectType = typeof<PathDefinition>
   and ResponseDocConverter() =
     inherit JsonConverter()
         override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
@@ -196,14 +187,11 @@ module Swagger =
 
           writer.WritePropertyName "schema"
           writer.WriteStartObject()
-//          writer.WritePropertyName "type"
-//          writer.WriteValue "object"
           match rs.Schema with
           | Some sch -> 
             writer.WritePropertyName "$ref"
             writer.WriteValue (sprintf "#/definitions/%s" sch.Id)
-          | None ->
-            ()
+          | None ->()
           writer.WriteEndObject()
 
           writer.WriteEndObject()
@@ -214,30 +202,35 @@ module Swagger =
           objectType = typeof<ResponseDoc>
   and PropertyDefinitionConverter()=
     inherit JsonConverter()
-        override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
           let p = unbox<PropertyDefinition>(value)
-
           writer.WriteStartObject()
-          let token = JToken.FromObject
-          let v = JObject()
-          match p with
-          | Primitive (t,f) ->
-              v.Add("type", token t)
-              v.Add("format", token f)
-          | Ref ref ->
-              v.Add("$ref", token <| sprintf "#/definitions/%s" ref.Id)
-          
-          writer.WriteRawValue (v.ToString())
-
+          writer.WriteRawValue (p.ToJson())
           writer.WriteEndObject()
           writer.Flush()
-        override __.ReadJson(reader:JsonReader,objectType:Type,existingValue:obj,serializer:JsonSerializer) =
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
         override __.CanConvert(objectType:Type) = 
           objectType = typeof<PropertyDefinition>
+  and DefinitionsConverter() =
+    inherit JsonConverter()
+      override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
+          let d = unbox<IDictionary<string,ObjectDefinition>>(value)
+          writer.WriteStartObject()
+          let c = ObjectDefinitionConverter()
+          for k in d.Keys do
+            writer.WritePropertyName k
+            let v = d.Item k
+            c.WriteJson(writer, v, serializer)
+          writer.WriteEndObject()
+          writer.Flush()
+      override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+            unbox ""
+      override __.CanConvert(objectType:Type) = 
+        typeof<IDictionary<string,ObjectDefinition>>.IsAssignableFrom objectType
   and ObjectDefinitionConverter() =
     inherit JsonConverter()
-        override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
           let d = unbox<ObjectDefinition>(value)
           
           writer.WriteStartObject()
@@ -245,12 +238,19 @@ module Swagger =
           writer.WritePropertyName "id"
           writer.WriteValue d.Id
 
-//          writer.WritePropertyName "properties"
-//          writer.WriteValue d.Properties
-//          
+          writer.WritePropertyName "type"
+          writer.WriteValue "object"
+
+          writer.WritePropertyName "properties"
+          writer.WriteStartObject()
+          for p in d.Properties do
+            writer.WritePropertyName p.Key
+            writer.WriteRawValue (p.Value.ToJson())
+          writer.WriteEndObject()
+
           writer.WriteEndObject()
           writer.Flush()
-        override __.ReadJson(reader:JsonReader,objectType:Type,existingValue:obj,serializer:JsonSerializer) =
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
         override __.CanConvert(objectType:Type) = 
           objectType = typeof<ObjectDefinition>
@@ -258,6 +258,17 @@ module Swagger =
   and PropertyDefinition =
     | Primitive of Type:string*Format:string
     | Ref of ObjectDefinition
+    member __.ToJObject() : JObject =
+      let v = JObject()
+      match __ with
+      | Primitive (t,f) ->
+          v.Add("type", JToken.FromObject t)
+          v.Add("format", JToken.FromObject f)
+      | Ref ref ->
+          v.Add("$ref", JToken.FromObject <| sprintf "#/definitions/%s" ref.Id)
+      v
+    member __.ToJson() : string =
+      __.ToJObject().ToString()
   and ParamDefinition = 
     { Name:string
       Type:string
@@ -274,10 +285,10 @@ module Swagger =
     member __.ToJson() =
       let settings = new JsonSerializerSettings()
       settings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
-//      settings.Converters.Add(new PathDefinitionConverter())
       settings.Converters.Add(new ResponseDocConverter())
       settings.Converters.Add(new PropertyDefinitionConverter())
       settings.Converters.Add(new ObjectDefinitionConverter())
+      settings.Converters.Add(new DefinitionsConverter())
       JsonConvert.SerializeObject(__, settings)
 //      let tmp = JsonConvert.SerializeObject(__, settings)
 //      let json = JObject.Parse tmp

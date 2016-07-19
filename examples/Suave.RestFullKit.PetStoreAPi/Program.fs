@@ -54,14 +54,15 @@ let api =
         yield description Of route is "What time is it ?"
 
       // another syntax
-      for route in getOf (path "/time2" >=> now) do
-        yield description Of route is "What time is it ?"
+//      for route in getOf (path "/time2" >=> now) do
+//        yield description Of route is "What time is it 2 ?"
+//        yield urlTemplate Of route is "/time2"
 
-      for route in getting <| urlFormat "/substract/%d/%d" substract do
-        yield description Of route is "Substracts two numbers"
-
-      for route in posting <| urlFormat "/substract/%d/%d" substract do
-        yield description Of route is "Substracts two numbers"
+//      for route in getting <| urlFormat "/substract/%d/%d" substract do
+//        yield description Of route is "Substracts two numbers"
+//
+//      for route in posting <| urlFormat "/substract/%d/%d" substract do
+//        yield description Of route is "Substracts two numbers"
 
       for route in getting <| urlFormat "/pet/%d" findPetById do
         yield description Of route is "Search a pet by id"
@@ -73,19 +74,19 @@ let api =
       
 //       Classic routes with manual documentation
 
-      for route in bye do
-        yield route.Documents(fun doc -> { doc with Description = "Say good bye." })
-        yield route.Documents(fun doc -> { doc with Template = "/bye"; Verb=Get })
-
-      for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a + b).ToString()))) do
-        yield description Of route is "Compute a simple addition"
-        yield urlTemplate Of route is "/add/{number1}/{number2}"
-        yield parameter "number1" Of route (fun p -> { p with TypeName = "integer"; In=Path })
-        yield parameter "number2" Of route (fun p -> { p with TypeName = "integer"; In=Path })
-
-      for route in getOf (path "/hello" >=> OK "coucou") do
-        yield description Of route is "Say hello"
-        yield urlTemplate Of route is "/hello"
+//      for route in bye do
+//        yield route.Documents(fun doc -> { doc with Description = "Say good bye." })
+//        yield route.Documents(fun doc -> { doc with Template = "/bye"; Verb=Get })
+//
+//      for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a + b).ToString()))) do
+//        yield description Of route is "Compute a simple addition"
+//        yield urlTemplate Of route is "/add/{number1}/{number2}"
+//        yield parameter "number1" Of route (fun p -> { p with TypeName = "integer"; In=Path })
+//        yield parameter "number2" Of route (fun p -> { p with TypeName = "integer"; In=Path })
+//
+//      for route in getOf (path "/hello" >=> OK "coucou") do
+//        yield description Of route is "Say hello"
+//        yield urlTemplate Of route is "/hello"
     }
   |> fun a ->
       a.Describes(
