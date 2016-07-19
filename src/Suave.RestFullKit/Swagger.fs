@@ -91,12 +91,13 @@ module Swagger =
       Summary: string
       OperationId: string
       Produces: string list
+      Consumes: string list
       Params: ParamDescriptor list
       Verb:HttpVerb
       Responses:IDictionary<int, ResponseDoc> }
     static member Empty =
       { Template=""; Description=""; Params=[]; Verb=Get; Summary=""
-        OperationId=""; Produces=[]; Responses=dict Seq.empty }
+        OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[] }
   and ResponseDoc = 
     { Description:string
       Schema:ObjectDefinition option }
@@ -152,33 +153,17 @@ module Swagger =
   and ObjectDefinition =
     { Id:string
       Properties:IDictionary<string, PropertyDefinition> }
-//    member __.ToJObject() =
-//      let token = JToken.FromObject
-//      let o = JObject()
-//      let props = JObject()
-//      o.Add("type", token "object")
-//      for p in __.Properties do
-//        match p.Value with
-//        | Primitive (t,f) ->
-//            let v = JObject()
-//            v.Add("type", token t)
-//            v.Add("format", token f)
-//            props.Add(p.Key, v)
-//        | Ref ref ->
-//            props.Add("$ref", token <| sprintf "#/definitions/%s" ref.Id)
-//      o.Add("properties", props)
-//      o
-
   and PathDefinition =
     { Summary:string
       Description:string
       OperationId:string
       Consumes:string list
+      Produces:string list
       Parameters:ParamDefinition list
       Responses:IDictionary<int, ResponseDoc> }
   and ResponseDocConverter() =
     inherit JsonConverter()
-        override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
           let rs = unbox<ResponseDoc>(value)
 
           writer.WriteStartObject()
@@ -196,7 +181,7 @@ module Swagger =
 
           writer.WriteEndObject()
           writer.Flush()
-        override __.ReadJson(reader:JsonReader,objectType:Type,existingValue:obj,serializer:JsonSerializer) =
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
         override __.CanConvert(objectType:Type) = 
           objectType = typeof<ResponseDoc>
@@ -290,15 +275,6 @@ module Swagger =
       settings.Converters.Add(new ObjectDefinitionConverter())
       settings.Converters.Add(new DefinitionsConverter())
       JsonConvert.SerializeObject(__, settings)
-//      let tmp = JsonConvert.SerializeObject(__, settings)
-//      let json = JObject.Parse tmp
-//      json.Remove "definitions" |> ignore
-//      let definitions = JObject()
-//      for def in __.Definitions do
-//        let token = def.Value.ToJObject()
-//        definitions.Add(def.Key, token)
-//      json.Add("definitions", definitions)
-//      json.ToString()
 
    module TypeHelpers =
         //http://swagger.io/specification/ -> Data Types
@@ -448,6 +424,8 @@ module Swagger =
                           Template = t
                           Params = p
                           Responses = rs
+                          Consumes = o.Consumes @ state.Consumes |> List.distinct
+                          Produces = o.Produces @ state.Produces |> List.distinct
                       }
               }
             Models=m
@@ -483,7 +461,8 @@ module Swagger =
                         { Summary=p.Summary
                           Description=p.Description
                           OperationId=p.OperationId
-                          Consumes=[]
+                          Consumes=p.Consumes
+                          Produces=p.Produces
                           Parameters=par
                           Responses=p.Responses }
                       yield p.Verb, pa

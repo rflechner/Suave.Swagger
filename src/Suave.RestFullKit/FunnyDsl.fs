@@ -3,17 +3,8 @@
 module FunnyDsl =
 
   open System
-  open System.Collections.Generic
-  open System.IO
   open Suave
   open Suave.Operators
-  open Suave.Filters
-  open Suave.Writers
-  open Suave.Successful
-  open Newtonsoft.Json
-  open Newtonsoft.Json.Serialization
-  open ICSharpCode.SharpZipLib.Zip
-  open Rest
   open Suave.Filters
   open Swagger
 
@@ -24,6 +15,34 @@ module FunnyDsl =
   
   let Of (x:'a) = x
   
+  let consumes (mimetype:string) (route:DocBuildState) =
+    { route
+        with 
+          Current = 
+            { route.Current 
+                with 
+                  Description =
+                    { route.Current.Description
+                        with
+                          Consumes = mimetype :: route.Current.Description.Consumes
+                    }
+            }
+    }
+
+  let produces (mimetype:string) (route:DocBuildState) =
+    { route
+        with 
+          Current = 
+            { route.Current 
+                with 
+                  Description =
+                    { route.Current.Description
+                        with
+                          Produces = mimetype :: route.Current.Description.Produces
+                    }
+            }
+    }
+
   let addResponse (statusCode:int) (desc:string) (modelType:Type option) (route:DocBuildState) =
     let s,rs = 
       match modelType with

@@ -21,11 +21,12 @@ let now : WebPart =
       return! MODEL DateTime.Now x
     }
 
+[<CLIMutable>]
 type Pet =
   { Id:int
     Name:string
     Category:PetCategory }
-and PetCategory = 
+and [<CLIMutable>] PetCategory = 
   { Id:int
     Name:string }
 
@@ -67,6 +68,10 @@ let api =
       for route in getting <| urlFormat "/pet/%d" findPetById do
         yield description Of route is "Search a pet by id"
         yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
+        yield route |> produces "application/json"
+        yield route |> produces "application/xml"
+        yield route |> consumes "application/json"
+        yield route |> consumes "application/xml"
       
 //      for route in getting <| urlFormat "/category/%d" findCategoryById do
 //        yield description Of route is "Search a category by id"
