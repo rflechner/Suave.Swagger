@@ -1,0 +1,481 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Presentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="unkown">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        <div class="tip" id="fs1">namespace System</div>
+<div class="tip" id="fs2">namespace Suave</div>
+<div class="tip" id="fs3">module Operators<br /><br />from Suave</div>
+<div class="tip" id="fs4">module Filters<br /><br />from Suave</div>
+<div class="tip" id="fs5">module Writers<br /><br />from Suave</div>
+<div class="tip" id="fs6">module Successful<br /><br />from Suave</div>
+<div class="tip" id="fs7">val now1 : x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Index.now1</div>
+<div class="tip" id="fs8">Multiple items<br />module WebPart<br /><br />from Suave<br /><br />--------------------<br />type WebPart = WebPart&lt;HttpContext&gt;<br /><br />Full name: Suave.Http.WebPart<br /><br />--------------------<br />type WebPart&lt;&#39;a&gt; = &#39;a -&gt; Async&lt;&#39;a option&gt;<br /><br />Full name: Suave.WebPart.WebPart&lt;_&gt;</div>
+<div class="tip" id="fs9">val x : HttpContext</div>
+<div class="tip" id="fs10">Multiple items<br />module HttpContext<br /><br />from Suave.Http<br /><br />--------------------<br />type HttpContext =<br />&#160;&#160;{request: HttpRequest;<br />&#160;&#160;&#160;runtime: HttpRuntime;<br />&#160;&#160;&#160;connection: Connection;<br />&#160;&#160;&#160;userState: Map&lt;string,obj&gt;;<br />&#160;&#160;&#160;response: HttpResult;}<br />&#160;&#160;member clientIp : trustProxy:bool -&gt; sources:string list -&gt; IPAddress<br />&#160;&#160;member clientPort : trustProxy:bool -&gt; sources:string list -&gt; Port<br />&#160;&#160;member clientProto : trustProxy:bool -&gt; sources:string list -&gt; string<br />&#160;&#160;member clientIpTrustProxy : IPAddress<br />&#160;&#160;member clientPortTrustProxy : Port<br />&#160;&#160;member clientProtoTrustProxy : string<br />&#160;&#160;member isLocal : bool<br />&#160;&#160;static member clientIp_ : Property&lt;HttpContext,IPAddress&gt;<br />&#160;&#160;static member clientPort_ : Property&lt;HttpContext,Port&gt;<br />&#160;&#160;static member clientProto_ : Property&lt;HttpContext,string&gt;<br />&#160;&#160;static member connection_ : Property&lt;HttpContext,Connection&gt;<br />&#160;&#160;static member isLocal_ : Property&lt;HttpContext,bool&gt;<br />&#160;&#160;static member request_ : Property&lt;HttpContext,HttpRequest&gt;<br />&#160;&#160;static member response_ : Property&lt;HttpContext,HttpResult&gt;<br />&#160;&#160;static member runtime_ : Property&lt;HttpContext,HttpRuntime&gt;<br />&#160;&#160;static member userState_ : Property&lt;HttpContext,Map&lt;string,obj&gt;&gt;<br /><br />Full name: Suave.Http.HttpContext</div>
+<div class="tip" id="fs11">val async : AsyncBuilder<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.async</div>
+<div class="tip" id="fs12">val OK : body:string -&gt; WebPart<br /><br />Full name: Suave.Successful.OK</div>
+<div class="tip" id="fs13">Multiple items<br />type DateTime =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : ticks:int64 -&gt; DateTime + 10 overloads<br />&#160;&#160;&#160;&#160;member Add : value:TimeSpan -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddDays : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddHours : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMilliseconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMinutes : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMonths : months:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddSeconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddTicks : value:int64 -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddYears : value:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.DateTime<br /><br />--------------------<br />DateTime()<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, calendar: Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, calendar: Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="tip" id="fs14">property DateTime.Now: DateTime</div>
+<div class="tip" id="fs15">DateTime.ToString() : string<br />DateTime.ToString(provider: IFormatProvider) : string<br />DateTime.ToString(format: string) : string<br />DateTime.ToString(format: string, provider: IFormatProvider) : string</div>
+<div class="tip" id="fs16">val main1 : argv:&#39;a -&gt; int<br /><br />Full name: Index.main1</div>
+<div class="tip" id="fs17">val argv : &#39;a</div>
+<div class="tip" id="fs18">val time1 : (HttpContext -&gt; Async&lt;HttpContext option&gt;)</div>
+<div class="tip" id="fs19">val GET : WebPart<br /><br />Full name: Suave.Filters.GET</div>
+<div class="tip" id="fs20">val path : pathAfterDomain:string -&gt; WebPart<br /><br />Full name: Suave.Filters.path</div>
+<div class="tip" id="fs21">val startWebServer : config:SuaveConfig -&gt; webpart:WebPart -&gt; unit<br /><br />Full name: Suave.Web.startWebServer</div>
+<div class="tip" id="fs22">val defaultConfig : SuaveConfig<br /><br />Full name: Suave.Web.defaultConfig</div>
+<div class="tip" id="fs23">namespace Suave.RestFullKit</div>
+<div class="tip" id="fs24">module Rest<br /><br />from Suave.RestFullKit</div>
+<div class="tip" id="fs25">module FunnyDsl<br /><br />from Suave.RestFullKit</div>
+<div class="tip" id="fs26">module Swagger<br /><br />from Suave.RestFullKit</div>
+<div class="tip" id="fs27">val now : x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Index.now</div>
+<div class="tip" id="fs28">val MODEL : m:&#39;t -&gt; x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Suave.RestFullKit.Rest.MODEL</div>
+<div class="tip" id="fs29">val api1 : DocBuildState<br /><br />Full name: Index.api1</div>
+<div class="tip" id="fs30">val swagger : SwaggerBuilder<br /><br />Full name: Suave.RestFullKit.Swagger.swagger</div>
+<div class="tip" id="fs31">val route : DocBuildState</div>
+<div class="tip" id="fs32">val getting : d:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.getting</div>
+<div class="tip" id="fs33">val simpleUrl : p:string -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.simpleUrl</div>
+<div class="tip" id="fs34">val thenReturns : w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; d:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.thenReturns</div>
+<div class="tip" id="fs35">val description : &#39;a -&gt; route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.description</div>
+<div class="tip" id="fs36">val Of : x:&#39;a -&gt; &#39;a<br /><br />Full name: Suave.RestFullKit.FunnyDsl.Of</div>
+<div class="tip" id="fs37">val is : x:&#39;a -&gt; &#39;a<br /><br />Full name: Suave.RestFullKit.FunnyDsl.is</div>
+<div class="tip" id="fs38">Multiple items<br />type EntryPointAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; EntryPointAttribute<br /><br />Full name: Microsoft.FSharp.Core.EntryPointAttribute<br /><br />--------------------<br />new : unit -&gt; EntryPointAttribute</div>
+<div class="tip" id="fs39">val main : argv:string [] -&gt; int<br /><br />Full name: Index.main</div>
+<div class="tip" id="fs40">val argv : string []</div>
+<div class="tip" id="fs41">property DocBuildState.App: WebPart&lt;HttpContext&gt;</div>
+<div class="tip" id="fs42">val substract : a:int * b:int -&gt; WebPart<br /><br />Full name: Index.substract</div>
+<div class="tip" id="fs43">val a : int</div>
+<div class="tip" id="fs44">val b : int</div>
+<div class="tip" id="fs45">val api2 : DocBuildState<br /><br />Full name: Index.api2</div>
+<div class="tip" id="fs46">val urlFormat : pf:PrintfFormat&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;t&gt; -&gt; f:(&#39;t -&gt; WebPart) -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.urlFormat</div>
+<div class="tip" id="fs47">val posting : d:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.posting</div>
+<div class="tip" id="fs48">val getOf : w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.getOf</div>
+<div class="tip" id="fs49">val pathScan : pf:PrintfFormat&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;t&gt; -&gt; h:(&#39;t -&gt; WebPart) -&gt; WebPart<br /><br />Full name: Suave.Filters.pathScan</div>
+<div class="tip" id="fs50">val urlTemplate : &#39;a -&gt; route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.urlTemplate</div>
+<div class="tip" id="fs51">val parameter : name:string -&gt; &#39;a -&gt; route:DocBuildState -&gt; f:(ParamDescriptor -&gt; ParamDescriptor) -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.parameter</div>
+<div class="tip" id="fs52">val p : ParamDescriptor</div>
+<div class="tip" id="fs53">Multiple items<br />union case ParamContainer.Path: ParamContainer<br /><br />--------------------<br />type Path = string<br /><br />Full name: Suave.RestFullKit.Swagger.Path</div>
+<div class="tip" id="fs54">Multiple items<br />type CLIMutableAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; CLIMutableAttribute<br /><br />Full name: Microsoft.FSharp.Core.CLIMutableAttribute<br /><br />--------------------<br />new : unit -&gt; CLIMutableAttribute</div>
+<div class="tip" id="fs55">type Pet =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;<br />&#160;&#160;&#160;Category: PetCategory;}<br /><br />Full name: Index.Pet</div>
+<div class="tip" id="fs56">Pet.Id: int</div>
+<div class="tip" id="fs57">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;</div>
+<div class="tip" id="fs58">Pet.Name: string</div>
+<div class="tip" id="fs59">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs60">Pet.Category: PetCategory</div>
+<div class="tip" id="fs61">type PetCategory =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;}<br /><br />Full name: Index.PetCategory</div>
+<div class="tip" id="fs62">PetCategory.Id: int</div>
+<div class="tip" id="fs63">PetCategory.Name: string</div>
+<div class="tip" id="fs64">val findPetById : id:int -&gt; WebPart<br /><br />Full name: Index.findPetById</div>
+<div class="tip" id="fs65">val id : int</div>
+<div class="tip" id="fs66">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs67">val findCategoryById : id:int -&gt; WebPart<br /><br />Full name: Index.findCategoryById</div>
+<div class="tip" id="fs68">val api3 : DocBuildState<br /><br />Full name: Index.api3</div>
+<div class="tip" id="fs69">val addResponse : statusCode:int -&gt; desc:string -&gt; modelType:Type option -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.addResponse</div>
+<div class="tip" id="fs70">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs71">val typeof&lt;&#39;T&gt; : Type<br /><br />Full name: Microsoft.FSharp.Core.Operators.typeof</div>
+<div class="tip" id="fs72">val produces : mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.produces</div>
+<div class="tip" id="fs73">val consumes : mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.consumes</div>
+<div class="tip" id="fs74">val a : DocBuildState</div>
+<div class="tip" id="fs75">member DocBuildState.Describes : f:(ApiDescription -&gt; ApiDescription) -&gt; DocBuildState</div>
+<div class="tip" id="fs76">val d : ApiDescription</div>
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section author="Romain Flechner" description="A solution to use Swagger with Suave" theme="night" title="Suave.RestFullKit" transition="default">
+<h1>Documenting Suave REST APIs</h1>
+<p>Using Swagger with Suave</p>
+</section>
+<section >
+<h2>What are Suave and Swagger ?</h2>
+<ul>
+<li><a href="https://suave.io/">Suave</a> is a FSharp lightweight web server principally used to develop REST APIs</li>
+<li><a href="http://swagger.io/">Swagger</a> is a usefull tool helping to create interactive documentation, client SDK generation and discoverability.</li>
+</ul>
+</section>
+<section >
+<h2>Why using Swagger ?</h2>
+<ul>
+<li>To have beautyfull interactive documentations.</li>
+<li>To improve productivity during developments.</li>
+<li>To give a possibility for API users to generate clients.</li>
+</ul>
+</section>
+<section >
+<section >
+<h2>Scenario 1</h2>
+<p>We want to create an API returning current time.</p>
+</section>
+<section >
+<h3>Simple solution</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">System</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Suave</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="i">Suave</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="i">Operators</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 5)" onmouseover="showTip(event, 'fs2', 5)" class="i">Suave</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="i">Filters</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 7)" onmouseover="showTip(event, 'fs2', 7)" class="i">Suave</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="i">Writers</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 9)" onmouseover="showTip(event, 'fs2', 9)" class="i">Suave</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 10)" onmouseover="showTip(event, 'fs6', 10)" class="i">Successful</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 11)" onmouseover="showTip(event, 'fs7', 11)" class="f">now1</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 12)" onmouseover="showTip(event, 'fs8', 12)" class="t">WebPart</span> <span class="o">=</span>
+  <span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs9', 13)" onmouseover="showTip(event, 'fs9', 13)" class="i">x</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs10', 14)" onmouseover="showTip(event, 'fs10', 14)" class="t">HttpContext</span>) <span class="k">-&gt;</span>
+    <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">async</span> {
+      <span class="k">return!</span> <span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="f">OK</span> (<span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="t">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="i">Now</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="f">ToString</span>()) <span onmouseout="hideTip(event, 'fs9', 20)" onmouseover="showTip(event, 'fs9', 20)" class="i">x</span>
+    }
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="f">main1</span> <span onmouseout="hideTip(event, 'fs17', 22)" onmouseover="showTip(event, 'fs17', 22)" class="i">argv</span> <span class="o">=</span> 
+  <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 23)" onmouseover="showTip(event, 'fs18', 23)" class="f">time1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 24)" onmouseover="showTip(event, 'fs19', 24)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs20', 25)" onmouseover="showTip(event, 'fs20', 25)" class="f">path</span> <span class="s">&quot;/time1&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs7', 26)" onmouseover="showTip(event, 'fs7', 26)" class="f">now1</span>
+  <span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="f">time1</span>
+  <span class="n">0</span> <span class="c">// return an integer exit code</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Go to <a href="http://localhost:8083/time1">http://localhost:8083/time1</a></p>
+</section>
+<section >
+<h3>Documented solution</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 30)" onmouseover="showTip(event, 'fs2', 30)" class="i">Suave</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 31)" onmouseover="showTip(event, 'fs23', 31)" class="i">RestFullKit</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs24', 32)" onmouseover="showTip(event, 'fs24', 32)" class="i">Rest</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="i">FunnyDsl</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs26', 34)" onmouseover="showTip(event, 'fs26', 34)" class="i">Swagger</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 35)" onmouseover="showTip(event, 'fs27', 35)" class="f">now</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 36)" onmouseover="showTip(event, 'fs8', 36)" class="t">WebPart</span> <span class="o">=</span>
+  <span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs9', 37)" onmouseover="showTip(event, 'fs9', 37)" class="i">x</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs10', 38)" onmouseover="showTip(event, 'fs10', 38)" class="t">HttpContext</span>) <span class="k">-&gt;</span>
+    <span onmouseout="hideTip(event, 'fs11', 39)" onmouseover="showTip(event, 'fs11', 39)" class="i">async</span> {
+      <span class="c">// The MODEL helper checks the &quot;Accept&quot; header </span>
+      <span class="c">// and switches between XML and JSON format</span>
+      <span class="k">return!</span> <span onmouseout="hideTip(event, 'fs28', 40)" onmouseover="showTip(event, 'fs28', 40)" class="f">MODEL</span> <span onmouseout="hideTip(event, 'fs13', 41)" onmouseover="showTip(event, 'fs13', 41)" class="t">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 42)" onmouseover="showTip(event, 'fs14', 42)" class="i">Now</span> <span onmouseout="hideTip(event, 'fs9', 43)" onmouseover="showTip(event, 'fs9', 43)" class="i">x</span>
+    }
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h4>Problem</h4>
+<p>Suave's WebParts are combined functions and it's not possible to get route format and parameters with reflection.</p>
+</section>
+<section >
+<h4>Solution</h4>
+<p>Creating a DSL with a tiny computation expression</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 44)" onmouseover="showTip(event, 'fs29', 44)" class="i">api1</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs30', 45)" onmouseover="showTip(event, 'fs30', 45)" class="i">swagger</span> {
+    <span class="c">// syntax 1</span>
+    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 46)" onmouseover="showTip(event, 'fs31', 46)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 47)" onmouseover="showTip(event, 'fs32', 47)" class="f">getting</span> (<span onmouseout="hideTip(event, 'fs33', 48)" onmouseover="showTip(event, 'fs33', 48)" class="f">simpleUrl</span> <span class="s">&quot;/time&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs34', 49)" onmouseover="showTip(event, 'fs34', 49)" class="f">thenReturns</span> <span onmouseout="hideTip(event, 'fs27', 50)" onmouseover="showTip(event, 'fs27', 50)" class="f">now</span>) <span class="k">do</span>
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 51)" onmouseover="showTip(event, 'fs35', 51)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 52)" onmouseover="showTip(event, 'fs36', 52)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 53)" onmouseover="showTip(event, 'fs31', 53)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 54)" onmouseover="showTip(event, 'fs37', 54)" class="f">is</span> <span class="s">&quot;What time is it ?&quot;</span>
+  }
+
+[&lt;<span onmouseout="hideTip(event, 'fs38', 55)" onmouseover="showTip(event, 'fs38', 55)" class="t">EntryPoint</span>&gt;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 56)" onmouseover="showTip(event, 'fs39', 56)" class="f">main</span> <span onmouseout="hideTip(event, 'fs40', 57)" onmouseover="showTip(event, 'fs40', 57)" class="i">argv</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs21', 58)" onmouseover="showTip(event, 'fs21', 58)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 59)" onmouseover="showTip(event, 'fs22', 59)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs29', 60)" onmouseover="showTip(event, 'fs29', 60)" class="i">api1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 61)" onmouseover="showTip(event, 'fs41', 61)" class="f">App</span>
+  <span class="n">0</span> <span class="c">// return an integer exit code</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<p>Go to <a href="http://localhost:8083/swagger/v2/ui/index.html">http://localhost:8083/swagger/v2/ui/index.html</a></p>
+<p><img src="images/screen1.gif" alt="Swagger UI 1" /></p>
+</section>
+</section>
+<section >
+<section >
+<h2>Scenario 2</h2>
+<p>Creating a service returning calculation results</p>
+</section>
+<section >
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs42', 62)" onmouseover="showTip(event, 'fs42', 62)" class="f">substract</span>(<span onmouseout="hideTip(event, 'fs43', 63)" onmouseover="showTip(event, 'fs43', 63)" class="i">a</span>,<span onmouseout="hideTip(event, 'fs44', 64)" onmouseover="showTip(event, 'fs44', 64)" class="i">b</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 65)" onmouseover="showTip(event, 'fs12', 65)" class="f">OK</span> ((<span onmouseout="hideTip(event, 'fs43', 66)" onmouseover="showTip(event, 'fs43', 66)" class="i">a</span><span class="o">-</span><span onmouseout="hideTip(event, 'fs44', 67)" onmouseover="showTip(event, 'fs44', 67)" class="i">b</span>)<span class="o">.</span><span class="f">ToString</span>())
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs45', 68)" onmouseover="showTip(event, 'fs45', 68)" class="i">api2</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs30', 69)" onmouseover="showTip(event, 'fs30', 69)" class="i">swagger</span> {
+    <span class="c">// For GET</span>
+    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 70)" onmouseover="showTip(event, 'fs31', 70)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 71)" onmouseover="showTip(event, 'fs32', 71)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 72)" onmouseover="showTip(event, 'fs46', 72)" class="f">urlFormat</span> <span class="s">&quot;/substract/</span><span class="pf">%d</span><span class="s">/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs42', 73)" onmouseover="showTip(event, 'fs42', 73)" class="f">substract</span> <span class="k">do</span>
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 74)" onmouseover="showTip(event, 'fs35', 74)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 75)" onmouseover="showTip(event, 'fs36', 75)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 76)" onmouseover="showTip(event, 'fs31', 76)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 77)" onmouseover="showTip(event, 'fs37', 77)" class="f">is</span> <span class="s">&quot;Substracts two numbers&quot;</span>
+    <span class="c">// For POST</span>
+    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 78)" onmouseover="showTip(event, 'fs31', 78)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs47', 79)" onmouseover="showTip(event, 'fs47', 79)" class="f">posting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 80)" onmouseover="showTip(event, 'fs46', 80)" class="f">urlFormat</span> <span class="s">&quot;/substract/</span><span class="pf">%d</span><span class="s">/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs42', 81)" onmouseover="showTip(event, 'fs42', 81)" class="f">substract</span> <span class="k">do</span>
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 82)" onmouseover="showTip(event, 'fs35', 82)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 83)" onmouseover="showTip(event, 'fs36', 83)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 84)" onmouseover="showTip(event, 'fs31', 84)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 85)" onmouseover="showTip(event, 'fs37', 85)" class="f">is</span> <span class="s">&quot;Substracts two numbers&quot;</span>
+
+    <span class="c">// the &quot;add&quot; function can be manually documented</span>
+    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 86)" onmouseover="showTip(event, 'fs31', 86)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs48', 87)" onmouseover="showTip(event, 'fs48', 87)" class="f">getOf</span> (<span onmouseout="hideTip(event, 'fs49', 88)" onmouseover="showTip(event, 'fs49', 88)" class="f">pathScan</span> <span class="s">&quot;/add/</span><span class="pf">%d</span><span class="s">/</span><span class="pf">%d</span><span class="s">&quot;</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs43', 89)" onmouseover="showTip(event, 'fs43', 89)" class="i">a</span>,<span onmouseout="hideTip(event, 'fs44', 90)" onmouseover="showTip(event, 'fs44', 90)" class="i">b</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs12', 91)" onmouseover="showTip(event, 'fs12', 91)" class="f">OK</span>((<span onmouseout="hideTip(event, 'fs43', 92)" onmouseover="showTip(event, 'fs43', 92)" class="i">a</span><span class="o">+</span><span onmouseout="hideTip(event, 'fs44', 93)" onmouseover="showTip(event, 'fs44', 93)" class="i">b</span>)<span class="o">.</span><span class="f">ToString</span>()))) <span class="k">do</span>
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 94)" onmouseover="showTip(event, 'fs35', 94)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 95)" onmouseover="showTip(event, 'fs36', 95)" class="f">Of</span> <span class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 96)" onmouseover="showTip(event, 'fs37', 96)" class="f">is</span> <span class="s">&quot;Compute a simple addition&quot;</span>
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs50', 97)" onmouseover="showTip(event, 'fs50', 97)" class="f">urlTemplate</span> <span onmouseout="hideTip(event, 'fs36', 98)" onmouseover="showTip(event, 'fs36', 98)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 99)" onmouseover="showTip(event, 'fs31', 99)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 100)" onmouseover="showTip(event, 'fs37', 100)" class="f">is</span> <span class="s">&quot;/add/{number1}/{number2}&quot;</span>
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs51', 101)" onmouseover="showTip(event, 'fs51', 101)" class="f">parameter</span> <span class="s">&quot;number1&quot;</span> <span onmouseout="hideTip(event, 'fs36', 102)" onmouseover="showTip(event, 'fs36', 102)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 103)" onmouseover="showTip(event, 'fs31', 103)" class="i">route</span>  
+        (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs52', 104)" onmouseover="showTip(event, 'fs52', 104)" class="i">p</span> <span class="k">-&gt;</span> { <span onmouseout="hideTip(event, 'fs52', 105)" onmouseover="showTip(event, 'fs52', 105)" class="i">p</span> <span class="k">with</span> <span class="i">TypeName</span> <span class="o">=</span> <span class="s">&quot;integer&quot;</span>; <span class="i">In</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs53', 106)" onmouseover="showTip(event, 'fs53', 106)" class="p">Path</span> })
+      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs51', 107)" onmouseover="showTip(event, 'fs51', 107)" class="f">parameter</span> <span class="s">&quot;number2&quot;</span> <span onmouseout="hideTip(event, 'fs36', 108)" onmouseover="showTip(event, 'fs36', 108)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 109)" onmouseover="showTip(event, 'fs31', 109)" class="i">route</span> 
+        (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs52', 110)" onmouseover="showTip(event, 'fs52', 110)" class="i">p</span> <span class="k">-&gt;</span> { <span onmouseout="hideTip(event, 'fs52', 111)" onmouseover="showTip(event, 'fs52', 111)" class="i">p</span> <span class="k">with</span> <span class="i">TypeName</span> <span class="o">=</span> <span class="s">&quot;integer&quot;</span>; <span class="i">In</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs53', 112)" onmouseover="showTip(event, 'fs53', 112)" class="p">Path</span> })
+}
+</code></pre></td>
+</tr>
+</table>
+<ul>
+<li>urlFormat will extract parameters from the PrintfFormat, documente them and build the Suave's native "pathScan"</li>
+<li>we can use directly a pathScan and manually document the pathScan route.</li>
+</ul>
+</section>
+<section >
+<p><img src="images/screen2.gif" alt="Swagger UI 2" /></p>
+</section>
+</section>
+<section >
+<section >
+<h2>Scenario 3</h2>
+<p>Returning models</p>
+</section>
+<section >
+<h4>Models will be:</h4>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs54', 113)" onmouseover="showTip(event, 'fs54', 113)" class="t">CLIMutable</span>&gt;] <span class="c">//important for XML serialization</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs55', 114)" onmouseover="showTip(event, 'fs55', 114)" class="t">Pet</span> <span class="o">=</span>
+  { <span onmouseout="hideTip(event, 'fs56', 115)" onmouseover="showTip(event, 'fs56', 115)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs57', 116)" onmouseover="showTip(event, 'fs57', 116)" class="t">int</span>
+    <span onmouseout="hideTip(event, 'fs58', 117)" onmouseover="showTip(event, 'fs58', 117)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs59', 118)" onmouseover="showTip(event, 'fs59', 118)" class="t">string</span>
+    <span onmouseout="hideTip(event, 'fs60', 119)" onmouseover="showTip(event, 'fs60', 119)" class="i">Category</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs61', 120)" onmouseover="showTip(event, 'fs61', 120)" class="t">PetCategory</span> }
+<span class="k">and</span> [&lt;<span onmouseout="hideTip(event, 'fs54', 121)" onmouseover="showTip(event, 'fs54', 121)" class="t">CLIMutable</span>&gt;] <span onmouseout="hideTip(event, 'fs61', 122)" onmouseover="showTip(event, 'fs61', 122)" class="t">PetCategory</span> <span class="o">=</span> 
+  { <span onmouseout="hideTip(event, 'fs62', 123)" onmouseover="showTip(event, 'fs62', 123)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs57', 124)" onmouseover="showTip(event, 'fs57', 124)" class="t">int</span>
+    <span onmouseout="hideTip(event, 'fs63', 125)" onmouseover="showTip(event, 'fs63', 125)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs59', 126)" onmouseover="showTip(event, 'fs59', 126)" class="t">string</span> }
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h4>REST functions simulating a database access:</h4>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs64', 127)" onmouseover="showTip(event, 'fs64', 127)" class="f">findPetById</span> <span onmouseout="hideTip(event, 'fs65', 128)" onmouseover="showTip(event, 'fs65', 128)" class="i">id</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs28', 129)" onmouseover="showTip(event, 'fs28', 129)" class="f">MODEL</span>
+    { 
+      <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs65', 130)" onmouseover="showTip(event, 'fs65', 130)" class="i">id</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs66', 131)" onmouseover="showTip(event, 'fs66', 131)" class="f">sprintf</span> <span class="s">&quot;pet_</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs65', 132)" onmouseover="showTip(event, 'fs65', 132)" class="i">id</span>)
+      <span class="i">Category</span> <span class="o">=</span> { <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs65', 133)" onmouseover="showTip(event, 'fs65', 133)" class="i">id</span><span class="o">*</span><span class="n">100</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs66', 134)" onmouseover="showTip(event, 'fs66', 134)" class="f">sprintf</span> <span class="s">&quot;cat_</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs65', 135)" onmouseover="showTip(event, 'fs65', 135)" class="i">id</span>) }
+    }
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs67', 136)" onmouseover="showTip(event, 'fs67', 136)" class="f">findCategoryById</span> <span onmouseout="hideTip(event, 'fs65', 137)" onmouseover="showTip(event, 'fs65', 137)" class="i">id</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs28', 138)" onmouseover="showTip(event, 'fs28', 138)" class="f">MODEL</span>
+    { 
+      <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs65', 139)" onmouseover="showTip(event, 'fs65', 139)" class="i">id</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs66', 140)" onmouseover="showTip(event, 'fs66', 140)" class="f">sprintf</span> <span class="s">&quot;cat_</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs65', 141)" onmouseover="showTip(event, 'fs65', 141)" class="i">id</span>)
+    }
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h4>API</h4>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs68', 142)" onmouseover="showTip(event, 'fs68', 142)" class="i">api3</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs30', 143)" onmouseover="showTip(event, 'fs30', 143)" class="i">swagger</span> {
+      <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 144)" onmouseover="showTip(event, 'fs31', 144)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 145)" onmouseover="showTip(event, 'fs32', 145)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 146)" onmouseover="showTip(event, 'fs46', 146)" class="f">urlFormat</span> <span class="s">&quot;/pet/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs64', 147)" onmouseover="showTip(event, 'fs64', 147)" class="f">findPetById</span> <span class="k">do</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 148)" onmouseover="showTip(event, 'fs35', 148)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 149)" onmouseover="showTip(event, 'fs36', 149)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 150)" onmouseover="showTip(event, 'fs31', 150)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 151)" onmouseover="showTip(event, 'fs37', 151)" class="f">is</span> <span class="s">&quot;Search a pet by id&quot;</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 152)" onmouseover="showTip(event, 'fs31', 152)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs69', 153)" onmouseover="showTip(event, 'fs69', 153)" class="f">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found pet&quot;</span> (<span onmouseout="hideTip(event, 'fs70', 154)" onmouseover="showTip(event, 'fs70', 154)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs71', 155)" onmouseover="showTip(event, 'fs71', 155)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs55', 156)" onmouseover="showTip(event, 'fs55', 156)" class="t">Pet</span><span class="o">&gt;</span>)
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 157)" onmouseover="showTip(event, 'fs31', 157)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs72', 158)" onmouseover="showTip(event, 'fs72', 158)" class="f">produces</span> <span class="s">&quot;application/json&quot;</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 159)" onmouseover="showTip(event, 'fs31', 159)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs72', 160)" onmouseover="showTip(event, 'fs72', 160)" class="f">produces</span> <span class="s">&quot;application/xml&quot;</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 161)" onmouseover="showTip(event, 'fs31', 161)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs73', 162)" onmouseover="showTip(event, 'fs73', 162)" class="f">consumes</span> <span class="s">&quot;application/json&quot;</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 163)" onmouseover="showTip(event, 'fs31', 163)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs73', 164)" onmouseover="showTip(event, 'fs73', 164)" class="f">consumes</span> <span class="s">&quot;application/xml&quot;</span>
+      
+      <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 165)" onmouseover="showTip(event, 'fs31', 165)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 166)" onmouseover="showTip(event, 'fs32', 166)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 167)" onmouseover="showTip(event, 'fs46', 167)" class="f">urlFormat</span> <span class="s">&quot;/category/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs67', 168)" onmouseover="showTip(event, 'fs67', 168)" class="f">findCategoryById</span> <span class="k">do</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 169)" onmouseover="showTip(event, 'fs35', 169)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 170)" onmouseover="showTip(event, 'fs36', 170)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 171)" onmouseover="showTip(event, 'fs31', 171)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 172)" onmouseover="showTip(event, 'fs37', 172)" class="f">is</span> <span class="s">&quot;Search a category by id&quot;</span>
+        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 173)" onmouseover="showTip(event, 'fs31', 173)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs69', 174)" onmouseover="showTip(event, 'fs69', 174)" class="f">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found category&quot;</span> (<span onmouseout="hideTip(event, 'fs70', 175)" onmouseover="showTip(event, 'fs70', 175)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs71', 176)" onmouseover="showTip(event, 'fs71', 176)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs61', 177)" onmouseover="showTip(event, 'fs61', 177)" class="t">PetCategory</span><span class="o">&gt;</span>)
+    }
+  <span class="o">|&gt;</span> <span class="k">fun</span> <span onmouseout="hideTip(event, 'fs74', 178)" onmouseover="showTip(event, 'fs74', 178)" class="i">a</span> <span class="k">-&gt;</span>
+      <span onmouseout="hideTip(event, 'fs74', 179)" onmouseover="showTip(event, 'fs74', 179)" class="i">a</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs75', 180)" onmouseover="showTip(event, 'fs75', 180)" class="f">Describes</span>(
+        <span class="k">fun</span> <span onmouseout="hideTip(event, 'fs76', 181)" onmouseover="showTip(event, 'fs76', 181)" class="i">d</span> <span class="k">-&gt;</span> 
+          { 
+            <span onmouseout="hideTip(event, 'fs76', 182)" onmouseover="showTip(event, 'fs76', 182)" class="i">d</span> <span class="k">with</span> 
+                <span class="i">Title</span> <span class="o">=</span> <span class="s">&quot;Swagger and Suave.io&quot;</span>
+                <span class="i">Description</span> <span class="o">=</span> <span class="s">&quot;A simple swagger with Suave.io example&quot;</span>
+          })
+[&lt;<span onmouseout="hideTip(event, 'fs38', 183)" onmouseover="showTip(event, 'fs38', 183)" class="t">EntryPoint</span>&gt;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 184)" onmouseover="showTip(event, 'fs39', 184)" class="f">main</span> <span onmouseout="hideTip(event, 'fs40', 185)" onmouseover="showTip(event, 'fs40', 185)" class="i">argv</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs21', 186)" onmouseover="showTip(event, 'fs21', 186)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 187)" onmouseover="showTip(event, 'fs22', 187)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs68', 188)" onmouseover="showTip(event, 'fs68', 188)" class="i">api3</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 189)" onmouseover="showTip(event, 'fs41', 189)" class="f">App</span>
+  <span class="n">0</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<p><img src="images/screen3.gif" alt="Swagger UI 3" /></p>
+</section>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
+

@@ -169,6 +169,8 @@ let api2 =
 
 Returning models
 
+---
+
 #### Models will be:
 *)
 
@@ -208,7 +210,7 @@ let findCategoryById id =
 
 *)
 
-let api = 
+let api3 = 
   swagger {
       for route in getting <| urlFormat "/pet/%d" findPetById do
         yield description Of route is "Search a pet by id"
@@ -230,7 +232,10 @@ let api =
                 Title = "Swagger and Suave.io"
                 Description = "A simple swagger with Suave.io example"
           })
-startWebServer defaultConfig api.App
+[<EntryPoint>]
+let main argv = 
+  startWebServer defaultConfig api3.App
+  0
 
 (**
 ---
