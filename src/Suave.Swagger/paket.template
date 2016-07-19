@@ -1,0 +1,25 @@
+type project
+title
+    Suave.Swagger
+owners
+    rflechner
+authors 
+    rflechner
+projectUrl
+    http://github.com/rflechner/Suave.Swagger
+iconUrl
+    https://raw.githubusercontent.com/rflechner/Suave.Swagger/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/rflechner/Suave.Swagger/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2016
+tags
+    suave fsharp swagger
+summary
+    This is an extension for Suave.io with some REST tools and Swagger documentation helpers
+description
+    This is an extension for Suave.io with some REST tools and Swagger documentation helpers
+
+

@@ -11,17 +11,17 @@
 // (This is the original behaviour of ProjectScaffold prior to multi project support)
 let referenceBinaries = []
 // Web site location for the generated documentation
-let website = "/Suave.RestFullKit"
+let website = "/Suave.Swagger"
 
-let githubLink = "http://github.com/rflechner/Suave.RestFullKit"
+let githubLink = "http://github.com/rflechner/Suave.Swagger"
 
 // Specify more information about your project
 let info =
-  [ "project-name", "Suave.RestFullKit"
+  [ "project-name", "Suave.Swagger"
     "project-author", "rflechner"
     "project-summary", "This is an extension for Suave.io with some REST tools and Swagger documentation helpers"
     "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/Suave.RestFullKit" ]
+    "project-nuget", "http://nuget.org/packages/Suave.Swagger" ]
 
 // --------------------------------------------------------------------------------------
 // For typical project, no changes are needed below

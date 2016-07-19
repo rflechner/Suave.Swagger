@@ -4,7 +4,7 @@
 #I "../../bin"
 
 (**
-Suave.RestFullKit
+Suave.Swagger
 ======================
 
 Documentation
@@ -13,40 +13,54 @@ Documentation
   <div class="span1"></div>
   <div class="span6">
     <div class="well well-small" id="nuget">
-      The Suave.RestFullKit library can be <a href="https://nuget.org/packages/Suave.RestFullKit">installed from NuGet</a>:
-      <pre>PM> Install-Package Suave.RestFullKit</pre>
+      The Suave.Swagger library can be <a href="https://www.myget.org/Package/Details/romcyber?packageType=nuget&packageId=Suave.Swagger">installed from MyGet</a>:
+      <pre>PM> Install-Package Suave.Swagger</pre>
     </div>
   </div>
   <div class="span1"></div>
 </div>
 
-Example
+<div class="row">
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="well well-small" id="nuget">
+      The Suave.Swagger library can be <a href="https://www.myget.org/Package/Details/romcyber?packageType=nuget&packageId=Suave.Swagger">installed from Paket</a>:
+      <pre>
+group Romcyber
+  source https://www.myget.org/F/romcyber/api/v3/index.json
+  nuget Suave.Swagger
+      </pre>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+
+
+What are Suave and Swagger ?
+----------------------------
+
+- [Suave](https://suave.io/) is a FSharp lightweight web server principally used to develop REST APIs
+- [Swagger](http://swagger.io/) is a usefull tool helping to create interactive documentation, client SDK generation and discoverability.
+
+
+Why using Swagger ?
+-------------------
+
+- To have beautiful interactive documentations.
+- To improve productivity during developments.
+- To give a possibility for API users to generate clients.
+
+
+Project
 -------
 
-This example demonstrates using a function defined in this sample library.
+This project is a [POC](https://en.wikipedia.org/wiki/Proof_of_concept) helping you to document your Suave services with Swagger.
+Swagger UI is embedded in resources and a webpart serving it is automatically added.
 
-*)
-#r "Suave.RestFullKit.dll"
-open Suave.RestFullKit
 
-printfn "hello = %i" <| Library.hello 0
+![Swagger UI 3](images/screen3.gif)
 
-(**
-Some more info
 
-Samples & documentation
------------------------
-
-The library comes with comprehensible documentation. 
-It can include tutorials automatically generated from `*.fsx` files in [the content folder][content]. 
-The API reference is automatically generated from Markdown comments in the library implementation.
-
- * [Tutorial](tutorial.html) contains a further explanation of this sample library.
-
- * [API Reference](reference/index.html) contains automatically generated documentation for all types, modules
-   and functions in the library. This includes additional brief samples on using most of the
-   functions.
- 
 Contributing and copyright
 --------------------------
 
@@ -59,9 +73,9 @@ The library is available under Public Domain license, which allows modification 
 redistribution for both commercial and non-commercial purposes. For more information see the 
 [License file][license] in the GitHub repository. 
 
-  [content]: https://github.com/fsprojects/Suave.RestFullKit/tree/master/docs/content
-  [gh]: https://github.com/fsprojects/Suave.RestFullKit
-  [issues]: https://github.com/fsprojects/Suave.RestFullKit/issues
-  [readme]: https://github.com/fsprojects/Suave.RestFullKit/blob/master/README.md
-  [license]: https://github.com/fsprojects/Suave.RestFullKit/blob/master/LICENSE.txt
+  [content]: https://github.com/rflechner/Suave.Swagger/tree/master/docs/content
+  [gh]: https://github.com/rflechner/Suave.Swagger
+  [issues]: https://github.com/rflechner/Suave.Swagger/issues
+  [readme]: https://github.com/rflechner/Suave.Swagger/blob/master/README.md
+  [license]: https://github.com/rflechner/Suave.Swagger/blob/master/LICENSE.txt
 *)

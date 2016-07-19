@@ -28,7 +28,7 @@ open SourceLink
 
 // The name of the project
 // (used by attributes in AssemblyInfo, name of a NuGet package and directory in 'src')
-let project = "Suave.RestFullKit"
+let project = "Suave.Swagger"
 
 // Short summary of the project
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
@@ -45,7 +45,7 @@ let authors = [ "rflechner" ]
 let tags = "suave fsharp swagger"
 
 // File system information
-let solutionFile  = "Suave.RestFullKit.sln"
+let solutionFile  = "Suave.Swagger.sln"
 
 // Pattern specifying assemblies to be tested using NUnit
 let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
@@ -56,7 +56,7 @@ let gitOwner = "rflechner"
 let gitHome = "https://github.com/" + gitOwner
 
 // The name of the project on GitHub
-let gitName = "Suave.RestFullKit"
+let gitName = "Suave.Swagger"
 
 // The url for the raw files hosted
 let gitRaw = environVarOrDefault "gitRaw" "https://raw.github.com/rflechner"
@@ -177,12 +177,16 @@ Target "NuGet" (fun _ ->
         { p with
             OutputPath = "bin"
             Version = release.NugetVersion
+            TemplateFile = "paket.template"
             ReleaseNotes = toLines release.Notes})
 )
 
 Target "PublishNuget" (fun _ ->
+    let nugetkey = Environment.GetEnvironmentVariable "nugetkey"
     Paket.Push(fun p ->
         { p with
+            PublishUrl = "https://www.myget.org/F/romcyber/api/v2/package"
+            ApiKey = nugetkey
             WorkingDir = "bin" })
 )
 
@@ -377,6 +381,7 @@ Target "All" DoNothing
   ==> "Build"
   ==> "CopyBinaries"
   ==> "RunTests"
+  ==> "NuGet"
   ==> "GenerateReferenceDocs"
   ==> "GenerateDocs"
   ==> "All"
@@ -387,7 +392,7 @@ Target "All" DoNothing
 #else
   =?> ("SourceLink", Pdbstr.tryFind().IsSome )
 #endif
-  ==> "NuGet"
+//  ==> "NuGet"
   ==> "BuildPackage"
 
 "CleanDocs"

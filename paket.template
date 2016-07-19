@@ -1,0 +1,32 @@
+type file
+id
+  Suave.Swagger
+authors
+  rflechner
+owners
+  rflechner
+description
+  This project is a POC helping you to document your Suave services with Swagger. Swagger UI is embedded in resources and a webpart serving it is automatically added.
+projectUrl
+  http://github.com/rflechner/Suave.Swagger
+iconUrl
+  https://raw.githubusercontent.com/rflechner/Suave.Swagger/master/docs/files/img/logo.png
+licenseUrl
+  http://github.com/rflechner/Suave.Swagger/blob/master/LICENSE.txt
+requireLicenseAcceptance
+  false
+copyright
+  Copyright 2016
+tags
+  suave fsharp swagger
+files
+  bin/Suave.Swagger/Suave.Swagger.dll ==> lib
+  bin/Suave.Swagger/Suave.Swagger.pdb ==> lib
+frameworkAssemblies
+  System.Xml
+dependencies
+  FSharp.Core
+  suave
+  Newtonsoft.Json
+  SharpZipLib
+
