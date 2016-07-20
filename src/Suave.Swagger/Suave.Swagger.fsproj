@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>ea450d1b-395e-46ed-a152-6219370a803e</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Suave.RestFullKit</RootNamespace>
-    <AssemblyName>Suave.RestFullKit</AssemblyName>
+    <RootNamespace>Suave.Swagger</RootNamespace>
+    <AssemblyName>Suave.Swagger</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
     <Name>Suave.Swagger</Name>
@@ -31,7 +31,7 @@
     <OutputPath>.\bin\Release</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>.\bin\Release\Suave.RestFullKit.xml</DocumentationFile>
+    <DocumentationFile>.\bin\Release\Suave.Swagger.xml</DocumentationFile>
     <OtherFlags>--warnon:1182</OtherFlags>
   </PropertyGroup>
   <PropertyGroup>
