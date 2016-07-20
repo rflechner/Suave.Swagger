@@ -1,7 +1,7 @@
 
-# Suave.RestFullKit
+# Suave.Swagger
 
-Documentation: https://rflechner.github.io/Suave.RestFullKit/#/
+Documentation: https://rflechner.github.io/Suave.Swagger/#/
 
 ## Build Status
 

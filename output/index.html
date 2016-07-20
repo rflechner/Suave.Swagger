@@ -68,61 +68,37 @@
 <div class="tip" id="fs20">val path : pathAfterDomain:string -&gt; WebPart<br /><br />Full name: Suave.Filters.path</div>
 <div class="tip" id="fs21">val startWebServer : config:SuaveConfig -&gt; webpart:WebPart -&gt; unit<br /><br />Full name: Suave.Web.startWebServer</div>
 <div class="tip" id="fs22">val defaultConfig : SuaveConfig<br /><br />Full name: Suave.Web.defaultConfig</div>
-<div class="tip" id="fs23">namespace Suave.RestFullKit</div>
-<div class="tip" id="fs24">module Rest<br /><br />from Suave.RestFullKit</div>
-<div class="tip" id="fs25">module FunnyDsl<br /><br />from Suave.RestFullKit</div>
-<div class="tip" id="fs26">module Swagger<br /><br />from Suave.RestFullKit</div>
-<div class="tip" id="fs27">val now : x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Index.now</div>
-<div class="tip" id="fs28">val MODEL : m:&#39;t -&gt; x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Suave.RestFullKit.Rest.MODEL</div>
-<div class="tip" id="fs29">val api1 : DocBuildState<br /><br />Full name: Index.api1</div>
-<div class="tip" id="fs30">val swagger : SwaggerBuilder<br /><br />Full name: Suave.RestFullKit.Swagger.swagger</div>
-<div class="tip" id="fs31">val route : DocBuildState</div>
-<div class="tip" id="fs32">val getting : d:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.getting</div>
-<div class="tip" id="fs33">val simpleUrl : p:string -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.simpleUrl</div>
-<div class="tip" id="fs34">val thenReturns : w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; d:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.thenReturns</div>
-<div class="tip" id="fs35">val description : &#39;a -&gt; route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.description</div>
-<div class="tip" id="fs36">val Of : x:&#39;a -&gt; &#39;a<br /><br />Full name: Suave.RestFullKit.FunnyDsl.Of</div>
-<div class="tip" id="fs37">val is : x:&#39;a -&gt; &#39;a<br /><br />Full name: Suave.RestFullKit.FunnyDsl.is</div>
-<div class="tip" id="fs38">Multiple items<br />type EntryPointAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; EntryPointAttribute<br /><br />Full name: Microsoft.FSharp.Core.EntryPointAttribute<br /><br />--------------------<br />new : unit -&gt; EntryPointAttribute</div>
-<div class="tip" id="fs39">val main : argv:string [] -&gt; int<br /><br />Full name: Index.main</div>
-<div class="tip" id="fs40">val argv : string []</div>
-<div class="tip" id="fs41">property DocBuildState.App: WebPart&lt;HttpContext&gt;</div>
-<div class="tip" id="fs42">val substract : a:int * b:int -&gt; WebPart<br /><br />Full name: Index.substract</div>
-<div class="tip" id="fs43">val a : int</div>
-<div class="tip" id="fs44">val b : int</div>
-<div class="tip" id="fs45">val api2 : DocBuildState<br /><br />Full name: Index.api2</div>
-<div class="tip" id="fs46">val urlFormat : pf:PrintfFormat&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;t&gt; -&gt; f:(&#39;t -&gt; WebPart) -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.urlFormat</div>
-<div class="tip" id="fs47">val posting : d:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.posting</div>
-<div class="tip" id="fs48">val getOf : w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.getOf</div>
-<div class="tip" id="fs49">val pathScan : pf:PrintfFormat&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;t&gt; -&gt; h:(&#39;t -&gt; WebPart) -&gt; WebPart<br /><br />Full name: Suave.Filters.pathScan</div>
-<div class="tip" id="fs50">val urlTemplate : &#39;a -&gt; route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.urlTemplate</div>
-<div class="tip" id="fs51">val parameter : name:string -&gt; &#39;a -&gt; route:DocBuildState -&gt; f:(ParamDescriptor -&gt; ParamDescriptor) -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.parameter</div>
-<div class="tip" id="fs52">val p : ParamDescriptor</div>
-<div class="tip" id="fs53">Multiple items<br />union case ParamContainer.Path: ParamContainer<br /><br />--------------------<br />type Path = string<br /><br />Full name: Suave.RestFullKit.Swagger.Path</div>
-<div class="tip" id="fs54">Multiple items<br />type CLIMutableAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; CLIMutableAttribute<br /><br />Full name: Microsoft.FSharp.Core.CLIMutableAttribute<br /><br />--------------------<br />new : unit -&gt; CLIMutableAttribute</div>
-<div class="tip" id="fs55">type Pet =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;<br />&#160;&#160;&#160;Category: PetCategory;}<br /><br />Full name: Index.Pet</div>
-<div class="tip" id="fs56">Pet.Id: int</div>
-<div class="tip" id="fs57">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;</div>
-<div class="tip" id="fs58">Pet.Name: string</div>
-<div class="tip" id="fs59">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
-<div class="tip" id="fs60">Pet.Category: PetCategory</div>
-<div class="tip" id="fs61">type PetCategory =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;}<br /><br />Full name: Index.PetCategory</div>
-<div class="tip" id="fs62">PetCategory.Id: int</div>
-<div class="tip" id="fs63">PetCategory.Name: string</div>
-<div class="tip" id="fs64">val findPetById : id:int -&gt; WebPart<br /><br />Full name: Index.findPetById</div>
-<div class="tip" id="fs65">val id : int</div>
-<div class="tip" id="fs66">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
-<div class="tip" id="fs67">val findCategoryById : id:int -&gt; WebPart<br /><br />Full name: Index.findCategoryById</div>
-<div class="tip" id="fs68">val api3 : DocBuildState<br /><br />Full name: Index.api3</div>
-<div class="tip" id="fs69">val addResponse : statusCode:int -&gt; desc:string -&gt; modelType:Type option -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.addResponse</div>
-<div class="tip" id="fs70">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
-<div class="tip" id="fs71">val typeof&lt;&#39;T&gt; : Type<br /><br />Full name: Microsoft.FSharp.Core.Operators.typeof</div>
-<div class="tip" id="fs72">val produces : mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.produces</div>
-<div class="tip" id="fs73">val consumes : mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br /><br />Full name: Suave.RestFullKit.FunnyDsl.consumes</div>
+<div class="tip" id="fs23">val now : x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Index.now</div>
+<div class="tip" id="fs24">val api1 : obj<br /><br />Full name: Index.api1</div>
+<div class="tip" id="fs25">Multiple items<br />type EntryPointAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; EntryPointAttribute<br /><br />Full name: Microsoft.FSharp.Core.EntryPointAttribute<br /><br />--------------------<br />new : unit -&gt; EntryPointAttribute</div>
+<div class="tip" id="fs26">val main : argv:string [] -&gt; int<br /><br />Full name: Index.main</div>
+<div class="tip" id="fs27">val argv : string []</div>
+<div class="tip" id="fs28">val substract : a:int * b:int -&gt; WebPart<br /><br />Full name: Index.substract</div>
+<div class="tip" id="fs29">val a : int</div>
+<div class="tip" id="fs30">val b : int</div>
+<div class="tip" id="fs31">val api2 : obj<br /><br />Full name: Index.api2</div>
+<div class="tip" id="fs32">val pathScan : pf:PrintfFormat&lt;&#39;a,&#39;b,&#39;c,&#39;d,&#39;t&gt; -&gt; h:(&#39;t -&gt; WebPart) -&gt; WebPart<br /><br />Full name: Suave.Filters.pathScan</div>
+<div class="tip" id="fs33">Multiple items<br />type CLIMutableAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; CLIMutableAttribute<br /><br />Full name: Microsoft.FSharp.Core.CLIMutableAttribute<br /><br />--------------------<br />new : unit -&gt; CLIMutableAttribute</div>
+<div class="tip" id="fs34">type Pet =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;<br />&#160;&#160;&#160;Category: PetCategory;}<br /><br />Full name: Index.Pet</div>
+<div class="tip" id="fs35">Pet.Id: int</div>
+<div class="tip" id="fs36">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;</div>
+<div class="tip" id="fs37">Pet.Name: string</div>
+<div class="tip" id="fs38">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs39">Pet.Category: PetCategory</div>
+<div class="tip" id="fs40">type PetCategory =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;}<br /><br />Full name: Index.PetCategory</div>
+<div class="tip" id="fs41">PetCategory.Id: int</div>
+<div class="tip" id="fs42">PetCategory.Name: string</div>
+<div class="tip" id="fs43">val findPetById : id:&#39;a -&gt; &#39;b<br /><br />Full name: Index.findPetById</div>
+<div class="tip" id="fs44">val id : &#39;a</div>
+<div class="tip" id="fs45">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs46">val findCategoryById : id:&#39;a -&gt; &#39;b<br /><br />Full name: Index.findCategoryById</div>
+<div class="tip" id="fs47">val api3 : obj<br /><br />Full name: Index.api3</div>
+<div class="tip" id="fs48">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs49">val typeof&lt;&#39;T&gt; : Type<br /><br />Full name: Microsoft.FSharp.Core.Operators.typeof</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section author="Romain Flechner" description="A solution to use Swagger with Suave" theme="night" title="Suave.RestFullKit" transition="default">
+            <section author="Romain Flechner" description="A solution to use Swagger with Suave" theme="night" title="Suave.Swagger" transition="default">
 <h1>Documenting Suave REST APIs</h1>
 <p>Using Swagger with Suave</p>
 </section>
@@ -201,17 +177,17 @@
 <span class="l">11: </span>
 <span class="l">12: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 30)" onmouseover="showTip(event, 'fs2', 30)" class="i">Suave</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 31)" onmouseover="showTip(event, 'fs23', 31)" class="i">RestFullKit</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs24', 32)" onmouseover="showTip(event, 'fs24', 32)" class="i">Rest</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="i">FunnyDsl</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs26', 34)" onmouseover="showTip(event, 'fs26', 34)" class="i">Swagger</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 30)" onmouseover="showTip(event, 'fs2', 30)" class="i">Suave</span><span class="o">.</span><span class="i">Swagger</span>
+<span class="k">open</span> <span class="i">Rest</span>
+<span class="k">open</span> <span class="i">FunnyDsl</span>
+<span class="k">open</span> <span class="i">Swagger</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 35)" onmouseover="showTip(event, 'fs27', 35)" class="f">now</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 36)" onmouseover="showTip(event, 'fs8', 36)" class="t">WebPart</span> <span class="o">=</span>
-  <span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs9', 37)" onmouseover="showTip(event, 'fs9', 37)" class="i">x</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs10', 38)" onmouseover="showTip(event, 'fs10', 38)" class="t">HttpContext</span>) <span class="k">-&gt;</span>
-    <span onmouseout="hideTip(event, 'fs11', 39)" onmouseover="showTip(event, 'fs11', 39)" class="i">async</span> {
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 31)" onmouseover="showTip(event, 'fs23', 31)" class="f">now</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 32)" onmouseover="showTip(event, 'fs8', 32)" class="t">WebPart</span> <span class="o">=</span>
+  <span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs9', 33)" onmouseover="showTip(event, 'fs9', 33)" class="i">x</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs10', 34)" onmouseover="showTip(event, 'fs10', 34)" class="t">HttpContext</span>) <span class="k">-&gt;</span>
+    <span onmouseout="hideTip(event, 'fs11', 35)" onmouseover="showTip(event, 'fs11', 35)" class="i">async</span> {
       <span class="c">// The MODEL helper checks the &quot;Accept&quot; header </span>
       <span class="c">// and switches between XML and JSON format</span>
-      <span class="k">return!</span> <span onmouseout="hideTip(event, 'fs28', 40)" onmouseover="showTip(event, 'fs28', 40)" class="f">MODEL</span> <span onmouseout="hideTip(event, 'fs13', 41)" onmouseover="showTip(event, 'fs13', 41)" class="t">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 42)" onmouseover="showTip(event, 'fs14', 42)" class="i">Now</span> <span onmouseout="hideTip(event, 'fs9', 43)" onmouseover="showTip(event, 'fs9', 43)" class="i">x</span>
+      <span class="k">return!</span> <span class="i">MODEL</span> <span onmouseout="hideTip(event, 'fs13', 36)" onmouseover="showTip(event, 'fs13', 36)" class="i">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 37)" onmouseover="showTip(event, 'fs14', 37)" class="i">Now</span> <span onmouseout="hideTip(event, 'fs9', 38)" onmouseover="showTip(event, 'fs9', 38)" class="i">x</span>
     }
 </code></pre></td>
 </tr>
@@ -236,16 +212,16 @@
 <span class="l">10: </span>
 <span class="l">11: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 44)" onmouseover="showTip(event, 'fs29', 44)" class="i">api1</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs30', 45)" onmouseover="showTip(event, 'fs30', 45)" class="i">swagger</span> {
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs24', 39)" onmouseover="showTip(event, 'fs24', 39)" class="i">api1</span> <span class="o">=</span> 
+  <span class="i">swagger</span> {
     <span class="c">// syntax 1</span>
-    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 46)" onmouseover="showTip(event, 'fs31', 46)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 47)" onmouseover="showTip(event, 'fs32', 47)" class="f">getting</span> (<span onmouseout="hideTip(event, 'fs33', 48)" onmouseover="showTip(event, 'fs33', 48)" class="f">simpleUrl</span> <span class="s">&quot;/time&quot;</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs34', 49)" onmouseover="showTip(event, 'fs34', 49)" class="f">thenReturns</span> <span onmouseout="hideTip(event, 'fs27', 50)" onmouseover="showTip(event, 'fs27', 50)" class="f">now</span>) <span class="k">do</span>
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 51)" onmouseover="showTip(event, 'fs35', 51)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 52)" onmouseover="showTip(event, 'fs36', 52)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 53)" onmouseover="showTip(event, 'fs31', 53)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 54)" onmouseover="showTip(event, 'fs37', 54)" class="f">is</span> <span class="s">&quot;What time is it ?&quot;</span>
+    <span class="k">for</span> <span class="i">route</span> <span class="k">in</span> <span class="i">getting</span> (<span class="i">simpleUrl</span> <span class="s">&quot;/time&quot;</span> <span class="o">|&gt;</span> <span class="i">thenReturns</span> <span onmouseout="hideTip(event, 'fs23', 40)" onmouseover="showTip(event, 'fs23', 40)" class="i">now</span>) <span class="k">do</span>
+      <span class="k">yield</span> <span class="i">description</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;What time is it ?&quot;</span>
   }
 
-[&lt;<span onmouseout="hideTip(event, 'fs38', 55)" onmouseover="showTip(event, 'fs38', 55)" class="t">EntryPoint</span>&gt;]
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 56)" onmouseover="showTip(event, 'fs39', 56)" class="f">main</span> <span onmouseout="hideTip(event, 'fs40', 57)" onmouseover="showTip(event, 'fs40', 57)" class="i">argv</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs21', 58)" onmouseover="showTip(event, 'fs21', 58)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 59)" onmouseover="showTip(event, 'fs22', 59)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs29', 60)" onmouseover="showTip(event, 'fs29', 60)" class="i">api1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 61)" onmouseover="showTip(event, 'fs41', 61)" class="f">App</span>
+[&lt;<span onmouseout="hideTip(event, 'fs25', 41)" onmouseover="showTip(event, 'fs25', 41)" class="t">EntryPoint</span>&gt;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 42)" onmouseover="showTip(event, 'fs26', 42)" class="f">main</span> <span onmouseout="hideTip(event, 'fs27', 43)" onmouseover="showTip(event, 'fs27', 43)" class="i">argv</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs21', 44)" onmouseover="showTip(event, 'fs21', 44)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 45)" onmouseover="showTip(event, 'fs22', 45)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs24', 46)" onmouseover="showTip(event, 'fs24', 46)" class="i">api1</span><span class="o">.</span><span class="i">App</span>
   <span class="n">0</span> <span class="c">// return an integer exit code</span>
 </code></pre></td>
 </tr>
@@ -284,25 +260,25 @@
 <span class="l">19: </span>
 <span class="l">20: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs42', 62)" onmouseover="showTip(event, 'fs42', 62)" class="f">substract</span>(<span onmouseout="hideTip(event, 'fs43', 63)" onmouseover="showTip(event, 'fs43', 63)" class="i">a</span>,<span onmouseout="hideTip(event, 'fs44', 64)" onmouseover="showTip(event, 'fs44', 64)" class="i">b</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 65)" onmouseover="showTip(event, 'fs12', 65)" class="f">OK</span> ((<span onmouseout="hideTip(event, 'fs43', 66)" onmouseover="showTip(event, 'fs43', 66)" class="i">a</span><span class="o">-</span><span onmouseout="hideTip(event, 'fs44', 67)" onmouseover="showTip(event, 'fs44', 67)" class="i">b</span>)<span class="o">.</span><span class="f">ToString</span>())
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 47)" onmouseover="showTip(event, 'fs28', 47)" class="f">substract</span>(<span onmouseout="hideTip(event, 'fs29', 48)" onmouseover="showTip(event, 'fs29', 48)" class="i">a</span>,<span onmouseout="hideTip(event, 'fs30', 49)" onmouseover="showTip(event, 'fs30', 49)" class="i">b</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 50)" onmouseover="showTip(event, 'fs12', 50)" class="f">OK</span> ((<span onmouseout="hideTip(event, 'fs29', 51)" onmouseover="showTip(event, 'fs29', 51)" class="i">a</span><span class="o">-</span><span onmouseout="hideTip(event, 'fs30', 52)" onmouseover="showTip(event, 'fs30', 52)" class="i">b</span>)<span class="o">.</span><span class="f">ToString</span>())
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs45', 68)" onmouseover="showTip(event, 'fs45', 68)" class="i">api2</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs30', 69)" onmouseover="showTip(event, 'fs30', 69)" class="i">swagger</span> {
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs31', 53)" onmouseover="showTip(event, 'fs31', 53)" class="i">api2</span> <span class="o">=</span> 
+  <span class="i">swagger</span> {
     <span class="c">// For GET</span>
-    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 70)" onmouseover="showTip(event, 'fs31', 70)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 71)" onmouseover="showTip(event, 'fs32', 71)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 72)" onmouseover="showTip(event, 'fs46', 72)" class="f">urlFormat</span> <span class="s">&quot;/substract/</span><span class="pf">%d</span><span class="s">/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs42', 73)" onmouseover="showTip(event, 'fs42', 73)" class="f">substract</span> <span class="k">do</span>
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 74)" onmouseover="showTip(event, 'fs35', 74)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 75)" onmouseover="showTip(event, 'fs36', 75)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 76)" onmouseover="showTip(event, 'fs31', 76)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 77)" onmouseover="showTip(event, 'fs37', 77)" class="f">is</span> <span class="s">&quot;Substracts two numbers&quot;</span>
+    <span class="k">for</span> <span class="i">route</span> <span class="k">in</span> <span class="i">getting</span> <span class="o">&lt;|</span> <span class="i">urlFormat</span> <span class="s">&quot;/substract/%d/%d&quot;</span> <span onmouseout="hideTip(event, 'fs28', 54)" onmouseover="showTip(event, 'fs28', 54)" class="i">substract</span> <span class="k">do</span>
+      <span class="k">yield</span> <span class="i">description</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;Substracts two numbers&quot;</span>
     <span class="c">// For POST</span>
-    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 78)" onmouseover="showTip(event, 'fs31', 78)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs47', 79)" onmouseover="showTip(event, 'fs47', 79)" class="f">posting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 80)" onmouseover="showTip(event, 'fs46', 80)" class="f">urlFormat</span> <span class="s">&quot;/substract/</span><span class="pf">%d</span><span class="s">/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs42', 81)" onmouseover="showTip(event, 'fs42', 81)" class="f">substract</span> <span class="k">do</span>
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 82)" onmouseover="showTip(event, 'fs35', 82)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 83)" onmouseover="showTip(event, 'fs36', 83)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 84)" onmouseover="showTip(event, 'fs31', 84)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 85)" onmouseover="showTip(event, 'fs37', 85)" class="f">is</span> <span class="s">&quot;Substracts two numbers&quot;</span>
+    <span class="k">for</span> <span class="i">route</span> <span class="k">in</span> <span class="i">posting</span> <span class="o">&lt;|</span> <span class="i">urlFormat</span> <span class="s">&quot;/substract/%d/%d&quot;</span> <span onmouseout="hideTip(event, 'fs28', 55)" onmouseover="showTip(event, 'fs28', 55)" class="i">substract</span> <span class="k">do</span>
+      <span class="k">yield</span> <span class="i">description</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;Substracts two numbers&quot;</span>
 
     <span class="c">// the &quot;add&quot; function can be manually documented</span>
-    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 86)" onmouseover="showTip(event, 'fs31', 86)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs48', 87)" onmouseover="showTip(event, 'fs48', 87)" class="f">getOf</span> (<span onmouseout="hideTip(event, 'fs49', 88)" onmouseover="showTip(event, 'fs49', 88)" class="f">pathScan</span> <span class="s">&quot;/add/</span><span class="pf">%d</span><span class="s">/</span><span class="pf">%d</span><span class="s">&quot;</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs43', 89)" onmouseover="showTip(event, 'fs43', 89)" class="i">a</span>,<span onmouseout="hideTip(event, 'fs44', 90)" onmouseover="showTip(event, 'fs44', 90)" class="i">b</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs12', 91)" onmouseover="showTip(event, 'fs12', 91)" class="f">OK</span>((<span onmouseout="hideTip(event, 'fs43', 92)" onmouseover="showTip(event, 'fs43', 92)" class="i">a</span><span class="o">+</span><span onmouseout="hideTip(event, 'fs44', 93)" onmouseover="showTip(event, 'fs44', 93)" class="i">b</span>)<span class="o">.</span><span class="f">ToString</span>()))) <span class="k">do</span>
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 94)" onmouseover="showTip(event, 'fs35', 94)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 95)" onmouseover="showTip(event, 'fs36', 95)" class="f">Of</span> <span class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 96)" onmouseover="showTip(event, 'fs37', 96)" class="f">is</span> <span class="s">&quot;Compute a simple addition&quot;</span>
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs50', 97)" onmouseover="showTip(event, 'fs50', 97)" class="f">urlTemplate</span> <span onmouseout="hideTip(event, 'fs36', 98)" onmouseover="showTip(event, 'fs36', 98)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 99)" onmouseover="showTip(event, 'fs31', 99)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 100)" onmouseover="showTip(event, 'fs37', 100)" class="f">is</span> <span class="s">&quot;/add/{number1}/{number2}&quot;</span>
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs51', 101)" onmouseover="showTip(event, 'fs51', 101)" class="f">parameter</span> <span class="s">&quot;number1&quot;</span> <span onmouseout="hideTip(event, 'fs36', 102)" onmouseover="showTip(event, 'fs36', 102)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 103)" onmouseover="showTip(event, 'fs31', 103)" class="i">route</span>  
-        (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs52', 104)" onmouseover="showTip(event, 'fs52', 104)" class="i">p</span> <span class="k">-&gt;</span> { <span onmouseout="hideTip(event, 'fs52', 105)" onmouseover="showTip(event, 'fs52', 105)" class="i">p</span> <span class="k">with</span> <span class="i">TypeName</span> <span class="o">=</span> <span class="s">&quot;integer&quot;</span>; <span class="i">In</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs53', 106)" onmouseover="showTip(event, 'fs53', 106)" class="p">Path</span> })
-      <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs51', 107)" onmouseover="showTip(event, 'fs51', 107)" class="f">parameter</span> <span class="s">&quot;number2&quot;</span> <span onmouseout="hideTip(event, 'fs36', 108)" onmouseover="showTip(event, 'fs36', 108)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 109)" onmouseover="showTip(event, 'fs31', 109)" class="i">route</span> 
-        (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs52', 110)" onmouseover="showTip(event, 'fs52', 110)" class="i">p</span> <span class="k">-&gt;</span> { <span onmouseout="hideTip(event, 'fs52', 111)" onmouseover="showTip(event, 'fs52', 111)" class="i">p</span> <span class="k">with</span> <span class="i">TypeName</span> <span class="o">=</span> <span class="s">&quot;integer&quot;</span>; <span class="i">In</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs53', 112)" onmouseover="showTip(event, 'fs53', 112)" class="p">Path</span> })
+    <span class="k">for</span> <span class="i">route</span> <span class="k">in</span> <span class="i">getOf</span> (<span onmouseout="hideTip(event, 'fs32', 56)" onmouseover="showTip(event, 'fs32', 56)" class="i">pathScan</span> <span class="s">&quot;/add/%d/%d&quot;</span> (<span class="k">fun</span> (<span class="i">a</span>,<span class="i">b</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs12', 57)" onmouseover="showTip(event, 'fs12', 57)" class="i">OK</span>((<span class="i">a</span><span class="o">+</span><span class="i">b</span>)<span class="o">.</span><span class="i">ToString</span>()))) <span class="k">do</span>
+      <span class="k">yield</span> <span class="i">description</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;Compute a simple addition&quot;</span>
+      <span class="k">yield</span> <span class="i">urlTemplate</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;/add/{number1}/{number2}&quot;</span>
+      <span class="k">yield</span> <span class="i">parameter</span> <span class="s">&quot;number1&quot;</span> <span class="i">Of</span> <span class="i">route</span>  
+        (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span> { <span class="i">p</span> <span class="k">with</span> <span class="i">TypeName</span> <span class="o">=</span> <span class="s">&quot;integer&quot;</span>; <span class="i">In</span><span class="o">=</span><span class="i">Path</span> })
+      <span class="k">yield</span> <span class="i">parameter</span> <span class="s">&quot;number2&quot;</span> <span class="i">Of</span> <span class="i">route</span> 
+        (<span class="k">fun</span> <span class="i">p</span> <span class="k">-&gt;</span> { <span class="i">p</span> <span class="k">with</span> <span class="i">TypeName</span> <span class="o">=</span> <span class="s">&quot;integer&quot;</span>; <span class="i">In</span><span class="o">=</span><span class="i">Path</span> })
 }
 </code></pre></td>
 </tr>
@@ -335,14 +311,14 @@
 <span class="l">7: </span>
 <span class="l">8: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs54', 113)" onmouseover="showTip(event, 'fs54', 113)" class="t">CLIMutable</span>&gt;] <span class="c">//important for XML serialization</span>
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs55', 114)" onmouseover="showTip(event, 'fs55', 114)" class="t">Pet</span> <span class="o">=</span>
-  { <span onmouseout="hideTip(event, 'fs56', 115)" onmouseover="showTip(event, 'fs56', 115)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs57', 116)" onmouseover="showTip(event, 'fs57', 116)" class="t">int</span>
-    <span onmouseout="hideTip(event, 'fs58', 117)" onmouseover="showTip(event, 'fs58', 117)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs59', 118)" onmouseover="showTip(event, 'fs59', 118)" class="t">string</span>
-    <span onmouseout="hideTip(event, 'fs60', 119)" onmouseover="showTip(event, 'fs60', 119)" class="i">Category</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs61', 120)" onmouseover="showTip(event, 'fs61', 120)" class="t">PetCategory</span> }
-<span class="k">and</span> [&lt;<span onmouseout="hideTip(event, 'fs54', 121)" onmouseover="showTip(event, 'fs54', 121)" class="t">CLIMutable</span>&gt;] <span onmouseout="hideTip(event, 'fs61', 122)" onmouseover="showTip(event, 'fs61', 122)" class="t">PetCategory</span> <span class="o">=</span> 
-  { <span onmouseout="hideTip(event, 'fs62', 123)" onmouseover="showTip(event, 'fs62', 123)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs57', 124)" onmouseover="showTip(event, 'fs57', 124)" class="t">int</span>
-    <span onmouseout="hideTip(event, 'fs63', 125)" onmouseover="showTip(event, 'fs63', 125)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs59', 126)" onmouseover="showTip(event, 'fs59', 126)" class="t">string</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs33', 58)" onmouseover="showTip(event, 'fs33', 58)" class="t">CLIMutable</span>&gt;] <span class="c">//important for XML serialization</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs34', 59)" onmouseover="showTip(event, 'fs34', 59)" class="t">Pet</span> <span class="o">=</span>
+  { <span onmouseout="hideTip(event, 'fs35', 60)" onmouseover="showTip(event, 'fs35', 60)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs36', 61)" onmouseover="showTip(event, 'fs36', 61)" class="t">int</span>
+    <span onmouseout="hideTip(event, 'fs37', 62)" onmouseover="showTip(event, 'fs37', 62)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs38', 63)" onmouseover="showTip(event, 'fs38', 63)" class="t">string</span>
+    <span onmouseout="hideTip(event, 'fs39', 64)" onmouseover="showTip(event, 'fs39', 64)" class="i">Category</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs40', 65)" onmouseover="showTip(event, 'fs40', 65)" class="t">PetCategory</span> }
+<span class="k">and</span> [&lt;<span onmouseout="hideTip(event, 'fs33', 66)" onmouseover="showTip(event, 'fs33', 66)" class="t">CLIMutable</span>&gt;] <span onmouseout="hideTip(event, 'fs40', 67)" onmouseover="showTip(event, 'fs40', 67)" class="t">PetCategory</span> <span class="o">=</span> 
+  { <span onmouseout="hideTip(event, 'fs41', 68)" onmouseover="showTip(event, 'fs41', 68)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs36', 69)" onmouseover="showTip(event, 'fs36', 69)" class="t">int</span>
+    <span onmouseout="hideTip(event, 'fs42', 70)" onmouseover="showTip(event, 'fs42', 70)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs38', 71)" onmouseover="showTip(event, 'fs38', 71)" class="t">string</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -362,17 +338,17 @@
 <span class="l">11: </span>
 <span class="l">12: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs64', 127)" onmouseover="showTip(event, 'fs64', 127)" class="f">findPetById</span> <span onmouseout="hideTip(event, 'fs65', 128)" onmouseover="showTip(event, 'fs65', 128)" class="i">id</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs28', 129)" onmouseover="showTip(event, 'fs28', 129)" class="f">MODEL</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs43', 72)" onmouseover="showTip(event, 'fs43', 72)" class="f">findPetById</span> <span onmouseout="hideTip(event, 'fs44', 73)" onmouseover="showTip(event, 'fs44', 73)" class="i">id</span> <span class="o">=</span> 
+  <span class="i">MODEL</span>
     { 
-      <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs65', 130)" onmouseover="showTip(event, 'fs65', 130)" class="i">id</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs66', 131)" onmouseover="showTip(event, 'fs66', 131)" class="f">sprintf</span> <span class="s">&quot;pet_</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs65', 132)" onmouseover="showTip(event, 'fs65', 132)" class="i">id</span>)
-      <span class="i">Category</span> <span class="o">=</span> { <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs65', 133)" onmouseover="showTip(event, 'fs65', 133)" class="i">id</span><span class="o">*</span><span class="n">100</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs66', 134)" onmouseover="showTip(event, 'fs66', 134)" class="f">sprintf</span> <span class="s">&quot;cat_</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs65', 135)" onmouseover="showTip(event, 'fs65', 135)" class="i">id</span>) }
+      <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs44', 74)" onmouseover="showTip(event, 'fs44', 74)" class="i">id</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs45', 75)" onmouseover="showTip(event, 'fs45', 75)" class="i">sprintf</span> <span class="s">&quot;pet_%d&quot;</span> <span onmouseout="hideTip(event, 'fs44', 76)" onmouseover="showTip(event, 'fs44', 76)" class="i">id</span>)
+      <span class="i">Category</span> <span class="o">=</span> { <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs44', 77)" onmouseover="showTip(event, 'fs44', 77)" class="i">id</span><span class="o">*</span><span class="n">100</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs45', 78)" onmouseover="showTip(event, 'fs45', 78)" class="i">sprintf</span> <span class="s">&quot;cat_%d&quot;</span> <span onmouseout="hideTip(event, 'fs44', 79)" onmouseover="showTip(event, 'fs44', 79)" class="i">id</span>) }
     }
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs67', 136)" onmouseover="showTip(event, 'fs67', 136)" class="f">findCategoryById</span> <span onmouseout="hideTip(event, 'fs65', 137)" onmouseover="showTip(event, 'fs65', 137)" class="i">id</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs28', 138)" onmouseover="showTip(event, 'fs28', 138)" class="f">MODEL</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs46', 80)" onmouseover="showTip(event, 'fs46', 80)" class="f">findCategoryById</span> <span onmouseout="hideTip(event, 'fs44', 81)" onmouseover="showTip(event, 'fs44', 81)" class="i">id</span> <span class="o">=</span> 
+  <span class="i">MODEL</span>
     { 
-      <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs65', 139)" onmouseover="showTip(event, 'fs65', 139)" class="i">id</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs66', 140)" onmouseover="showTip(event, 'fs66', 140)" class="f">sprintf</span> <span class="s">&quot;cat_</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs65', 141)" onmouseover="showTip(event, 'fs65', 141)" class="i">id</span>)
+      <span class="i">Id</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs44', 82)" onmouseover="showTip(event, 'fs44', 82)" class="i">id</span>; <span class="i">Name</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs45', 83)" onmouseover="showTip(event, 'fs45', 83)" class="i">sprintf</span> <span class="s">&quot;cat_%d&quot;</span> <span onmouseout="hideTip(event, 'fs44', 84)" onmouseover="showTip(event, 'fs44', 84)" class="i">id</span>)
     }
 </code></pre></td>
 </tr>
@@ -401,25 +377,25 @@
 <span class="l">19: </span>
 <span class="l">20: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs68', 142)" onmouseover="showTip(event, 'fs68', 142)" class="i">api3</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs30', 143)" onmouseover="showTip(event, 'fs30', 143)" class="i">swagger</span> {
-      <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 144)" onmouseover="showTip(event, 'fs31', 144)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 145)" onmouseover="showTip(event, 'fs32', 145)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 146)" onmouseover="showTip(event, 'fs46', 146)" class="f">urlFormat</span> <span class="s">&quot;/pet/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs64', 147)" onmouseover="showTip(event, 'fs64', 147)" class="f">findPetById</span> <span class="k">do</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 148)" onmouseover="showTip(event, 'fs35', 148)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 149)" onmouseover="showTip(event, 'fs36', 149)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 150)" onmouseover="showTip(event, 'fs31', 150)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 151)" onmouseover="showTip(event, 'fs37', 151)" class="f">is</span> <span class="s">&quot;Search a pet by id&quot;</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 152)" onmouseover="showTip(event, 'fs31', 152)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs69', 153)" onmouseover="showTip(event, 'fs69', 153)" class="f">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found pet&quot;</span> (<span onmouseout="hideTip(event, 'fs70', 154)" onmouseover="showTip(event, 'fs70', 154)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs71', 155)" onmouseover="showTip(event, 'fs71', 155)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs55', 156)" onmouseover="showTip(event, 'fs55', 156)" class="t">Pet</span><span class="o">&gt;</span>)
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 157)" onmouseover="showTip(event, 'fs31', 157)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs72', 158)" onmouseover="showTip(event, 'fs72', 158)" class="f">produces</span> <span class="s">&quot;application/json&quot;</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 159)" onmouseover="showTip(event, 'fs31', 159)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs72', 160)" onmouseover="showTip(event, 'fs72', 160)" class="f">produces</span> <span class="s">&quot;application/xml&quot;</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 161)" onmouseover="showTip(event, 'fs31', 161)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs73', 162)" onmouseover="showTip(event, 'fs73', 162)" class="f">consumes</span> <span class="s">&quot;application/json&quot;</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 163)" onmouseover="showTip(event, 'fs31', 163)" class="i">route</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs73', 164)" onmouseover="showTip(event, 'fs73', 164)" class="f">consumes</span> <span class="s">&quot;application/xml&quot;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs47', 85)" onmouseover="showTip(event, 'fs47', 85)" class="i">api3</span> <span class="o">=</span> 
+  <span class="i">swagger</span> {
+      <span class="k">for</span> <span class="i">route</span> <span class="k">in</span> <span class="i">getting</span> <span class="o">&lt;|</span> <span class="i">urlFormat</span> <span class="s">&quot;/pet/%d&quot;</span> <span onmouseout="hideTip(event, 'fs43', 86)" onmouseover="showTip(event, 'fs43', 86)" class="i">findPetById</span> <span class="k">do</span>
+        <span class="k">yield</span> <span class="i">description</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;Search a pet by id&quot;</span>
+        <span class="k">yield</span> <span class="i">route</span> <span class="o">|&gt;</span> <span class="i">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found pet&quot;</span> (<span onmouseout="hideTip(event, 'fs48', 87)" onmouseover="showTip(event, 'fs48', 87)" class="i">Some</span> <span onmouseout="hideTip(event, 'fs49', 88)" onmouseover="showTip(event, 'fs49', 88)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs34', 89)" onmouseover="showTip(event, 'fs34', 89)" class="i">Pet</span><span class="o">&gt;</span>)
+        <span class="k">yield</span> <span class="i">route</span> <span class="o">|&gt;</span> <span class="i">produces</span> <span class="s">&quot;application/json&quot;</span>
+        <span class="k">yield</span> <span class="i">route</span> <span class="o">|&gt;</span> <span class="i">produces</span> <span class="s">&quot;application/xml&quot;</span>
+        <span class="k">yield</span> <span class="i">route</span> <span class="o">|&gt;</span> <span class="i">consumes</span> <span class="s">&quot;application/json&quot;</span>
+        <span class="k">yield</span> <span class="i">route</span> <span class="o">|&gt;</span> <span class="i">consumes</span> <span class="s">&quot;application/xml&quot;</span>
       
-      <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 165)" onmouseover="showTip(event, 'fs31', 165)" class="i">route</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs32', 166)" onmouseover="showTip(event, 'fs32', 166)" class="f">getting</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs46', 167)" onmouseover="showTip(event, 'fs46', 167)" class="f">urlFormat</span> <span class="s">&quot;/category/</span><span class="pf">%d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs67', 168)" onmouseover="showTip(event, 'fs67', 168)" class="f">findCategoryById</span> <span class="k">do</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs35', 169)" onmouseover="showTip(event, 'fs35', 169)" class="f">description</span> <span onmouseout="hideTip(event, 'fs36', 170)" onmouseover="showTip(event, 'fs36', 170)" class="f">Of</span> <span onmouseout="hideTip(event, 'fs31', 171)" onmouseover="showTip(event, 'fs31', 171)" class="i">route</span> <span onmouseout="hideTip(event, 'fs37', 172)" onmouseover="showTip(event, 'fs37', 172)" class="f">is</span> <span class="s">&quot;Search a category by id&quot;</span>
-        <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs31', 173)" onmouseover="showTip(event, 'fs31', 173)" class="i">route</span> 
-          <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs69', 174)" onmouseover="showTip(event, 'fs69', 174)" class="f">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found category&quot;</span> (<span onmouseout="hideTip(event, 'fs70', 175)" onmouseover="showTip(event, 'fs70', 175)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs71', 176)" onmouseover="showTip(event, 'fs71', 176)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs61', 177)" onmouseover="showTip(event, 'fs61', 177)" class="t">PetCategory</span><span class="o">&gt;</span>)
+      <span class="k">for</span> <span class="i">route</span> <span class="k">in</span> <span class="i">getting</span> <span class="o">&lt;|</span> <span class="i">urlFormat</span> <span class="s">&quot;/category/%d&quot;</span> <span onmouseout="hideTip(event, 'fs46', 90)" onmouseover="showTip(event, 'fs46', 90)" class="i">findCategoryById</span> <span class="k">do</span>
+        <span class="k">yield</span> <span class="i">description</span> <span class="i">Of</span> <span class="i">route</span> <span class="i">is</span> <span class="s">&quot;Search a category by id&quot;</span>
+        <span class="k">yield</span> <span class="i">route</span> 
+          <span class="o">|&gt;</span> <span class="i">addResponse</span> <span class="n">200</span> <span class="s">&quot;The found category&quot;</span> (<span onmouseout="hideTip(event, 'fs48', 91)" onmouseover="showTip(event, 'fs48', 91)" class="i">Some</span> <span onmouseout="hideTip(event, 'fs49', 92)" onmouseover="showTip(event, 'fs49', 92)" class="i">typeof</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs40', 93)" onmouseover="showTip(event, 'fs40', 93)" class="i">PetCategory</span><span class="o">&gt;</span>)
     }
   
-[&lt;<span onmouseout="hideTip(event, 'fs38', 178)" onmouseover="showTip(event, 'fs38', 178)" class="t">EntryPoint</span>&gt;]
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 179)" onmouseover="showTip(event, 'fs39', 179)" class="f">main</span> <span onmouseout="hideTip(event, 'fs40', 180)" onmouseover="showTip(event, 'fs40', 180)" class="i">argv</span> <span class="o">=</span> 
-  <span onmouseout="hideTip(event, 'fs21', 181)" onmouseover="showTip(event, 'fs21', 181)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 182)" onmouseover="showTip(event, 'fs22', 182)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs68', 183)" onmouseover="showTip(event, 'fs68', 183)" class="i">api3</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 184)" onmouseover="showTip(event, 'fs41', 184)" class="f">App</span>
+[&lt;<span onmouseout="hideTip(event, 'fs25', 94)" onmouseover="showTip(event, 'fs25', 94)" class="t">EntryPoint</span>&gt;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 95)" onmouseover="showTip(event, 'fs26', 95)" class="f">main</span> <span onmouseout="hideTip(event, 'fs27', 96)" onmouseover="showTip(event, 'fs27', 96)" class="i">argv</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs21', 97)" onmouseover="showTip(event, 'fs21', 97)" class="f">startWebServer</span> <span onmouseout="hideTip(event, 'fs22', 98)" onmouseover="showTip(event, 'fs22', 98)" class="i">defaultConfig</span> <span onmouseout="hideTip(event, 'fs47', 99)" onmouseover="showTip(event, 'fs47', 99)" class="i">api3</span><span class="o">.</span><span class="i">App</span>
   <span class="n">0</span>
 </code></pre></td>
 </tr>

@@ -1,5 +1,5 @@
 ﻿(**
-- title : Suave.RestFullKit
+- title : Suave.Swagger
 - description : A solution to use Swagger with Suave
 - author : Romain Flechner
 - theme : night
@@ -10,10 +10,10 @@
 (*** hide ***)
 
 #I @"../packages/Suave/lib/net40"
-#I @"../bin/Suave.RestFullKit"
+#I @"../bin/Suave.Swagger"
 
 #r "Suave.dll"
-#r "Suave.RestFullKit.dll"
+#r "Suave.Swagger.dll"
 
 (**
 
@@ -74,7 +74,7 @@ Go to http://localhost:8083/time1
 ### Documented solution
 
 *)
-open Suave.RestFullKit
+open Suave.Swagger
 open Rest
 open FunnyDsl
 open Swagger

@@ -1,12 +1,12 @@
-module Suave.RestFullKit.Tests
+module Suave.Swagger.Tests
 
-open Suave.RestFullKit
+open Suave.Swagger
 open NUnit.Framework
 open System
-open Suave.RestFullKit.Rest
-open Suave.RestFullKit.FunnyDsl
-open Suave.RestFullKit.Swagger
-open Suave.RestFullKit.Serialization
+open Suave.Swagger.Rest
+open Suave.Swagger.FunnyDsl
+open Suave.Swagger.Swagger
+open Suave.Swagger.Serialization
 
 type Customer = {
   Name:string

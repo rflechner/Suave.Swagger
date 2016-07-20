@@ -10,7 +10,7 @@ open Newtonsoft.Json
 open Newtonsoft.Json.Serialization
 open ICSharpCode.SharpZipLib.Zip
 
-open Suave.RestFullKit
+open Suave.Swagger
 open Rest
 open FunnyDsl
 open Swagger

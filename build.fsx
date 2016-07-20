@@ -12,7 +12,7 @@
 let gitOwner = "rflechner"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "Suave.RestFullKit"
+let gitProjectName = "Suave.Swagger"
 
 open FsReveal
 open Fake

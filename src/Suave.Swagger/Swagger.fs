@@ -1,4 +1,4 @@
-﻿namespace Suave.RestFullKit
+﻿namespace Suave.Swagger
 
 module Swagger =
 

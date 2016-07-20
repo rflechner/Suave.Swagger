@@ -1,16 +1,16 @@
 type project
 title
-    Suave.RestFullKit
+    Suave.Swagger
 owners
     rflechner
 authors 
     rflechner
 projectUrl
-    http://github.com/rflechner/Suave.RestFullKit
+    http://github.com/rflechner/Suave.Swagger
 iconUrl
-    https://raw.githubusercontent.com/rflechner/Suave.RestFullKit/master/docs/files/img/logo.png
+    https://raw.githubusercontent.com/rflechner/Suave.Swagger/master/docs/files/img/logo.png
 licenseUrl
-    http://github.com/rflechner/Suave.RestFullKit/blob/master/LICENSE.txt
+    http://github.com/rflechner/Suave.Swagger/blob/master/LICENSE.txt
 requireLicenseAcceptance
     false
 copyright
