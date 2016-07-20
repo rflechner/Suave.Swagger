@@ -32,7 +32,8 @@ let now1 : WebPart =
     async {
       return! OK (DateTime.Now.ToString()) x
     }
-let main1 argv = 
+[<EntryPoint>]
+let main argv = 
   let time1 = GET >=> path "/time1" >=> now1
   startWebServer defaultConfig time1
   0 // return an integer exit code
@@ -50,6 +51,8 @@ open Suave.Swagger
 open Rest
 open FunnyDsl
 open Swagger
+open Suave
+open System
 
 let now : WebPart =
   fun (x : HttpContext) ->
@@ -58,12 +61,6 @@ let now : WebPart =
       // and switches between XML and JSON format
       return! MODEL DateTime.Now x
     }
-
-(**
-
-Using DSL:
-
-*)
 
 let api1 = 
   swagger {
@@ -75,7 +72,7 @@ let api1 =
 [<EntryPoint>]
 let main argv = 
   startWebServer defaultConfig api1.App
-  0 // return an integer exit code
+  0 // return an integer exit codexit code
 
 (**
 
