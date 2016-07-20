@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>FunnyDsl - Suave.Swagger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="rflechner"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/Suave.Swagger/content/style.css" />
+    <script type="text/javascript" src="/Suave.Swagger/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/rflechner/Suave.Swagger">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/Suave.Swagger/index.html">Suave.Swagger</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>FunnyDsl</h1>
+<p>
+  <span>Namespace: Suave.Swagger</span><br />
+</p>
+<div class="xmldoc">
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1', 1)" onmouseover="showTip(event, '1', 1)">
+            addResponse (...)
+          </code>
+          <div class="tip" id="1">
+            <strong>Signature:</strong> statusCode:int -&gt; desc:string -&gt; modelType:Type option -&gt; route:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L46-46" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '2', 2)" onmouseover="showTip(event, '2', 2)">
+            consumes mimetype route
+          </code>
+          <div class="tip" id="2">
+            <strong>Signature:</strong> mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L18-18" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '3', 3)" onmouseover="showTip(event, '3', 3)">
+            deleteOf w
+          </code>
+          <div class="tip" id="3">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L88-88" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '4', 4)" onmouseover="showTip(event, '4', 4)">
+            deleting d
+          </code>
+          <div class="tip" id="4">
+            <strong>Signature:</strong> d:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L106-106" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '5', 5)" onmouseover="showTip(event, '5', 5)">
+            description arg1 route f x
+          </code>
+          <div class="tip" id="5">
+            <strong>Signature:</strong> &#39;?7397 -&gt; route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br />
+                          <strong>Type parameters:</strong> '?7397          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L72-72" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '6', 6)" onmouseover="showTip(event, '6', 6)">
+            descriptionOf route f x
+          </code>
+          <div class="tip" id="6">
+            <strong>Signature:</strong> route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L13-13" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '7', 7)" onmouseover="showTip(event, '7', 7)">
+            getOf w
+          </code>
+          <div class="tip" id="7">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L85-85" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '8', 8)" onmouseover="showTip(event, '8', 8)">
+            getting d
+          </code>
+          <div class="tip" id="8">
+            <strong>Signature:</strong> d:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L97-97" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '9', 9)" onmouseover="showTip(event, '9', 9)">
+            headOf w
+          </code>
+          <div class="tip" id="9">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L90-90" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '10', 10)" onmouseover="showTip(event, '10', 10)">
+            is x
+          </code>
+          <div class="tip" id="10">
+            <strong>Signature:</strong> x:&#39;a -&gt; &#39;a<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L11-11" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '11', 11)" onmouseover="showTip(event, '11', 11)">
+            Of x
+          </code>
+          <div class="tip" id="11">
+            <strong>Signature:</strong> x:&#39;a -&gt; &#39;a<br />
+                          <strong>Type parameters:</strong> 'a          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L16-16" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '12', 12)" onmouseover="showTip(event, '12', 12)">
+            OptionsOf w
+          </code>
+          <div class="tip" id="12">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L89-89" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '13', 13)" onmouseover="showTip(event, '13', 13)">
+            parameter name arg2 route f
+          </code>
+          <div class="tip" id="13">
+            <strong>Signature:</strong> name:string -&gt; &#39;?7409 -&gt; route:DocBuildState -&gt; f:(ParamDescriptor -&gt; ParamDescriptor) -&gt; DocBuildState<br />
+                          <strong>Type parameters:</strong> '?7409          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L93-93" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '14', 14)" onmouseover="showTip(event, '14', 14)">
+            patchOf w
+          </code>
+          <div class="tip" id="14">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L91-91" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '15', 15)" onmouseover="showTip(event, '15', 15)">
+            posting d
+          </code>
+          <div class="tip" id="15">
+            <strong>Signature:</strong> d:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L100-100" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '16', 16)" onmouseover="showTip(event, '16', 16)">
+            postOf w
+          </code>
+          <div class="tip" id="16">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L87-87" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '17', 17)" onmouseover="showTip(event, '17', 17)">
+            produces mimetype route
+          </code>
+          <div class="tip" id="17">
+            <strong>Signature:</strong> mimetype:string -&gt; route:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L32-32" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '18', 18)" onmouseover="showTip(event, '18', 18)">
+            putOf w
+          </code>
+          <div class="tip" id="18">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L86-86" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '19', 19)" onmouseover="showTip(event, '19', 19)">
+            putting d
+          </code>
+          <div class="tip" id="19">
+            <strong>Signature:</strong> d:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L103-103" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '20', 20)" onmouseover="showTip(event, '20', 20)">
+            simpleUrl p
+          </code>
+          <div class="tip" id="20">
+            <strong>Signature:</strong> p:string -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L110-110" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '21', 21)" onmouseover="showTip(event, '21', 21)">
+            thenReturns w d
+          </code>
+          <div class="tip" id="21">
+            <strong>Signature:</strong> w:(HttpContext -&gt; Async&lt;HttpContext option&gt;) -&gt; d:DocBuildState -&gt; DocBuildState<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L153-153" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '22', 22)" onmouseover="showTip(event, '22', 22)">
+            urlFormat pf f
+          </code>
+          <div class="tip" id="22">
+            <strong>Signature:</strong> pf:PrintfFormat&lt;&#39;?7416,&#39;?7417,&#39;?7418,&#39;?7419,&#39;t&gt; -&gt; f:(&#39;t -&gt; WebPart) -&gt; DocBuildState<br />
+                          <strong>Type parameters:</strong> '?7416, '?7417, '?7418, '?7419, 't          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L113-113" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '23', 23)" onmouseover="showTip(event, '23', 23)">
+            urlTemplate arg1 route f x
+          </code>
+          <div class="tip" id="23">
+            <strong>Signature:</strong> &#39;?7399 -&gt; route:DocBuildState -&gt; f:(string -&gt; string) -&gt; x:string -&gt; DocBuildState<br />
+                          <strong>Type parameters:</strong> '?7399          </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/rflechner/Suave.Swagger/tree/master/src/Suave.Swagger/FunnyDsl.fs#L75-75" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="/Suave.Swagger/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">Suave.Swagger</li>
+            <li><a href="/Suave.Swagger/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/Suave.Swagger">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/rflechner/Suave.Swagger">Source Code on GitHub</a></li>
+            <li><a href="/Suave.Swagger/license.html">License</a></li>
+            <li><a href="/Suave.Swagger/release-notes.html">Release Notes</a></li>
+            
+            <li class="nav-header">Getting started</li>
+            <li><a href="/Suave.Swagger/tutorial.html">Sample tutorial</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="/Suave.Swagger/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/rflechner/Suave.Swagger"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>
