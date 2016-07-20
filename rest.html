@@ -79,6 +79,19 @@
 </code></pre></td>
 </tr>
 </table>
+<p>We can also simply read the body stream as JSON serialized object</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 34)" onmouseover="showTip(event, 'fs21', 34)" class="f">r2</span> <span class="o">=</span>  
+  <span onmouseout="hideTip(event, 'fs24', 35)" onmouseover="showTip(event, 'fs24', 35)" class="f">POST</span> 
+    <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs19', 36)" onmouseover="showTip(event, 'fs19', 36)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> 
+    <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs25', 37)" onmouseover="showTip(event, 'fs25', 37)" class="f">JsonBody</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs12', 38)" onmouseover="showTip(event, 'fs12', 38)" class="t">PetCategory</span><span class="o">&gt;</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs26', 39)" onmouseover="showTip(event, 'fs26', 39)" class="i">model</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs23', 40)" onmouseover="showTip(event, 'fs23', 40)" class="f">MODEL</span> { <span onmouseout="hideTip(event, 'fs26', 41)" onmouseover="showTip(event, 'fs26', 41)" class="i">model</span> <span class="k">with</span> <span class="i">Id</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs27', 42)" onmouseover="showTip(event, 'fs27', 42)" class="t">Random</span>()<span class="o">.</span><span class="f">Next</span>()) })
+</code></pre></td>
+</tr>
+</table>
 
 <div class="tip" id="fs1">namespace System</div>
 <div class="tip" id="fs2">namespace Suave</div>
@@ -103,6 +116,10 @@
 <div class="tip" id="fs21">val r2 : (HttpContext -&gt; Async&lt;HttpContext option&gt;)<br /><br />Full name: Rest.r2</div>
 <div class="tip" id="fs22">val XML : v:&#39;t -&gt; WebPart<br /><br />Full name: Suave.Swagger.Rest.XML</div>
 <div class="tip" id="fs23">val MODEL : m:&#39;t -&gt; x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Suave.Swagger.Rest.MODEL</div>
+<div class="tip" id="fs24">val POST : WebPart<br /><br />Full name: Suave.Filters.POST</div>
+<div class="tip" id="fs25">val JsonBody : f:(&#39;t -&gt; WebPart) -&gt; x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Suave.Swagger.Rest.JsonBody</div>
+<div class="tip" id="fs26">val model : PetCategory</div>
+<div class="tip" id="fs27">Multiple items<br />type Random =<br />&#160;&#160;new : unit -&gt; Random + 1 overload<br />&#160;&#160;member Next : unit -&gt; int + 2 overloads<br />&#160;&#160;member NextBytes : buffer:byte[] -&gt; unit<br />&#160;&#160;member NextDouble : unit -&gt; float<br /><br />Full name: System.Random<br /><br />--------------------<br />Random() : unit<br />Random(Seed: int) : unit</div>
 
         </div>
         <div class="span3">
