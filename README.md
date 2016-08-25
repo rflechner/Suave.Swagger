@@ -11,3 +11,6 @@ Documentation: https://rflechner.github.io/Suave.Swagger/#/
 
 - [@rflechner](https://github.com/rflechner)
 
+## Example
+
+[Example](./examples/Suave.Swagger.PetStoreAPi/Program.fs)
