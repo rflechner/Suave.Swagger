@@ -105,9 +105,9 @@ let api2 =
       yield description Of route is "Compute a simple addition"
       yield urlTemplate Of route is "/add/{number1}/{number2}"
       yield parameter "number1" Of route  
-        (fun p -> { p with TypeName = "integer"; In=Path })
+        (fun p -> { p with Type = (Some typeof<int>); In=Path })
       yield parameter "number2" Of route 
-        (fun p -> { p with TypeName = "integer"; In=Path })
+        (fun p -> { p with Type = (Some typeof<int>); In=Path })
 }
 
 (**
@@ -187,7 +187,7 @@ let api3 =
       for route in posting <| simpleUrl "/category" |> thenReturns createCategory do
         yield description Of route is "Create a category"
         yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
-        yield parameter "category model" Of route (fun p -> { p with TypeName = "PetCategory"; In=Body })
+        yield parameter "category model" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
     }
   
 [<EntryPoint>]
@@ -197,7 +197,7 @@ let main argv =
 
 (**
 
-![Swagger UI 3](images/screen3.gif)
+![Swagger UI 3](images/screen3-2.gif)
 
 *)
 
