@@ -197,7 +197,7 @@ let main argv =
 
 (**
 
-![Swagger UI 3](images/screen3-2.gif)
+![Swagger UI 3](images/screen3_2.gif)
 
 *)
 
