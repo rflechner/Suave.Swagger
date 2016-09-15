@@ -86,7 +86,7 @@ let api =
       for route in posting <| simpleUrl "/category" |> thenReturns createCategory do
         yield description Of route is "Create a category"
         yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
-        yield parameter "category model" Of route (fun p -> { p with TypeName = "PetCategory"; In=Body })
+        yield parameter "category model" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
 
 //       Classic routes with manual documentation
 
@@ -97,8 +97,8 @@ let api =
       for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a + b).ToString()))) do
         yield description Of route is "Compute a simple addition"
         yield urlTemplate Of route is "/add/{number1}/{number2}"
-        yield parameter "number1" Of route (fun p -> { p with TypeName = "integer"; In=Path })
-        yield parameter "number2" Of route (fun p -> { p with TypeName = "integer"; In=Path })
+        yield parameter "number1" Of route (fun p -> { p with Type = (Some typeof<int>); In=Path })
+        yield parameter "number2" Of route (fun p -> { p with Type = (Some typeof<int>); In=Path })
 
       for route in getOf (path "/hello" >=> OK "coucou") do
         yield description Of route is "Say hello"

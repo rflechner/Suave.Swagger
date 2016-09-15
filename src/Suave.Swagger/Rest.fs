@@ -10,15 +10,17 @@ open Suave.Writers
 open Suave.Successful
 open Newtonsoft.Json
 open Newtonsoft.Json.Serialization
-open ICSharpCode.SharpZipLib.Zip
+
 open Suave.RequestErrors
-  open System.Xml.Serialization
+open System.Xml.Serialization
 
 
 module Serialization =
+  let mutable CamelCase = true //quick fix, needs a refactoring
   let toJson o =
     let jsonSerializerSettings = new JsonSerializerSettings()
-    jsonSerializerSettings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
+    if CamelCase then
+      jsonSerializerSettings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
     JsonConvert.SerializeObject(o, jsonSerializerSettings)
 
 module Rest =
@@ -26,7 +28,8 @@ module Rest =
   let JSON v =
     v |> Serialization.toJson |> OK
     >=> Writers.setMimeType "application/json; charset=utf-8"
-    >=> Writers.addHeader "Access-Control-Allow-Origin" "*"
+    //>=> Writers.addHeader "Access-Control-Allow-Origin" "*"
+    >=> Writers.addHeader "Origin" "*"
   let XML (v:'t) : WebPart =
     let w =
      fun (ctx : HttpContext) ->
@@ -36,13 +39,14 @@ module Rest =
           serializer.Serialize(memory, v)
           memory.Position <- 0L
           let bytes = (Bytes (memory.ToArray()))
+          let code = Suave.Http.HttpCode.HTTP_200
           let context =
            { ctx 
               with 
                 response = 
                   { ctx.response 
                       with 
-                        status = Suave.Http.HTTP_200
+                        status = code
                         content = bytes
                   }
            } |> succeed

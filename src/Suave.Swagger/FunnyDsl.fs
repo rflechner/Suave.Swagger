@@ -143,15 +143,16 @@ module FunnyDsl =
 
     ( match ty with
       | _ when ty.IsPrimitive -> 
-        let name,tn = pname ty 0
-        let p = { (ParamDescriptor.Named name) with TypeName=tn; In=Path }
+        let name,_ = pname ty 0
+        let p = { (ParamDescriptor.Named name) with Type=(Some ty); In=Path }
         doc.Documents(fun d -> { d with Params = (p :: d.Params) })
       | _ ->
         ty.GetGenericArguments()
           |> Seq.mapi (
               fun i pt -> 
-                let name,tn = pname pt i
-                { (ParamDescriptor.Named name) with TypeName=tn; In=Path }
+                let name,_ = pname pt i
+                let t = Some pt
+                { (ParamDescriptor.Named name) with Type=t; In=Path }
               ) 
           |> Seq.rev
           |> Seq.fold (

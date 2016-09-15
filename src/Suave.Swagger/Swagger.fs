@@ -5,11 +5,19 @@ module Swagger =
   open System
   open System.Collections.Generic
   open System.IO
+
   open Suave
   open Suave.Operators
   open Suave.Filters
   open Suave.Writers
+  open Suave.Sockets.Control
   open Suave.Successful
+  open Suave.Logging
+  open Suave.EventSource
+  open Suave.Files
+  open Suave.State.CookieStateStore
+  open Suave.Sockets.AsyncSocket
+
   open Newtonsoft.Json
   open Newtonsoft.Json.Serialization
   open Newtonsoft.Json.Linq
@@ -18,6 +26,7 @@ module Swagger =
   open Suave.Filters
   open Suave.RequestErrors
   open System.Xml.Serialization
+  open Suave.Sockets
 
   type Path=string
   
@@ -111,11 +120,11 @@ module Swagger =
       | Patch -> "patch"
   and ParamDescriptor = 
     { Name:string
-      TypeName:string
+      Type:Type option
       In:ParamContainer
       Required:bool }
     static member Named n =
-      {Name=n; TypeName=""; In=Query; Required=true}
+      {Name=n; Type=None; In=Query; Required=true}
   // http://swagger.io/specification/#parameterObject
   and ParamContainer =
     | Query | Header | Path | FormData | Body
@@ -197,6 +206,16 @@ module Swagger =
           unbox ""
         override __.CanConvert(objectType:Type) = 
           objectType = typeof<PropertyDefinition>
+  and ParamDefinitionConverter()=
+    inherit JsonConverter()
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
+          let p = unbox<ParamDefinition>(value)
+          writer.WriteRawValue (p.ToJson())
+          writer.Flush()
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+          unbox ""
+        override __.CanConvert(objectType:Type) = 
+          objectType = typeof<ParamDefinition>
   and DefinitionsConverter() =
     inherit JsonConverter()
       override __.WriteJson(writer:JsonWriter,value:obj,serializer:JsonSerializer) =
@@ -256,9 +275,25 @@ module Swagger =
       __.ToJObject().ToString()
   and ParamDefinition = 
     { Name:string
-      Type:string
+      Type:PropertyDefinition option
       In:string
       Required:bool }
+    member __.ToJObject() : JObject =
+      let v = JObject()
+      v.Add("name", JToken.FromObject __.Name)
+      v.Add("in", JToken.FromObject __.In)
+      v.Add("required", JToken.FromObject __.Required)
+      match __.Type with
+      | Some t ->
+          match t with
+          | Primitive (t,_) ->
+              v.Add("type", JToken.FromObject t)
+          | Ref _ ->
+              v.Add("schema", t.ToJObject())
+      | None -> ()
+      v
+    member __.ToJson() : string =
+      __.ToJObject().ToString()
   and ApiDocumentation =
     { Swagger:string
       Info:ApiDescription
@@ -272,8 +307,11 @@ module Swagger =
       settings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
       settings.Converters.Add(new ResponseDocConverter())
       settings.Converters.Add(new PropertyDefinitionConverter())
+      //settings.Converters.Add(new PropertyDefinitionOptionConverter())
       settings.Converters.Add(new ObjectDefinitionConverter())
       settings.Converters.Add(new DefinitionsConverter())
+      settings.Converters.Add(new ParamDefinitionConverter())
+      //settings.Converters.Add(new ParamDescriptorConverter())
       JsonConvert.SerializeObject(__, settings)
 
    module TypeHelpers =
@@ -334,6 +372,21 @@ module Swagger =
     let sp = if u2.StartsWith "/" then u2.Substring 1 else u2
     u1 + sp
 
+  let streamWp (stream:Stream) : WebPart = 
+    fun ctx ->
+      let write (conn, _:HttpResult) : SocketOp<unit> = socket {
+            let header = sprintf "Content-Length: %d\r\n" stream.Length
+            do! asyncWriteLn conn header
+            do! transferStream conn stream
+          }
+      { ctx with
+          response =
+            { ctx.response with
+                status = HTTP_200
+                content = SocketTask write } }
+      |> succeed
+
+  let locker = obj()
   let swaggerUiWebPart (swPath:string) (swJsonPath:string) = 
     let wp : WebPart = 
       fun ctx -> 
@@ -341,38 +394,58 @@ module Swagger =
           match ctx.request.url.AbsolutePath.Substring(swPath.Length) with
           | v when String.IsNullOrWhiteSpace v -> "index.html"
           | v -> v
-        let assembly = System.Reflection.Assembly.GetExecutingAssembly()
-        use fs = assembly.GetManifestResourceStream "swagger-ui.zip"
-        use zip = new ZipInputStream(fs)
-        match findInZip zip (fun e -> e.Name = p) with
-        | Some _ -> 
-          let headers = 
-            match defaultMimeTypesMap (System.IO.Path.GetExtension p) with
-            | Some mimetype -> ("Content-Type", mimetype.name) :: ctx.response.headers
-            | None -> ctx.response.headers
-          let bytes() = 
-            use mem = new MemoryStream()
-            zip.CopyTo mem
-            mem.Position <- 0L
-            if p = "index.html" then
-              use r = new StreamReader(mem)
-              r.ReadToEnd()
-                .Replace("http://petstore.swagger.io/v2/swagger.json", (combineUrls "http://localhost:8083/" swJsonPath))
-              |> Text.Encoding.UTF8.GetBytes
+        
+        let streamZipContent () =
+          let assembly = System.Reflection.Assembly.GetExecutingAssembly()
+          let fs = assembly.GetManifestResourceStream "swagger-ui.zip"
+          let zip = new ZipInputStream(fs)
+          let disposeStreams() =
+            fs.Dispose()
+            zip.Dispose()
+          match findInZip zip (fun e -> e.Name = p) with
+          | Some _ -> 
+            let headers = 
+              match defaultMimeTypesMap (System.IO.Path.GetExtension p) with
+              | Some mimetype -> ("Content-Type", mimetype.name) :: ctx.response.headers
+              | None -> ctx.response.headers
+            let write (conn, _) =
+              socket {
+                try
+                  do! asyncWriteLn conn (sprintf "Content-Length: %d\r\n" zip.Length)
+                  do! transferStream conn zip
+                finally
+                  disposeStreams()
+              }
+            if p = "index.html"
+            then
+              use r = new StreamReader(zip)
+              let bytes = 
+                r.ReadToEnd()
+                  .Replace("http://petstore.swagger.io/v2/swagger.json", (combineUrls "/" swJsonPath))
+              |> r.CurrentEncoding.GetBytes
+              { ctx
+                  with 
+                    response = 
+                      { ctx.response 
+                          with 
+                            status = HTTP_200
+                            content = Bytes bytes
+                            headers = headers
+                      }
+              } |> succeed
             else
-              mem.ToArray()
-          { ctx 
-              with 
-                response = 
-                  { ctx.response 
-                      with 
-                        status = Suave.Http.HTTP_200
-                        content = Bytes (bytes())
+              { ctx with
+                  response =
+                    { ctx.response with
+                        status = HTTP_200
+                        content = SocketTask write
                         headers = headers
-                  }
-          } |> succeed
-        | None -> 
-            ctx |> NOT_FOUND "Ressource not found"
+                    }
+              }
+              |> succeed
+          | None -> 
+              ctx |> NOT_FOUND "Ressource not found"
+        streamZipContent()
     pathStarts swPath >=> wp
 
   type DocBuildState =
@@ -452,9 +525,19 @@ module Swagger =
                       let par = 
                         p.Params
                         |> List.map(
-                            fun a -> 
+                            fun a ->
+                              let d =
+                                match a.Type with
+                                | Some t when t.IsPrimitive -> 
+                                    match t.FormatAndName with
+                                    | Some (ty,na) -> Some(Primitive(ty,na))
+                                    | None -> Some(Ref(t.Describes()))
+                                    //Some((Primitive <| t.FormatAndName))
+                                | Some t -> Some((Ref <| t.Describes()))
+                                | None -> None
+
                               { Name=a.Name
-                                Type=a.TypeName
+                                Type=d
                                 In=a.In.ToString()
                                 Required=a.Required })
                       let pa = 
