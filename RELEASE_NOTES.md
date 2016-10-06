@@ -1,3 +1,5 @@
+#### 1.0.1 October 6 2016
+* Fix Subtract typo in docs
 
 #### 1.0.0 September 15 2016
 * Can document post parameters
