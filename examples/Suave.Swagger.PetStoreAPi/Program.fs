@@ -36,7 +36,7 @@ and [<CLIMutable>] PetCategory =
 let createCategory =
   JsonBody<PetCategory>(fun model -> MODEL { model with Id=(Random().Next()) })
 
-let substract(a,b) = OK ((a-b).ToString())
+let subtract(a,b) = OK ((a-b).ToString())
 
 let findPetById id = 
   MODEL
@@ -68,11 +68,11 @@ let api =
         yield description Of route is "What time is it 2 ?"
         yield urlTemplate Of route is "/time2"
 
-      for route in getting <| urlFormat "/substract/%d/%d" substract do
-        yield description Of route is "Substracts two numbers"
+      for route in getting <| urlFormat "/subtract/%d/%d" subtract do
+        yield description Of route is "Subtracts two numbers"
 
-      for route in posting <| urlFormat "/substract/%d/%d" substract do
-        yield description Of route is "Substracts two numbers"
+      for route in posting <| urlFormat "/subtract/%d/%d" subtract do
+        yield description Of route is "Subtracts two numbers"
 
       for route in getting <| urlFormat "/pet/%d" findPetById do
         yield description Of route is "Search a pet by id"

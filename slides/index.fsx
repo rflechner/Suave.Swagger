@@ -131,16 +131,16 @@ Creating a service returning calculation results
 *)
 
 
-let substract(a,b) = OK ((a-b).ToString())
+let subtract(a,b) = OK ((a-b).ToString())
 
 let api2 = 
   swagger {
     // For GET
-    for route in getting <| urlFormat "/substract/%d/%d" substract do
-      yield description Of route is "Substracts two numbers"
+    for route in getting <| urlFormat "/subtract/%d/%d" subtract do
+      yield description Of route is "Subtracts two numbers"
     // For POST
-    for route in posting <| urlFormat "/substract/%d/%d" substract do
-      yield description Of route is "Substracts two numbers"
+    for route in posting <| urlFormat "/subtract/%d/%d" subtract do
+      yield description Of route is "Subtracts two numbers"
 
     // the "add" function can be manually documented
     for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a+b).ToString()))) do
