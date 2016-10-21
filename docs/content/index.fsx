@@ -36,26 +36,26 @@ group Romcyber
 </div>
 
 
-What are Suave and Swagger ?
+What are Suave and Swagger?
 ----------------------------
 
-- [Suave](https://suave.io/) is a FSharp lightweight web server principally used to develop REST APIs
+- [Suave](https://suave.io/) is a F# lightweight web server principally used to develop REST APIs
 - [Swagger](http://swagger.io/) is a usefull tool helping to create interactive documentation, client SDK generation and discoverability.
 
 
-Why using Swagger ?
+Why use Swagger?
 -------------------
 
-- To have beautiful interactive documentations.
-- To improve productivity during developments.
-- To give a possibility for API users to generate clients.
+- Generate beautiful API documentation, including a UI to explore and test operations.
+- Improve productivity during development.
+- Make it possible for API users to generate clients.
 
 
 Project
 -------
 
-This project is a [POC](https://en.wikipedia.org/wiki/Proof_of_concept) helping you to document your Suave services with Swagger.
-Swagger UI is embedded in resources and a webpart serving it is automatically added.
+This is a [proof of concept](https://en.wikipedia.org/wiki/Proof_of_concept) to document Suave web services with Swagger.
+[Swagger UI](http://swagger.io/swagger-ui/) is embedded in resources and a `WebPart` serving it is automatically added.
 
 
 ![Swagger UI 3](images/screen3.gif)
