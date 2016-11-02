@@ -43,6 +43,20 @@ module FunnyDsl =
             }
     }
 
+  let tag (tag:string) (route:DocBuildState) =
+    { route
+        with 
+          Current = 
+            { route.Current 
+                with 
+                  Description =
+                    { route.Current.Description
+                        with
+                          Tags = tag :: route.Current.Description.Tags
+                    }
+            }
+    }
+
 //  let supportsJsonAndXml route =
 //    route
 //    |> produces "application/json" 
