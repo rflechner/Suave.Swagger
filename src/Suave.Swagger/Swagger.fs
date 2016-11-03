@@ -101,12 +101,13 @@ module Swagger =
       OperationId: string
       Produces: string list
       Consumes: string list
+      Tags : string list
       Params: ParamDescriptor list
       Verb:HttpVerb
       Responses:IDictionary<int, ResponseDoc> }
     static member Empty =
       { Template=""; Description=""; Params=[]; Verb=Get; Summary=""
-        OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[] }
+        OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[]; Tags = [] }
   and ResponseDoc = 
     { Description:string
       Schema:ObjectDefinition option }
@@ -168,6 +169,7 @@ module Swagger =
       OperationId:string
       Consumes:string list
       Produces:string list
+      Tags:string list
       Parameters:ParamDefinition list
       Responses:IDictionary<int, ResponseDoc> }
   and ResponseDocConverter() =
@@ -499,6 +501,7 @@ module Swagger =
                           Responses = rs
                           Consumes = o.Consumes @ state.Consumes |> List.distinct
                           Produces = o.Produces @ state.Produces |> List.distinct
+                          Tags = o.Tags @ state.Tags |> List.distinct
                       }
               }
             Models=m
@@ -547,7 +550,8 @@ module Swagger =
                           Consumes=p.Consumes
                           Produces=p.Produces
                           Parameters=par
-                          Responses=p.Responses }
+                          Responses=p.Responses
+                          Tags=p.Tags }
                       yield p.Verb, pa
                   } |> dict
                 (k,vs)
