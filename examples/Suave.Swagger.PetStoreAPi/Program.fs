@@ -32,11 +32,24 @@ and [<CLIMutable>] PetCategory =
   { Id:int
     Name:string }
 
+[<CLIMutable>]
+type SubtractionRequest =
+  { First:int
+    Second:int
+  }
+
+[<CLIMutable>]
+type SubtractionResult = { Result:int }
 
 let createCategory =
   JsonBody<PetCategory>(fun model -> MODEL { model with Id=(Random().Next()) })
 
+
+
 let subtract(a,b) = OK ((a-b).ToString())
+
+let subtractObj =
+  JsonBody<SubtractionRequest>(fun {First=a;Second=b} -> MODEL {Result=(a-b)})
 
 let findPetById id = 
   MODEL
@@ -72,6 +85,12 @@ let api =
 
       for route in getting <| urlFormat "/subtract/%d/%d" subtract do
         yield description Of route is "Subtracts two numbers"
+        yield route |> tag "maths"
+
+      for route in posting <| simpleUrl "/subtract" |> thenReturns subtractObj do
+        yield description Of route is "Subtracts two numbers"
+        yield route |> addResponse 200 "Subtraction result" (Some typeof<SubtractionResult>)
+        yield parameter "subtraction request" Of route (fun p -> { p with Type = (Some typeof<SubtractionRequest>); In=Body })
         yield route |> tag "maths"
 
       for route in posting <| urlFormat "/subtract/%d/%d" subtract do
