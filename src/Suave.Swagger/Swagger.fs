@@ -29,14 +29,14 @@ module Swagger =
   open Suave.Sockets
 
   type Path=string
-  
+
   type FormatParsed =
     | StringPart | CharPart | BoolPart | IntPart
     | DecimalPart | HexaPart
   type FormatPart =
     | Constant  of string
     | Parsed    of FormatParsed
-  type FormatParser = 
+  type FormatParser =
     { Parts:FormatPart list ref
       Buffer:char list ref
       Format:string
@@ -85,7 +85,7 @@ module Swagger =
             | '%' :: 'G' :: _ -> x.Push [Parsed DecimalPart]
             | '%' :: 'x' :: _
             | '%' :: 'X' :: _ -> x.Push [Parsed HexaPart]
-            | _ :: _ -> 
+            | _ :: _ ->
                 let n = x.PreviewNext()
                 match n with
                 | Some '%' -> x.Push [Constant (x.StringBuffer 0)]
@@ -94,7 +94,7 @@ module Swagger =
         if !x.Buffer |> Seq.isEmpty |> not then x.Push [Constant (x.StringBuffer 0)]
         !x.Parts
 
-  type RouteDescriptor = 
+  type RouteDescriptor =
     { Template: Path
       Description: string
       Summary: string
@@ -108,10 +108,10 @@ module Swagger =
     static member Empty =
       { Template=""; Description=""; Params=[]; Verb=Get; Summary=""
         OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[]; Tags = [] }
-  and ResponseDoc = 
+  and ResponseDoc =
     { Description:string
       Schema:ObjectDefinition option }
-  and HttpVerb = 
+  and HttpVerb =
     | Get | Put | Post | Delete | Options | Head | Patch
     override __.ToString() =
       match __ with
@@ -119,7 +119,7 @@ module Swagger =
       | Post -> "post" | Delete -> "delete"
       | Options -> "options" | Head -> "head"
       | Patch -> "patch"
-  and ParamDescriptor = 
+  and ParamDescriptor =
     { Name:string
       Type:Type option
       In:ParamContainer
@@ -130,9 +130,9 @@ module Swagger =
   and ParamContainer =
     | Query | Header | Path | FormData | Body
     override __.ToString() =
-      match __ with 
+      match __ with
       | Query -> "query" | Header -> "header"
-      | Path -> "path" | FormData -> "formData" 
+      | Path -> "path" | FormData -> "formData"
       | Body -> "body"
 
   and WebPartDocumentation =
@@ -142,23 +142,23 @@ module Swagger =
       { WebPart=(w >=> Writers.addHeader "Access-Control-Allow-Origin" "*" )
         Description=RouteDescriptor.Empty }
 
-  and ApiDescription = 
+  and ApiDescription =
     { Title:string
       Description:string
       TermsOfService:string
       Version:string
       Contact:Contact
       License:LicenseInfos }
-    static member Empty = 
+    static member Empty =
       { Title=""; Description=""; TermsOfService=""; Version="";
         Contact=Contact.Empty; License=LicenseInfos.Empty }
   and Contact =
     { Name:string; Url:string; Email:string }
-    static member Empty = 
+    static member Empty =
       { Name=""; Url=""; Email="" }
   and LicenseInfos =
     { Name:string; Url:string }
-    static member Empty = 
+    static member Empty =
       { Name=""; Url="" }
   and ObjectDefinition =
     { Id:string
@@ -184,7 +184,7 @@ module Swagger =
           writer.WritePropertyName "schema"
           writer.WriteStartObject()
           match rs.Schema with
-          | Some sch -> 
+          | Some sch ->
             writer.WritePropertyName "$ref"
             writer.WriteValue (sprintf "#/definitions/%s" sch.Id)
           | None ->()
@@ -194,7 +194,7 @@ module Swagger =
           writer.Flush()
         override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
-        override __.CanConvert(objectType:Type) = 
+        override __.CanConvert(objectType:Type) =
           objectType = typeof<ResponseDoc>
   and PropertyDefinitionConverter()=
     inherit JsonConverter()
@@ -206,7 +206,7 @@ module Swagger =
           writer.Flush()
         override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
-        override __.CanConvert(objectType:Type) = 
+        override __.CanConvert(objectType:Type) =
           objectType = typeof<PropertyDefinition>
   and ParamDefinitionConverter()=
     inherit JsonConverter()
@@ -216,7 +216,7 @@ module Swagger =
           writer.Flush()
         override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
-        override __.CanConvert(objectType:Type) = 
+        override __.CanConvert(objectType:Type) =
           objectType = typeof<ParamDefinition>
   and DefinitionsConverter() =
     inherit JsonConverter()
@@ -232,15 +232,15 @@ module Swagger =
           writer.Flush()
       override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
             unbox ""
-      override __.CanConvert(objectType:Type) = 
+      override __.CanConvert(objectType:Type) =
         typeof<IDictionary<string,ObjectDefinition>>.IsAssignableFrom objectType
   and ObjectDefinitionConverter() =
     inherit JsonConverter()
         override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
           let d = unbox<ObjectDefinition>(value)
-          
+
           writer.WriteStartObject()
-          
+
           writer.WritePropertyName "id"
           writer.WriteValue d.Id
 
@@ -258,7 +258,7 @@ module Swagger =
           writer.Flush()
         override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
           unbox ""
-        override __.CanConvert(objectType:Type) = 
+        override __.CanConvert(objectType:Type) =
           objectType = typeof<ObjectDefinition>
 
   and PropertyDefinition =
@@ -275,7 +275,7 @@ module Swagger =
       v
     member __.ToJson() : string =
       __.ToJObject().ToString()
-  and ParamDefinition = 
+  and ParamDefinition =
     { Name:string
       Type:PropertyDefinition option
       In:string
@@ -318,7 +318,7 @@ module Swagger =
 
    module TypeHelpers =
         //http://swagger.io/specification/ -> Data Types
-        let typeFormatsNames = 
+        let typeFormatsNames =
             [
               typeof<string>, ("string", "string")
               typeof<int8>, ("integer", "int8")
@@ -341,22 +341,22 @@ module Swagger =
 
     type Type with
       member this.FormatAndName
-        with get () = 
+        with get () =
           match this with
-          | _ when TypeHelpers.typeFormatsNames.ContainsKey this -> 
+          | _ when TypeHelpers.typeFormatsNames.ContainsKey this ->
             Some (TypeHelpers.typeFormatsNames.Item this)
           | _ when this.IsPrimitive ->
             Some (TypeHelpers.typeFormatsNames.Item (typeof<string>))
           | _ -> None
 
       member this.Describes() : ObjectDefinition =
-        let props = 
+        let props =
           this.GetProperties()
           |> Seq.map (
-              fun p -> 
+              fun p ->
                 match p.PropertyType.FormatAndName with
                 | Some (ty,na) -> p.Name, Primitive(ty,na)
-                | None -> 
+                | None ->
                     p.Name, Ref(p.PropertyType.Describes())
           ) |> dict
         {Id=this.Name; Properties=props}
@@ -374,7 +374,7 @@ module Swagger =
     let sp = if u2.StartsWith "/" then u2.Substring 1 else u2
     u1 + sp
 
-  let streamWp (stream:Stream) : WebPart = 
+  let streamWp (stream:Stream) : WebPart =
     fun ctx ->
       let write (conn, _:HttpResult) : SocketOp<unit> = socket {
             let header = sprintf "Content-Length: %d\r\n" stream.Length
@@ -389,24 +389,24 @@ module Swagger =
       |> succeed
 
   let locker = obj()
-  let swaggerUiWebPart (swPath:string) (swJsonPath:string) = 
-    let wp : WebPart = 
-      fun ctx -> 
-        let p = 
+  let swaggerUiWebPart (swPath:string) (swJsonPath:string) =
+    let wp : WebPart =
+      fun ctx ->
+        let p =
           match ctx.request.url.AbsolutePath.Substring(swPath.Length) with
           | v when String.IsNullOrWhiteSpace v -> "index.html"
           | v -> v
-        
+
         let streamZipContent () =
-          let assembly = System.Reflection.Assembly.GetExecutingAssembly()
+          let assembly = System.Reflection.Assembly.GetAssembly(typeof<SwaggerBuilder>)
           let fs = assembly.GetManifestResourceStream "swagger-ui.zip"
           let zip = new ZipInputStream(fs)
           let disposeStreams() =
             fs.Dispose()
             zip.Dispose()
           match findInZip zip (fun e -> e.Name = p) with
-          | Some _ -> 
-            let headers = 
+          | Some _ ->
+            let headers =
               match defaultMimeTypesMap (System.IO.Path.GetExtension p) with
               | Some mimetype -> ("Content-Type", mimetype.name) :: ctx.response.headers
               | None -> ctx.response.headers
@@ -421,15 +421,15 @@ module Swagger =
             if p = "index.html"
             then
               use r = new StreamReader(zip)
-              let bytes = 
+              let bytes =
                 r.ReadToEnd()
                   .Replace("http://petstore.swagger.io/v2/swagger.json", (combineUrls "/" swJsonPath))
               |> r.CurrentEncoding.GetBytes
               { ctx
-                  with 
-                    response = 
-                      { ctx.response 
-                          with 
+                  with
+                    response =
+                      { ctx.response
+                          with
                             status = HTTP_200
                             content = Bytes bytes
                             headers = headers
@@ -445,7 +445,7 @@ module Swagger =
                     }
               }
               |> succeed
-          | None -> 
+          | None ->
               ctx |> NOT_FOUND "Ressource not found"
         streamZipContent()
     pathStarts swPath >=> wp
@@ -473,7 +473,7 @@ module Swagger =
       if this.Id <> other.Id
       then
         { this with
-            Routes=((this.Routes @ other.Routes) @ [other.Current] |> List.rev) 
+            Routes=((this.Routes @ other.Routes) @ [other.Current] |> List.rev)
             Models=(other.Models @ this.Models |> List.distinct) }
       else
         let o = other.Current.Description
@@ -481,18 +481,18 @@ module Swagger =
         let d = if o.Description = "" then state.Description else o.Description
         let t = if o.Template = "" then state.Template else o.Template
         let p = o.Params @ state.Params |> List.distinctBy(fun arg -> arg.Name)
-        let rs = 
+        let rs =
           (List.ofSeq other.Current.Description.Responses) @ (List.ofSeq state.Responses)
           |> List.distinctBy(fun kv -> kv.Key)
           |> List.map (fun kv -> kv.Key, kv.Value)
           |> dict
         let m = other.Models @ this.Models |> List.distinct
-        { this with 
+        { this with
             Routes = (this.Routes @ other.Routes)
-            Current = 
+            Current =
               {
-                this.Current with 
-                    Description = 
+                this.Current with
+                    Description =
                       {
                         this.Current.Description with
                           Description = d
@@ -525,13 +525,13 @@ module Swagger =
                 let vs =
                   seq {
                     for p in g do
-                      let par = 
+                      let par =
                         p.Params
                         |> List.map(
                             fun a ->
                               let d =
                                 match a.Type with
-                                | Some t when t.IsPrimitive -> 
+                                | Some t when t.IsPrimitive ->
                                     match t.FormatAndName with
                                     | Some (ty,na) -> Some(Primitive(ty,na))
                                     | None -> Some(Ref(t.Describes()))
@@ -543,7 +543,7 @@ module Swagger =
                                 Type=d
                                 In=a.In.ToString()
                                 Required=a.Required })
-                      let pa = 
+                      let pa =
                         { Summary=p.Summary
                           Description=p.Description
                           OperationId=p.OperationId
@@ -560,7 +560,7 @@ module Swagger =
         for d in List.ofSeq definitions.Values do
           for p in d.Properties do
             match p.Value with
-            | Ref r -> 
+            | Ref r ->
               if not <| definitions.ContainsKey r.Id
               then definitions.Add(r.Id, r)
             | _ -> ()
@@ -570,9 +570,9 @@ module Swagger =
           Paths=paths
           Info=__.Description
           Swagger="2.0" }
-    member __.App 
+    member __.App
       with get () =
-        let swaggerWebPart = 
+        let swaggerWebPart =
           path __.SwaggerJsonPath
             >=> OK (__.Documentation.ToJson()) // JSON __.Documentation
             >=> Writers.setMimeType "application/json; charset=utf-8"
@@ -594,4 +594,3 @@ module Swagger =
         func()
 
   let swagger = new SwaggerBuilder()
-
