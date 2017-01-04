@@ -5,6 +5,7 @@ module Swagger =
   open System
   open System.Collections.Generic
   open System.IO
+  open System.IO.Compression
 
   open Suave
   open Suave.Operators
@@ -21,7 +22,6 @@ module Swagger =
   open Newtonsoft.Json
   open Newtonsoft.Json.Serialization
   open Newtonsoft.Json.Linq
-  open ICSharpCode.SharpZipLib.Zip
   open Rest
   open Suave.Filters
   open Suave.RequestErrors
@@ -361,15 +361,6 @@ module Swagger =
           ) |> dict
         {Id=this.Name; Properties=props}
 
-
-  let findInZip (zip:ZipInputStream) (f:ZipEntry -> bool) =
-    let rec loop (ze:ZipEntry) =
-      if isNull ze
-      then None
-      elif f ze
-      then Some ze
-      else loop (zip.GetNextEntry())
-    loop (zip.GetNextEntry())
   let combineUrls (u1:string) (u2:string) =
     let sp = if u2.StartsWith "/" then u2.Substring 1 else u2
     u1 + sp
@@ -398,14 +389,14 @@ module Swagger =
           | v -> v
 
         let streamZipContent () =
-          let assembly = System.Reflection.Assembly.GetAssembly(typeof<SwaggerBuilder>)
+          let assembly = System.Reflection.Assembly.GetExecutingAssembly()
           let fs = assembly.GetManifestResourceStream "swagger-ui.zip"
-          let zip = new ZipInputStream(fs)
+          let zip = new ZipArchive(fs)
           let disposeStreams() =
             fs.Dispose()
             zip.Dispose()
-          match findInZip zip (fun e -> e.Name = p) with
-          | Some _ ->
+          match zip.Entries |> Seq.tryFind (fun e -> e.FullName = p) with
+          | Some ze ->
             let headers =
               match defaultMimeTypesMap (System.IO.Path.GetExtension p) with
               | Some mimetype -> ("Content-Type", mimetype.name) :: ctx.response.headers
@@ -413,14 +404,14 @@ module Swagger =
             let write (conn, _) =
               socket {
                 try
-                  do! asyncWriteLn conn (sprintf "Content-Length: %d\r\n" zip.Length)
-                  do! transferStream conn zip
+                  do! asyncWriteLn conn (sprintf "Content-Length: %d\r\n" ze.Length)
+                  do! transferStream conn (ze.Open())
                 finally
                   disposeStreams()
               }
             if p = "index.html"
             then
-              use r = new StreamReader(zip)
+              use r = new StreamReader(ze.Open())
               let bytes =
                 r.ReadToEnd()
                   .Replace("http://petstore.swagger.io/v2/swagger.json", (combineUrls "/" swJsonPath))
