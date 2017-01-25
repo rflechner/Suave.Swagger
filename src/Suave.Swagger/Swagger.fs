@@ -367,15 +367,16 @@ module Swagger =
 
   let streamWp (stream:Stream) : WebPart =
     fun ctx ->
-      let write (conn, _:HttpResult) : SocketOp<unit> = socket {
+      let write (conn, _:HttpResult) : SocketOp<Connection> = socket {
             let header = sprintf "Content-Length: %d\r\n" stream.Length
-            do! asyncWriteLn conn header
+            let! (_, conn) = asyncWriteLn header conn
             do! transferStream conn stream
+            return conn
           }
       { ctx with
           response =
             { ctx.response with
-                status = HTTP_200
+                status = {ctx.response.status with code = 200 }
                 content = SocketTask write } }
       |> succeed
 
@@ -403,11 +404,13 @@ module Swagger =
               | None -> ctx.response.headers
             let write (conn, _) =
               socket {
-                try
-                  do! asyncWriteLn conn (sprintf "Content-Length: %d\r\n" ze.Length)
+                 // try
+                  let! (_, conn) = asyncWriteLn (sprintf "Content-Length: %d\r\n" ze.Length) conn 
+                  let! conn = flush conn
                   do! transferStream conn (ze.Open())
-                finally
-                  disposeStreams()
+                  return conn
+//                finally
+//                  disposeStreams()
               }
             if p = "index.html"
             then
@@ -421,7 +424,7 @@ module Swagger =
                     response =
                       { ctx.response
                           with
-                            status = HTTP_200
+                            status = { ctx.response.status with code = 200 }
                             content = Bytes bytes
                             headers = headers
                       }
@@ -430,7 +433,7 @@ module Swagger =
               { ctx with
                   response =
                     { ctx.response with
-                        status = HTTP_200
+                        status = { ctx.response.status with code = 200 }
                         content = SocketTask write
                         headers = headers
                     }
