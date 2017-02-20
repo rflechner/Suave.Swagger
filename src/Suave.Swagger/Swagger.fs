@@ -154,7 +154,7 @@ module Swagger =
   and Contact =
     { Name:string; Url:string; Email:string }
     static member Empty = 
-      { Name=""; Url=""; Email="" }
+      { Name=""; Url=""; Email=null }
   and LicenseInfos =
     { Name:string; Url:string }
     static member Empty = 
@@ -238,9 +238,6 @@ module Swagger =
           let d = unbox<ObjectDefinition>(value)
           
           writer.WriteStartObject()
-          
-          writer.WritePropertyName "id"
-          writer.WriteValue d.Id
 
           writer.WritePropertyName "type"
           writer.WriteValue "object"
@@ -303,7 +300,7 @@ module Swagger =
       Paths:IDictionary<Path,IDictionary<HttpVerb,PathDefinition>>
       Definitions:IDictionary<string,ObjectDefinition> }
     member __.ToJson() =
-      let settings = new JsonSerializerSettings()
+      let settings = new JsonSerializerSettings(NullValueHandling = NullValueHandling.Ignore)
       settings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
       settings.Converters.Add(new ResponseDocConverter())
       settings.Converters.Add(new PropertyDefinitionConverter())
@@ -562,7 +559,7 @@ module Swagger =
             | _ -> ()
 
         { Definitions=definitions
-          BasePath=""; Host=""; Schemes=["http"]
+          BasePath=null; Host=null; Schemes=["http"]
           Paths=paths
           Info=__.Description
           Swagger="2.0" }
