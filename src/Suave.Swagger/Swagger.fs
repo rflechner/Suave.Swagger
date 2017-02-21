@@ -448,6 +448,9 @@ module Swagger =
   type DocBuildState =
     { SwaggerJsonPath:string
       SwaggerUiPath:string
+      BasePath:string
+      Host:string
+      Schemes:string list
       Description:ApiDescription
       Routes:WebPartDocumentation list
       Current:WebPartDocumentation
@@ -456,6 +459,9 @@ module Swagger =
     static member Of w =
       { Routes=[]
         Models=[]
+        BasePath=null
+        Host=null
+        Schemes=["http"]
         Current=WebPartDocumentation.Of w
         Id=Guid.NewGuid()
         Description=ApiDescription.Empty
@@ -559,7 +565,7 @@ module Swagger =
             | _ -> ()
 
         { Definitions=definitions
-          BasePath=null; Host=null; Schemes=["http"]
+          BasePath=__.BasePath; Host=__.Host; Schemes=__.Schemes
           Paths=paths
           Info=__.Description
           Swagger="2.0" }
