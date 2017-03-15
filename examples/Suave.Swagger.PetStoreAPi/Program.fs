@@ -142,8 +142,8 @@ let api =
 [<EntryPoint>]
 let main argv = 
   async {
-    do! Async.Sleep 1000
-    System.Diagnostics.Process.Start "http://localhost:8083/swagger/v2/ui/index.html" |> ignore
+    do! Async.Sleep 2000
+    System.Diagnostics.Process.Start "http://localhost:8080/swagger/v2/ui/index.html" |> ignore
   } |> Async.Start
   startWebServer defaultConfig api.App
   0 // return an integer exit code
