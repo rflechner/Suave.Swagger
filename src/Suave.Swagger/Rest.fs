@@ -39,14 +39,13 @@ module Rest =
           serializer.Serialize(memory, v)
           memory.Position <- 0L
           let bytes = (Bytes (memory.ToArray()))
-          let code = Suave.Http.HttpCode.HTTP_200
           let context =
            { ctx 
               with 
                 response = 
                   { ctx.response 
                       with 
-                        status = code
+                        status = { ctx.response.status with code = 200 }
                         content = bytes
                   }
            } |> succeed

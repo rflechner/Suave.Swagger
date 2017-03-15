@@ -43,6 +43,20 @@ module FunnyDsl =
             }
     }
 
+  let tag (tag:string) (route:DocBuildState) =
+    { route
+        with 
+          Current = 
+            { route.Current 
+                with 
+                  Description =
+                    { route.Current.Description
+                        with
+                          Tags = tag :: route.Current.Description.Tags
+                    }
+            }
+    }
+
 //  let supportsJsonAndXml route =
 //    route
 //    |> produces "application/json" 
@@ -105,7 +119,11 @@ module FunnyDsl =
     
   let parameter (name:string) _ (route:DocBuildState) (f:ParamDescriptor->ParamDescriptor) =
     let p = name |> ParamDescriptor.Named |> f
-    route.Documents(fun doc -> { doc with Params = (p :: doc.Params) })
+    let m = 
+      match p.Type with
+      | Some t -> t :: route.Models
+      | None -> route.Models
+    { route with Models = m}.Documents(fun doc -> { doc with Params = (p :: doc.Params) })
 
   let getting (d:DocBuildState) = 
     { d with Current = { d.Current with WebPart=(GET >=> d.Current.WebPart) } }
