@@ -48,7 +48,7 @@ let r2 = GET >=> path "/cat" >=> XML { Id=45; Name="category 45" }
 
 (**
 
-Allmost REST APIs response's format depends on "Accept" header sent in the request
+Most REST API response formats depend on "Accept" header sent in the request
 
 The MODEL helper will do it.
 

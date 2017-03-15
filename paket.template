@@ -6,7 +6,7 @@ authors
 owners
   rflechner
 description
-  This project is a POC helping you to document your Suave services with Swagger. Swagger UI is embedded in resources and a webpart serving it is automatically added.
+  This is a proof of concept to document Suave web services with Swagger. Swagger UI is embedded in resources and a WebPart serving it is automatically added.
 projectUrl
   http://github.com/rflechner/Suave.Swagger
 iconUrl

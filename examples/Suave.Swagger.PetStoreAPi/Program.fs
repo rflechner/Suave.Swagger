@@ -79,7 +79,7 @@ let api =
 
 //      // another syntax
       for route in getOf (path "/time2" >=> now) do
-        yield description Of route is "What time is it 2 ?"
+        yield description Of route is "What time is it 2?"
         yield urlTemplate Of route is "/time2"
         yield route |> tag "time"
 
