@@ -61,11 +61,11 @@ let api =
   swagger {
 //      // syntax 1
       for route in getting (simpleUrl "/time" |> thenReturns now) do
-        yield description Of route is "What time is it ?"
+        yield description Of route is "What time is it?"
 
 //      // another syntax
       for route in getOf (path "/time2" >=> now) do
-        yield description Of route is "What time is it 2 ?"
+        yield description Of route is "What time is it 2?"
         yield urlTemplate Of route is "/time2"
 
       for route in getting <| urlFormat "/subtract/%d/%d" subtract do

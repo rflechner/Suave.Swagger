@@ -23,18 +23,18 @@ Using Swagger with Suave
 
 ***
 
-## What are Suave and Swagger ?
+## What are Suave and Swagger?
 
-- [Suave](https://suave.io/) is a FSharp lightweight web server principally used to develop REST APIs
-- [Swagger](http://swagger.io/) is a usefull tool helping to create interactive documentation, client SDK generation and discoverability.
+- [Suave](https://suave.io/) is a F# lightweight web server principally used to develop REST APIs
+- [Swagger](http://swagger.io/) is a tool for creating interactive documentation, client SDK generation and discoverability.
 
 ***
 
-## Why using Swagger ?
+## Why use Swagger?
 
-- To have beautiful interactive documentations.
-- To improve productivity during developments.
-- To give a possibility for API users to generate clients.
+- Generate beautiful API documentation, including a UI to explore and test operations.
+- Improve productivity during development.
+- Make it possible for API users to generate clients.
 
 ***
 
@@ -104,7 +104,7 @@ let api1 =
   swagger {
     // syntax 1
     for route in getting (simpleUrl "/time" |> thenReturns now) do
-      yield description Of route is "What time is it ?"
+      yield description Of route is "What time is it?"
   }
 
 [<EntryPoint>]

@@ -66,7 +66,7 @@ let api1 =
   swagger {
     // syntax 1
     for route in getting (simpleUrl "/time" |> thenReturns now) do
-      yield description Of route is "What time is it ?"
+      yield description Of route is "What time is it?"
   }
 
 [<EntryPoint>]
