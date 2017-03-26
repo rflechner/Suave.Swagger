@@ -26,6 +26,7 @@ let now : WebPart =
 [<CLIMutable>]
 type Pet =
   { Id:int
+    Uuid:Guid
     Name:string
     Category:PetCategory }
 and [<CLIMutable>] PetCategory = 
@@ -54,8 +55,14 @@ let subtractObj =
 let findPetById id = 
   MODEL
     { 
-      Id=id; Name=(sprintf "pet_%d" id)
+      Id=id; Name=(sprintf "pet_%d" id); Uuid=(Guid.NewGuid())
       Category = { Id=id*100; Name=(sprintf "cat_%d" id) }
+    }
+let findPetByUuid (id:string) = 
+  MODEL
+    { 
+      Id=1; Name="pet_1"; Uuid=(Guid.Parse(id))
+      Category = { Id=100; Name="cat_0" }
     }
 
 let findCategoryById id = 
@@ -72,12 +79,15 @@ let bye3 = GET >=> path "/bye3" >=> XML "bye. @++"
 
 let api = 
   swagger {
-//      // syntax 1
+      // syntax 1
       for route in getting (simpleUrl "/time" |> thenReturns now) do
         yield description Of route is "What time is it ?"
         yield route |> tag "time"
 
-//      // another syntax
+      for route in getting (urlFormat "/bonjour/%s" (fun x -> OK (sprintf "Bonjour %s" x))) do
+        yield description Of route is "Say hello in french"
+
+      // another syntax
       for route in getOf (path "/time2" >=> now) do
         yield description Of route is "What time is it 2?"
         yield urlTemplate Of route is "/time2"
@@ -99,6 +109,14 @@ let api =
 
       for route in getting <| urlFormat "/pet/%d" findPetById do
         yield description Of route is "Search a pet by id"
+        yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
+        yield route |> supportsJsonAndXml
+        yield route |> tag "pets"
+      
+      for route in getOf (pathScan "/pet/byuuid/%s" findPetByUuid) do
+        yield description Of route is "Search a pet by uuid"
+        yield urlTemplate Of route is "/pet/byuuid/{uuid}"
+        yield parameter "UUID" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
         yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
         yield route |> supportsJsonAndXml
         yield route |> tag "pets"
