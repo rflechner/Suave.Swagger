@@ -160,7 +160,7 @@ module FunnyDsl =
       name,tn
 
     ( match ty with
-      | _ when ty.IsPrimitive -> 
+      | _ when ty.IsPrimitive || TypeHelpers.typeFormatsNames.ContainsKey ty -> 
         let name,_ = pname ty 0
         let p = { (ParamDescriptor.Named name) with Type=(Some ty); In=Path }
         doc.Documents(fun d -> { d with Params = (p :: d.Params) })

@@ -335,6 +335,7 @@ module Swagger =
               typeof<byte list>, ("string", "binary")
               typeof<byte seq>, ("string", "binary")
               typeof<byte>, ("string", "byte")
+              typeof<Guid>, ("string", "string")
             ] |> dict
 
     type Type with
