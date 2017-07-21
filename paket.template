@@ -6,7 +6,7 @@ authors
 owners
   rflechner
 description
-  This is a proof of concept to document Suave web services with Swagger. Swagger UI is embedded in resources and a WebPart serving it is automatically added.
+  Document your Suave web services with Swagger. Swagger UI is embedded in resources and a WebPart serving it is automatically added.
 projectUrl
   http://github.com/rflechner/Suave.Swagger
 iconUrl
@@ -25,8 +25,7 @@ files
 frameworkAssemblies
   System.Xml
 dependencies
-  FSharp.Core
-  suave
-  Newtonsoft.Json
-  SharpZipLib
+  FSharp.Core >= 4.0.0.1
+  suave >= 2.0.2
+  Newtonsoft.Json >= 9.0.1
 
