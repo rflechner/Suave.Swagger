@@ -80,22 +80,22 @@ let bye3 = GET >=> path "/bye3" >=> XML "bye. @++"
 let api = 
   swagger {
       //// syntax 1
-      //for route in getting (simpleUrl "/time" |> thenReturns now) do
-      //  yield description Of route is "What time is it ?"
-      //  yield route |> tag "time"
+      for route in getting (simpleUrl "/time" |> thenReturns now) do
+        yield description Of route is "What time is it ?"
+        yield route |> tag "time"
 
       for route in getting (urlFormat "/bonjour/%s" (fun x -> OK (sprintf "Bonjour %s" x))) do
         yield description Of route is "Say hello in french"
 
-      //// another syntax
-      //for route in getOf (path "/time2" >=> now) do
-      //  yield description Of route is "What time is it 2?"
-      //  yield urlTemplate Of route is "/time2"
-      //  yield route |> tag "time"
+      // another syntax
+      for route in getOf (path "/time2" >=> now) do
+        yield description Of route is "What time is it 2?"
+        yield urlTemplate Of route is "/time2"
+        yield route |> tag "time"
 
-      //for route in getting <| urlFormat "/subtract/%d/%d" subtract do
-      //  yield description Of route is "Subtracts two numbers"
-      //  yield route |> tag "maths"
+      for route in getting <| urlFormat "/subtract/%d/%d" subtract do
+        yield description Of route is "Subtracts two numbers"
+        yield route |> tag "maths"
 
       for route in posting <| simpleUrl "/subtract" |> thenReturns subtractObj do
         yield description Of route is "Subtracts two numbers"
@@ -103,50 +103,50 @@ let api =
         yield parameter "subtraction request" Of route (fun p -> { p with Type = (Some typeof<SubtractionRequest>); In=Body })
         yield route |> tag "maths"
 
-      //for route in posting <| urlFormat "/subtract/%d/%d" subtract do
-      //  yield description Of route is "Subtracts two numbers"
-      //  yield route |> tag "maths"
+      for route in posting <| urlFormat "/subtract/%d/%d" subtract do
+        yield description Of route is "Subtracts two numbers"
+        yield route |> tag "maths"
 
-      //for route in getting <| urlFormat "/pet/%d" findPetById do
-      //  yield description Of route is "Search a pet by id"
-      //  yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
-      //  yield route |> supportsJsonAndXml
-      //  yield route |> tag "pets"
+      for route in getting <| urlFormat "/pet/%d" findPetById do
+        yield description Of route is "Search a pet by id"
+        yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
+        yield route |> supportsJsonAndXml
+        yield route |> tag "pets"
       
-//      for route in getOf (pathScan "/pet/byuuid/%s" findPetByUuid) do
-//        yield description Of route is "Search a pet by uuid"
-//        yield urlTemplate Of route is "/pet/byuuid/{uuid}"
-//        yield parameter "UUID" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
-//        yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
-//        yield route |> supportsJsonAndXml
-//        yield route |> tag "pets"
+      for route in getOf (pathScan "/pet/byuuid/%s" findPetByUuid) do
+        yield description Of route is "Search a pet by uuid"
+        yield urlTemplate Of route is "/pet/byuuid/{uuid}"
+        yield parameter "UUID" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
+        yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
+        yield route |> supportsJsonAndXml
+        yield route |> tag "pets"
       
-//      for route in getting <| urlFormat "/category/%d" findCategoryById do
-//        yield description Of route is "Search a category by id"
-//        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
-//        yield route |> tag "pets"
+      for route in getting <| urlFormat "/category/%d" findCategoryById do
+        yield description Of route is "Search a category by id"
+        yield route |> addResponse 200 "The found category" (Some typeof<PetCategory>)
+        yield route |> tag "pets"
       
-//      for route in posting <| simpleUrl "/category" |> thenReturns createCategory do
-//        yield description Of route is "Create a category"
-//        yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
-//        yield parameter "category model" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
-//        yield route |> tag "pets"
+      for route in posting <| simpleUrl "/category" |> thenReturns createCategory do
+        yield description Of route is "Create a category"
+        yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
+        yield parameter "category model" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
+        yield route |> tag "pets"
 
-////       Classic routes with manual documentation
+//       Classic routes with manual documentation
 
-//      for route in bye do
-//        yield route.Documents(fun doc -> { doc with Description = "Say good bye." })
-//        yield route.Documents(fun doc -> { doc with Template = "/bye"; Verb=Get })
+      for route in bye do
+        yield route.Documents(fun doc -> { doc with Description = "Say good bye." })
+        yield route.Documents(fun doc -> { doc with Template = "/bye"; Verb=Get })
 
-//      for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a + b).ToString()))) do
-//        yield description Of route is "Compute a simple addition"
-//        yield urlTemplate Of route is "/add/{number1}/{number2}"
-//        yield parameter "number1" Of route (fun p -> { p with Type = (Some typeof<int>); In=Path })
-//        yield parameter "number2" Of route (fun p -> { p with Type = (Some typeof<int>); In=Path })
+      for route in getOf (pathScan "/add/%d/%d" (fun (a,b) -> OK((a + b).ToString()))) do
+        yield description Of route is "Compute a simple addition"
+        yield urlTemplate Of route is "/add/{number1}/{number2}"
+        yield parameter "number1" Of route (fun p -> { p with Type = (Some typeof<int>); In=Path })
+        yield parameter "number2" Of route (fun p -> { p with Type = (Some typeof<int>); In=Path })
 
-//      for route in getOf (path "/hello" >=> OK "coucou") do
-//        yield description Of route is "Say hello"
-//        yield urlTemplate Of route is "/hello"
+      for route in getOf (path "/hello" >=> OK "coucou") do
+        yield description Of route is "Say hello"
+        yield urlTemplate Of route is "/hello"
     }
   |> fun a ->
       a.Describes(

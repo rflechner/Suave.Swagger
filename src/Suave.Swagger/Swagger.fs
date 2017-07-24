@@ -372,6 +372,9 @@ module Swagger =
             ] |> dict
 
     type Type with
+      member this.IsSwaggerPrimitive
+        with get () =
+          this.IsPrimitive || this = typeof<string>
       member this.FormatAndName
         with get () =
           match this with
@@ -563,7 +566,7 @@ module Swagger =
                             fun a ->
                               let d =
                                 match a.Type with
-                                | Some t when t.IsPrimitive ->
+                                | Some t when t.IsSwaggerPrimitive ->
                                     match t.FormatAndName with
                                     | Some (ty,na) -> Some(Primitive(ty,na))
                                     | None -> Some(Ref(t.Describes()))
@@ -577,7 +580,6 @@ module Swagger =
                       let rs = 
                         p.Responses
                         |> fun responses ->
-                            let tt = responses |> toTuples
                             if responses.Count > 1 && responses |> toTuples |> Seq.exists(function | (200, d) when d.IsDefault() -> true | _ -> false)
                             then responses |> toTuples |> removeDefaultResponseDoc |> Seq.toList |> dict
                             elif responses.Count <= 0
