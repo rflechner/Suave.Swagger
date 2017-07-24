@@ -161,7 +161,7 @@ let api =
 let main argv = 
   async {
     do! Async.Sleep 2000
-    System.Diagnostics.Process.Start "http://localhost:8082/swagger/v2/ui/index.html" |> ignore
+    System.Diagnostics.Process.Start "http://localhost:8082/swagger/v3/ui/index.html" |> ignore
   } |> Async.Start
   
   startWebServer { defaultConfig with bindings = [ HttpBinding.createSimple HTTP "127.0.0.1" 8082 ] } api.App

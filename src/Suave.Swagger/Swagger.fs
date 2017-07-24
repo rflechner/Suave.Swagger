@@ -499,8 +499,8 @@ module Swagger =
         Current=WebPartDocumentation.Of w
         Id=Guid.NewGuid()
         Description=ApiDescription.Empty
-        SwaggerJsonPath="/swagger/v2/swagger.json"
-        SwaggerUiPath="/swagger/v2/ui/" }
+        SwaggerJsonPath="/swagger/v3/swagger.json"
+        SwaggerUiPath="/swagger/v3/ui/" }
     member this.Documents (f:RouteDescriptor->RouteDescriptor) : DocBuildState =
       let d = f this.Current.Description
       { this with Current = { this.Current with Description=d } }
