@@ -471,7 +471,7 @@ module Swagger =
     pathStarts swPath >=> wp
   
   let removeDefaultResponseDoc = 
-    List.filter (fun (code:int,r:ResponseDoc) -> code <> 200 && not (r.IsDefault()))
+    Seq.filter (fun (code:int,r:ResponseDoc) -> code <> 200 && not (r.IsDefault()))
   
   let inline toTuple (kv:KeyValuePair<'u,'t>) = kv.Key,kv.Value
   let inline toTuples (kvs:KeyValuePair<'u,'t> seq) = kvs |> Seq.map toTuple
@@ -515,12 +515,6 @@ module Swagger =
         let p = o.Params @ state.Params |> List.distinctBy(fun arg -> arg.Name)
         let rs =
           (List.ofSeq other.Current.Description.Responses) @ (List.ofSeq state.Responses)
-          |> fun responses ->
-              if responses.Length > 1 && responses |> toTuples |> Seq.exists(function | (200, d) when d.IsDefault() -> true | _ -> false)
-              then responses |> List.filter(fun kv -> not <| kv.Value.IsDefault())
-              elif responses.Length <= 0
-              then [KeyValuePair<int,ResponseDoc>(200, ResponseDoc.Default)]
-              else responses
           |> List.distinctBy(fun kv -> kv.Key)
           |> List.map (fun kv -> kv.Key, kv.Value)
           |> dict
@@ -580,6 +574,15 @@ module Swagger =
                                 Type=d
                                 In=a.In.ToString()
                                 Required=a.Required })
+                      let rs = 
+                        p.Responses
+                        |> fun responses ->
+                            let tt = responses |> toTuples
+                            if responses.Count > 1 && responses |> toTuples |> Seq.exists(function | (200, d) when d.IsDefault() -> true | _ -> false)
+                            then responses |> toTuples |> removeDefaultResponseDoc |> Seq.toList |> dict
+                            elif responses.Count <= 0
+                            then dict [(200, ResponseDoc.Default)]
+                            else responses
                       let pa =
                         { Summary=p.Summary
                           Description=p.Description
@@ -587,7 +590,7 @@ module Swagger =
                           Consumes=p.Consumes
                           Produces=p.Produces
                           Parameters=par
-                          Responses=p.Responses
+                          Responses=rs
                           Tags=p.Tags }
                       yield p.Verb, pa
                   } |> dict
@@ -611,7 +614,7 @@ module Swagger =
       with get () =
         let swaggerWebPart =
           path __.SwaggerJsonPath
-            >=> OK (__.Documentation.ToJson()) // JSON __.Documentation
+            >=> OK (__.Documentation.ToJson())
             >=> Writers.setMimeType "application/json; charset=utf-8"
             >=> Writers.addHeader "Access-Control-Allow-Origin" "*"
         let uiWebpart = swaggerUiWebPart __.SwaggerUiPath __.SwaggerJsonPath
@@ -628,6 +631,6 @@ module Swagger =
     member __.Combine ((b1,b2):(DocBuildState*DocBuildState)) : DocBuildState =
       b1.Combine b2
     member __.Delay (func:unit->DocBuildState) : DocBuildState =
-        func()
+      func()
 
   let swagger = new SwaggerBuilder()
