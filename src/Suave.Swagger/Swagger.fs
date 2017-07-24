@@ -374,7 +374,7 @@ module Swagger =
     type Type with
       member this.IsSwaggerPrimitive
         with get () =
-          this.IsPrimitive || this = typeof<string>
+          TypeHelpers.typeFormatsNames.ContainsKey this
       member this.FormatAndName
         with get () =
           match this with

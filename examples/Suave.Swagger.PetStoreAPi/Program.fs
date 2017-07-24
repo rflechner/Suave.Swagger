@@ -79,7 +79,7 @@ let bye3 = GET >=> path "/bye3" >=> XML "bye. @++"
 
 let api = 
   swagger {
-      //// syntax 1
+      // syntax 1
       for route in getting (simpleUrl "/time" |> thenReturns now) do
         yield description Of route is "What time is it ?"
         yield route |> tag "time"
@@ -116,7 +116,7 @@ let api =
       for route in getOf (pathScan "/pet/byuuid/%s" findPetByUuid) do
         yield description Of route is "Search a pet by uuid"
         yield urlTemplate Of route is "/pet/byuuid/{uuid}"
-        yield parameter "UUID" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
+        yield parameter "uuid" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
         yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
         yield route |> supportsJsonAndXml
         yield route |> tag "pets"
