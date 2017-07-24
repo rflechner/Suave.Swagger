@@ -81,8 +81,20 @@ module FunnyDsl =
         route, { Description=desc; Schema=None }
     let rsd = 
       s.Current.Description.Responses
-      |> Seq.map (fun kv -> kv.Key,kv.Value)
+      |> Seq.map (fun kv -> 
+          kv.Key,kv.Value
+        )
       |> Seq.toList
+      //|> List.filter (fun (code:int,r:ResponseDoc) -> statusCode = 200 && code <> 200 )
+      //|> fun rs -> 
+      //    if statusCode = 200 
+      //    then 
+      //      removeDefaultResponseDoc rs 
+      //    else rs
+    let rr = 
+      (statusCode, rs) :: rsd
+      |> List.distinctBy(fun (k,_) -> k)
+      |> dict
     { s 
         with 
           Current = 
@@ -91,7 +103,7 @@ module FunnyDsl =
                   Description =
                     { s.Current.Description
                         with
-                          Responses = (statusCode, rs) :: rsd |> List.distinctBy(fun (k,_) -> k) |> dict
+                          Responses = rr
                     }
             }
     }

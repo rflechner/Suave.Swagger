@@ -94,6 +94,11 @@ module Swagger =
         if !x.Buffer |> Seq.isEmpty |> not then x.Push [Constant (x.StringBuffer 0)]
         !x.Parts
 
+  type JsonWriter with 
+    member __.WriteProperty name (value:obj) =
+      __.WritePropertyName name
+      __.WriteValue value
+
   type RouteDescriptor =
     { Template: Path
       Description: string
@@ -106,11 +111,14 @@ module Swagger =
       Verb:HttpVerb
       Responses:IDictionary<int, ResponseDoc> }
     static member Empty =
+      //let defaultResponses = dict [ (200, ResponseDoc.Default) ]
       { Template=""; Description=""; Params=[]; Verb=Get; Summary=""
-        OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[]; Tags = [] }
+        OperationId=""; Produces=[]; Responses=dict[]; Consumes=[]; Tags = [] }
   and ResponseDoc =
     { Description:string
       Schema:ObjectDefinition option }
+    static member Default = {Description="Not documented"; Schema=None}
+    member __.IsDefault() = __ = ResponseDoc.Default
   and HttpVerb =
     | Get | Put | Post | Delete | Options | Head | Patch
     override __.ToString() =
@@ -172,6 +180,32 @@ module Swagger =
       Tags:string list
       Parameters:ParamDefinition list
       Responses:IDictionary<int, ResponseDoc> }
+    member __.ShouldSerializeParameters() =
+      __.Parameters.Length > 0
+  and ApiDescriptionConverter() =
+    inherit JsonConverter()
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
+          let d = unbox<ApiDescription>(value)
+
+          writer.WriteStartObject()
+          
+          writer.WriteProperty "title" d.Title
+          writer.WriteProperty "description" d.Description
+          writer.WriteProperty "termsOfService" d.TermsOfService
+          writer.WriteProperty "version" d.Version
+          
+          if not (d.Contact = Contact.Empty)
+          then writer.WriteProperty "contact" d.Contact
+
+          if not (d.License = LicenseInfos.Empty)
+          then writer.WriteProperty "license" d.License
+
+          writer.WriteEndObject()
+          writer.Flush()
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+          unbox ""
+        override __.CanConvert(objectType:Type) =
+          objectType = typeof<ApiDescription>
   and ResponseDocConverter() =
     inherit JsonConverter()
         override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
@@ -240,8 +274,6 @@ module Swagger =
           let d = unbox<ObjectDefinition>(value)
 
           writer.WriteStartObject()
-          writer.WritePropertyName "id"
-          writer.WriteValue d.Id
           writer.WritePropertyName "type"
           writer.WriteValue "object"
           writer.WritePropertyName "properties"
@@ -305,6 +337,7 @@ module Swagger =
     member __.ToJson() =
       let settings = new JsonSerializerSettings(NullValueHandling = NullValueHandling.Ignore)
       settings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
+      settings.Converters.Add(new ApiDescriptionConverter())
       settings.Converters.Add(new ResponseDocConverter())
       settings.Converters.Add(new PropertyDefinitionConverter())
       //settings.Converters.Add(new PropertyDefinitionOptionConverter())
@@ -392,9 +425,6 @@ module Swagger =
           let assembly = System.Reflection.Assembly.GetExecutingAssembly()
           let fs = assembly.GetManifestResourceStream "swagger-ui.zip"
           let zip = new ZipArchive(fs)
-          let disposeStreams() =
-            fs.Dispose()
-            zip.Dispose()
           match zip.Entries |> Seq.tryFind (fun e -> e.FullName = p) with
           | Some ze ->
             let headers =
@@ -403,13 +433,10 @@ module Swagger =
               | None -> ctx.response.headers
             let write (conn, _) =
               socket {
-                 // try
                   let! (_, conn) = asyncWriteLn (sprintf "Content-Length: %d\r\n" ze.Length) conn 
                   let! conn = flush conn
                   do! transferStream conn (ze.Open())
                   return conn
-//                finally
-//                  disposeStreams()
               }
             if p = "index.html"
             then
@@ -442,6 +469,12 @@ module Swagger =
               ctx |> NOT_FOUND "Ressource not found"
         streamZipContent()
     pathStarts swPath >=> wp
+  
+  let removeDefaultResponseDoc = 
+    List.filter (fun (code:int,r:ResponseDoc) -> code <> 200 && not (r.IsDefault()))
+  
+  let inline toTuple (kv:KeyValuePair<'u,'t>) = kv.Key,kv.Value
+  let inline toTuples (kvs:KeyValuePair<'u,'t> seq) = kvs |> Seq.map toTuple
 
   type DocBuildState =
     { SwaggerJsonPath:string
@@ -482,6 +515,12 @@ module Swagger =
         let p = o.Params @ state.Params |> List.distinctBy(fun arg -> arg.Name)
         let rs =
           (List.ofSeq other.Current.Description.Responses) @ (List.ofSeq state.Responses)
+          |> fun responses ->
+              if responses.Length > 1 && responses |> toTuples |> Seq.exists(function | (200, d) when d.IsDefault() -> true | _ -> false)
+              then responses |> List.filter(fun kv -> not <| kv.Value.IsDefault())
+              elif responses.Length <= 0
+              then [KeyValuePair<int,ResponseDoc>(200, ResponseDoc.Default)]
+              else responses
           |> List.distinctBy(fun kv -> kv.Key)
           |> List.map (fun kv -> kv.Key, kv.Value)
           |> dict
@@ -534,7 +573,6 @@ module Swagger =
                                     match t.FormatAndName with
                                     | Some (ty,na) -> Some(Primitive(ty,na))
                                     | None -> Some(Ref(t.Describes()))
-                                    //Some((Primitive <| t.FormatAndName))
                                 | Some t -> Some((Ref <| t.Describes()))
                                 | None -> None
 
