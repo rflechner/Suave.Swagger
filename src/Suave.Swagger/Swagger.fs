@@ -619,8 +619,11 @@ module Swagger =
             >=> OK (__.Documentation.ToJson())
             >=> Writers.setMimeType "application/json; charset=utf-8"
             >=> Writers.addHeader "Access-Control-Allow-Origin" "*"
+        let oldSwaggerUiPart = 
+          pathStarts "/swagger/v2/ui"
+           >=> Redirection.redirect __.SwaggerUiPath
         let uiWebpart = swaggerUiWebPart __.SwaggerUiPath __.SwaggerJsonPath
-        choose ((__.Routes |> List.map (fun r -> r.WebPart)) @ [swaggerWebPart;uiWebpart; __.Current.WebPart])
+        choose ((__.Routes |> List.map (fun r -> r.WebPart)) @ [oldSwaggerUiPart;swaggerWebPart;uiWebpart; __.Current.WebPart])
 
   type SwaggerBuilder () =
     member __.Yield (w:DocBuildState) : DocBuildState =
