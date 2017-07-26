@@ -56,14 +56,7 @@ module FunnyDsl =
                     }
             }
     }
-
-//  let supportsJsonAndXml route =
-//    route
-//    |> produces "application/json" 
-//    |> produces "application/xml"
-//    |> consumes "application/json"
-//    |> consumes "application/xml"
-
+  
   let supportsJsonAndXml =
     produces "application/json" 
     >> produces "application/xml"
@@ -83,6 +76,10 @@ module FunnyDsl =
       s.Current.Description.Responses
       |> Seq.map (fun kv -> kv.Key,kv.Value)
       |> Seq.toList
+    let rr = 
+      (statusCode, rs) :: rsd
+      |> List.distinctBy(fun (k,_) -> k)
+      |> dict
     { s 
         with 
           Current = 
@@ -91,10 +88,13 @@ module FunnyDsl =
                   Description =
                     { s.Current.Description
                         with
-                          Responses = (statusCode, rs) :: rsd |> List.distinctBy(fun (k,_) -> k) |> dict
+                          Responses = rr
                     }
             }
     }
+    
+  let operationId _ (route:DocBuildState) (f:string -> string) x =
+    route.Documents(fun doc -> { doc with OperationId = (f x) })
     
   let description _ (route:DocBuildState) (f:string -> string) x =
     route.Documents(fun doc -> { doc with Description = (f x) })

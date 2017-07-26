@@ -1,4 +1,8 @@
 
+#### 2.1.0 Jully 26 2017
+* improve swagger validation
+* update swagger UI
+
 #### 2.0.1-beta March 15 2016
 * improve native types supports in path
 

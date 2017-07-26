@@ -94,6 +94,11 @@ module Swagger =
         if !x.Buffer |> Seq.isEmpty |> not then x.Push [Constant (x.StringBuffer 0)]
         !x.Parts
 
+  type JsonWriter with 
+    member __.WriteProperty name (value:obj) =
+      __.WritePropertyName name
+      __.WriteValue value
+
   type RouteDescriptor =
     { Template: Path
       Description: string
@@ -106,11 +111,14 @@ module Swagger =
       Verb:HttpVerb
       Responses:IDictionary<int, ResponseDoc> }
     static member Empty =
+      //let defaultResponses = dict [ (200, ResponseDoc.Default) ]
       { Template=""; Description=""; Params=[]; Verb=Get; Summary=""
-        OperationId=""; Produces=[]; Responses=dict Seq.empty; Consumes=[]; Tags = [] }
+        OperationId=""; Produces=[]; Responses=dict[]; Consumes=[]; Tags = [] }
   and ResponseDoc =
     { Description:string
       Schema:ObjectDefinition option }
+    static member Default = {Description="Not documented"; Schema=None}
+    member __.IsDefault() = __ = ResponseDoc.Default
   and HttpVerb =
     | Get | Put | Post | Delete | Options | Head | Patch
     override __.ToString() =
@@ -172,6 +180,32 @@ module Swagger =
       Tags:string list
       Parameters:ParamDefinition list
       Responses:IDictionary<int, ResponseDoc> }
+    member __.ShouldSerializeParameters() =
+      __.Parameters.Length > 0
+  and ApiDescriptionConverter() =
+    inherit JsonConverter()
+        override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
+          let d = unbox<ApiDescription>(value)
+
+          writer.WriteStartObject()
+          
+          writer.WriteProperty "title" d.Title
+          writer.WriteProperty "description" d.Description
+          writer.WriteProperty "termsOfService" d.TermsOfService
+          writer.WriteProperty "version" d.Version
+          
+          if not (d.Contact = Contact.Empty)
+          then writer.WriteProperty "contact" d.Contact
+
+          if not (d.License = LicenseInfos.Empty)
+          then writer.WriteProperty "license" d.License
+
+          writer.WriteEndObject()
+          writer.Flush()
+        override __.ReadJson(_:JsonReader,_:Type,_:obj,_:JsonSerializer) =
+          unbox ""
+        override __.CanConvert(objectType:Type) =
+          objectType = typeof<ApiDescription>
   and ResponseDocConverter() =
     inherit JsonConverter()
         override __.WriteJson(writer:JsonWriter,value:obj,_:JsonSerializer) =
@@ -240,8 +274,6 @@ module Swagger =
           let d = unbox<ObjectDefinition>(value)
 
           writer.WriteStartObject()
-          writer.WritePropertyName "id"
-          writer.WriteValue d.Id
           writer.WritePropertyName "type"
           writer.WriteValue "object"
           writer.WritePropertyName "properties"
@@ -305,6 +337,7 @@ module Swagger =
     member __.ToJson() =
       let settings = new JsonSerializerSettings(NullValueHandling = NullValueHandling.Ignore)
       settings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
+      settings.Converters.Add(new ApiDescriptionConverter())
       settings.Converters.Add(new ResponseDocConverter())
       settings.Converters.Add(new PropertyDefinitionConverter())
       //settings.Converters.Add(new PropertyDefinitionOptionConverter())
@@ -339,6 +372,9 @@ module Swagger =
             ] |> dict
 
     type Type with
+      member this.IsSwaggerPrimitive
+        with get () =
+          TypeHelpers.typeFormatsNames.ContainsKey this
       member this.FormatAndName
         with get () =
           match this with
@@ -392,9 +428,6 @@ module Swagger =
           let assembly = System.Reflection.Assembly.GetExecutingAssembly()
           let fs = assembly.GetManifestResourceStream "swagger-ui.zip"
           let zip = new ZipArchive(fs)
-          let disposeStreams() =
-            fs.Dispose()
-            zip.Dispose()
           match zip.Entries |> Seq.tryFind (fun e -> e.FullName = p) with
           | Some ze ->
             let headers =
@@ -403,13 +436,10 @@ module Swagger =
               | None -> ctx.response.headers
             let write (conn, _) =
               socket {
-                 // try
                   let! (_, conn) = asyncWriteLn (sprintf "Content-Length: %d\r\n" ze.Length) conn 
                   let! conn = flush conn
                   do! transferStream conn (ze.Open())
                   return conn
-//                finally
-//                  disposeStreams()
               }
             if p = "index.html"
             then
@@ -442,6 +472,12 @@ module Swagger =
               ctx |> NOT_FOUND "Ressource not found"
         streamZipContent()
     pathStarts swPath >=> wp
+  
+  let removeDefaultResponseDoc = 
+    Seq.filter (fun (code:int,r:ResponseDoc) -> code <> 200 && not (r.IsDefault()))
+  
+  let inline toTuple (kv:KeyValuePair<'u,'t>) = kv.Key,kv.Value
+  let inline toTuples (kvs:KeyValuePair<'u,'t> seq) = kvs |> Seq.map toTuple
 
   type DocBuildState =
     { SwaggerJsonPath:string
@@ -463,8 +499,8 @@ module Swagger =
         Current=WebPartDocumentation.Of w
         Id=Guid.NewGuid()
         Description=ApiDescription.Empty
-        SwaggerJsonPath="/swagger/v2/swagger.json"
-        SwaggerUiPath="/swagger/v2/ui/" }
+        SwaggerJsonPath="/swagger/v3/swagger.json"
+        SwaggerUiPath="/swagger/v3/ui/" }
     member this.Documents (f:RouteDescriptor->RouteDescriptor) : DocBuildState =
       let d = f this.Current.Description
       { this with Current = { this.Current with Description=d } }
@@ -530,11 +566,10 @@ module Swagger =
                             fun a ->
                               let d =
                                 match a.Type with
-                                | Some t when t.IsPrimitive ->
+                                | Some t when t.IsSwaggerPrimitive ->
                                     match t.FormatAndName with
                                     | Some (ty,na) -> Some(Primitive(ty,na))
                                     | None -> Some(Ref(t.Describes()))
-                                    //Some((Primitive <| t.FormatAndName))
                                 | Some t -> Some((Ref <| t.Describes()))
                                 | None -> None
 
@@ -542,6 +577,14 @@ module Swagger =
                                 Type=d
                                 In=a.In.ToString()
                                 Required=a.Required })
+                      let rs = 
+                        p.Responses
+                        |> fun responses ->
+                            if responses.Count > 1 && responses |> toTuples |> Seq.exists(function | (200, d) when d.IsDefault() -> true | _ -> false)
+                            then responses |> toTuples |> removeDefaultResponseDoc |> Seq.toList |> dict
+                            elif responses.Count <= 0
+                            then dict [(200, ResponseDoc.Default)]
+                            else responses
                       let pa =
                         { Summary=p.Summary
                           Description=p.Description
@@ -549,7 +592,7 @@ module Swagger =
                           Consumes=p.Consumes
                           Produces=p.Produces
                           Parameters=par
-                          Responses=p.Responses
+                          Responses=rs
                           Tags=p.Tags }
                       yield p.Verb, pa
                   } |> dict
@@ -573,11 +616,14 @@ module Swagger =
       with get () =
         let swaggerWebPart =
           path __.SwaggerJsonPath
-            >=> OK (__.Documentation.ToJson()) // JSON __.Documentation
+            >=> OK (__.Documentation.ToJson())
             >=> Writers.setMimeType "application/json; charset=utf-8"
             >=> Writers.addHeader "Access-Control-Allow-Origin" "*"
+        let oldSwaggerUiPart = 
+          pathStarts "/swagger/v2/ui"
+           >=> Redirection.redirect __.SwaggerUiPath
         let uiWebpart = swaggerUiWebPart __.SwaggerUiPath __.SwaggerJsonPath
-        choose ((__.Routes |> List.map (fun r -> r.WebPart)) @ [swaggerWebPart;uiWebpart; __.Current.WebPart])
+        choose ((__.Routes |> List.map (fun r -> r.WebPart)) @ [oldSwaggerUiPart;swaggerWebPart;uiWebpart; __.Current.WebPart])
 
   type SwaggerBuilder () =
     member __.Yield (w:DocBuildState) : DocBuildState =
@@ -590,6 +636,6 @@ module Swagger =
     member __.Combine ((b1,b2):(DocBuildState*DocBuildState)) : DocBuildState =
       b1.Combine b2
     member __.Delay (func:unit->DocBuildState) : DocBuildState =
-        func()
+      func()
 
   let swagger = new SwaggerBuilder()
