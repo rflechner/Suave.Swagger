@@ -116,7 +116,7 @@ let api =
       for route in getOf (pathScan "/pet/byuuid/%s" findPetByUuid) do
         yield description Of route is "Search a pet by uuid"
         yield urlTemplate Of route is "/pet/byuuid/{uuid}"
-        yield parameter "UUID" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
+        yield parameter "uuid" Of route (fun p -> { p with Type = (Some typeof<Guid>); In=Path })
         yield route |> addResponse 200 "The found pet" (Some typeof<Pet>)
         yield route |> supportsJsonAndXml
         yield route |> tag "pets"
@@ -127,11 +127,13 @@ let api =
         yield route |> tag "pets"
       
       for route in posting <| simpleUrl "/category" |> thenReturns createCategory do
+        yield operationId Of route is "Create a category"
         yield description Of route is "Create a category"
         yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
-        yield parameter "category model" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
+        yield parameter "body" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
+        yield route |> supportsJsonAndXml
         yield route |> tag "pets"
-
+        
 //       Classic routes with manual documentation
 
       for route in bye do
@@ -161,8 +163,9 @@ let api =
 let main argv = 
   async {
     do! Async.Sleep 2000
-    System.Diagnostics.Process.Start "http://localhost:8080/swagger/v2/ui/index.html" |> ignore
+    System.Diagnostics.Process.Start "http://localhost:8082/swagger/v3/ui/index.html" |> ignore
   } |> Async.Start
-  startWebServer defaultConfig api.App
+  
+  startWebServer { defaultConfig with bindings = [ HttpBinding.createSimple HTTP "127.0.0.1" 8082 ] } api.App
   0 // return an integer exit code
 
