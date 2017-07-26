@@ -127,11 +127,13 @@ let api =
         yield route |> tag "pets"
       
       for route in posting <| simpleUrl "/category" |> thenReturns createCategory do
+        yield operationId Of route is "Create a category"
         yield description Of route is "Create a category"
         yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
-        yield parameter "category model" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
+        yield parameter "body" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
+        yield route |> supportsJsonAndXml
         yield route |> tag "pets"
-
+        
 //       Classic routes with manual documentation
 
       for route in bye do

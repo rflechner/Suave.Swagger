@@ -93,6 +93,9 @@ module FunnyDsl =
             }
     }
     
+  let operationId _ (route:DocBuildState) (f:string -> string) x =
+    route.Documents(fun doc -> { doc with OperationId = (f x) })
+    
   let description _ (route:DocBuildState) (f:string -> string) x =
     route.Documents(fun doc -> { doc with Description = (f x) })
     
