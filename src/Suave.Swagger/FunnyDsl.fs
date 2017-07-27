@@ -140,22 +140,28 @@ module FunnyDsl =
 
   let simpleUrl (p:string) =
     (DocBuildState.Of <| path p).Documents(fun doc -> { doc with Template = p})
-
-  let urlFormat (pf : PrintfFormat<_,_,_,_,'t>) f =
+  
+  let pathTemplate (pf : PrintfFormat<_,_,_,_,'t>) (names:string list) f =
     let ty = typeof<'t>
     let parts = FormatParser.Parse pf.Value
+
+    let getName i =
+      if i < names.Length
+      then names.Item i
+      else sprintf "param%d" i
+
     let _,tmpl =
       parts
       |> List.fold (
           fun ((i,acc):(int*string)) (p:FormatPart) ->
             match p with
             | Constant c -> i, acc + c
-            | Parsed _ -> (i+1), sprintf "%s{param%d}" acc i
+            | Parsed _ -> (i+1), sprintf "%s{%s}" acc (getName i)
           ) (0,"")
 
     let doc = DocBuildState.Of <| pathScan pf f
     let pname (pt:Type) i =
-      let name = sprintf "param%d" i
+      let name = getName i
       let tn = match pt.FormatAndName with | Some (_,v) -> v | None -> "object"
       name,tn
 
@@ -180,7 +186,9 @@ module FunnyDsl =
     )
     |> fun d -> 
         d.Documents(fun doc -> { doc with Template = tmpl})
-      
+
+  let urlFormat (pf : PrintfFormat<_,_,_,_,'t>) f =
+    pathTemplate pf [] f
 
   let thenReturns w (d:DocBuildState) =
     { d with Current = { d.Current with WebPart=(d.Current.WebPart >=> w) } }
