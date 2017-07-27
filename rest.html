@@ -51,23 +51,23 @@
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs10', 15)" onmouseover="showTip(event, 'fs10', 15)" class="i">Swagger</span>
 
 [&lt;<span onmouseout="hideTip(event, 'fs11', 16)" onmouseover="showTip(event, 'fs11', 16)" class="t">CLIMutable</span>&gt;]
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs12', 17)" onmouseover="showTip(event, 'fs12', 17)" class="t">PetCategory</span> <span class="o">=</span> 
-  { <span onmouseout="hideTip(event, 'fs13', 18)" onmouseover="showTip(event, 'fs13', 18)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="t">int</span>
-    <span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="t">string</span> }
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs11', 17)" onmouseover="showTip(event, 'fs11', 17)" class="t">PetCategory</span> <span class="o">=</span> 
+  { <span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="i">Id</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs11', 19)" onmouseover="showTip(event, 'fs11', 19)" class="t">int</span>
+    <span onmouseout="hideTip(event, 'fs11', 20)" onmouseover="showTip(event, 'fs11', 20)" class="i">Name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="t">string</span> }
 </code></pre></td>
 </tr>
 </table>
 <p>Route returning a PetCategory as JSON:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 22)" onmouseover="showTip(event, 'fs17', 22)" class="f">r1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 23)" onmouseover="showTip(event, 'fs18', 23)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs19', 24)" onmouseover="showTip(event, 'fs19', 24)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs20', 25)" onmouseover="showTip(event, 'fs20', 25)" class="f">JSON</span> { <span class="i">Id</span><span class="o">=</span><span class="n">45</span>; <span class="i">Name</span><span class="o">=</span><span class="s">&quot;category 45&quot;</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 22)" onmouseover="showTip(event, 'fs11', 22)" class="f">r1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 23)" onmouseover="showTip(event, 'fs11', 23)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 24)" onmouseover="showTip(event, 'fs11', 24)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 25)" onmouseover="showTip(event, 'fs11', 25)" class="f">JSON</span> { <span onmouseout="hideTip(event, 'fs11', 26)" onmouseover="showTip(event, 'fs11', 26)" class="i">Id</span><span class="o">=</span><span class="n">45</span>; <span onmouseout="hideTip(event, 'fs11', 27)" onmouseover="showTip(event, 'fs11', 27)" class="i">Name</span><span class="o">=</span><span class="s">&quot;category 45&quot;</span> }
 </code></pre></td>
 </tr>
 </table>
 <p>Route returning a PetCategory as XML:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 26)" onmouseover="showTip(event, 'fs21', 26)" class="f">r2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 27)" onmouseover="showTip(event, 'fs18', 27)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs19', 28)" onmouseover="showTip(event, 'fs19', 28)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs22', 29)" onmouseover="showTip(event, 'fs22', 29)" class="f">XML</span> { <span class="i">Id</span><span class="o">=</span><span class="n">45</span>; <span class="i">Name</span><span class="o">=</span><span class="s">&quot;category 45&quot;</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 28)" onmouseover="showTip(event, 'fs11', 28)" class="f">r2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 29)" onmouseover="showTip(event, 'fs11', 29)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 30)" onmouseover="showTip(event, 'fs11', 30)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 31)" onmouseover="showTip(event, 'fs11', 31)" class="f">XML</span> { <span onmouseout="hideTip(event, 'fs11', 32)" onmouseover="showTip(event, 'fs11', 32)" class="i">Id</span><span class="o">=</span><span class="n">45</span>; <span onmouseout="hideTip(event, 'fs11', 33)" onmouseover="showTip(event, 'fs11', 33)" class="i">Name</span><span class="o">=</span><span class="s">&quot;category 45&quot;</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -75,7 +75,7 @@
 <p>The MODEL helper will do it.</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 30)" onmouseover="showTip(event, 'fs21', 30)" class="f">r2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 31)" onmouseover="showTip(event, 'fs18', 31)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs19', 32)" onmouseover="showTip(event, 'fs19', 32)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs23', 33)" onmouseover="showTip(event, 'fs23', 33)" class="f">MODEL</span> { <span class="i">Id</span><span class="o">=</span><span class="n">45</span>; <span class="i">Name</span><span class="o">=</span><span class="s">&quot;category 45&quot;</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 34)" onmouseover="showTip(event, 'fs11', 34)" class="f">r2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 35)" onmouseover="showTip(event, 'fs11', 35)" class="f">GET</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 36)" onmouseover="showTip(event, 'fs11', 36)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 37)" onmouseover="showTip(event, 'fs11', 37)" class="f">MODEL</span> { <span onmouseout="hideTip(event, 'fs11', 38)" onmouseover="showTip(event, 'fs11', 38)" class="i">Id</span><span class="o">=</span><span class="n">45</span>; <span onmouseout="hideTip(event, 'fs11', 39)" onmouseover="showTip(event, 'fs11', 39)" class="i">Name</span><span class="o">=</span><span class="s">&quot;category 45&quot;</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -85,10 +85,10 @@
 <span class="l">3: </span>
 <span class="l">4: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 34)" onmouseover="showTip(event, 'fs21', 34)" class="f">r2</span> <span class="o">=</span>  
-  <span onmouseout="hideTip(event, 'fs24', 35)" onmouseover="showTip(event, 'fs24', 35)" class="f">POST</span> 
-    <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs19', 36)" onmouseover="showTip(event, 'fs19', 36)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> 
-    <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs25', 37)" onmouseover="showTip(event, 'fs25', 37)" class="f">JsonBody</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs12', 38)" onmouseover="showTip(event, 'fs12', 38)" class="t">PetCategory</span><span class="o">&gt;</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs26', 39)" onmouseover="showTip(event, 'fs26', 39)" class="i">model</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs23', 40)" onmouseover="showTip(event, 'fs23', 40)" class="f">MODEL</span> { <span onmouseout="hideTip(event, 'fs26', 41)" onmouseover="showTip(event, 'fs26', 41)" class="i">model</span> <span class="k">with</span> <span class="i">Id</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs27', 42)" onmouseover="showTip(event, 'fs27', 42)" class="t">Random</span>()<span class="o">.</span><span class="f">Next</span>()) })
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 40)" onmouseover="showTip(event, 'fs11', 40)" class="f">r2</span> <span class="o">=</span>  
+  <span onmouseout="hideTip(event, 'fs11', 41)" onmouseover="showTip(event, 'fs11', 41)" class="f">POST</span> 
+    <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 42)" onmouseover="showTip(event, 'fs11', 42)" class="f">path</span> <span class="s">&quot;/cat&quot;</span> 
+    <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs11', 43)" onmouseover="showTip(event, 'fs11', 43)" class="f">JsonBody</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs11', 44)" onmouseover="showTip(event, 'fs11', 44)" class="t">PetCategory</span><span class="o">&gt;</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs11', 45)" onmouseover="showTip(event, 'fs11', 45)" class="i">model</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs11', 46)" onmouseover="showTip(event, 'fs11', 46)" class="f">MODEL</span> { <span onmouseout="hideTip(event, 'fs11', 47)" onmouseover="showTip(event, 'fs11', 47)" class="i">model</span> <span class="k">with</span> <span onmouseout="hideTip(event, 'fs11', 48)" onmouseover="showTip(event, 'fs11', 48)" class="i">Id</span><span class="o">=</span>(<span onmouseout="hideTip(event, 'fs11', 49)" onmouseover="showTip(event, 'fs11', 49)" class="t">Random</span>()<span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 50)" onmouseover="showTip(event, 'fs11', 50)" class="f">Next</span>()) })
 </code></pre></td>
 </tr>
 </table>
@@ -103,23 +103,7 @@
 <div class="tip" id="fs8">module Rest<br /><br />from Suave.Swagger</div>
 <div class="tip" id="fs9">module FunnyDsl<br /><br />from Suave.Swagger</div>
 <div class="tip" id="fs10">Multiple items<br />module Swagger<br /><br />from Suave.Swagger<br /><br />--------------------<br />namespace Suave.Swagger</div>
-<div class="tip" id="fs11">Multiple items<br />type CLIMutableAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; CLIMutableAttribute<br /><br />Full name: Microsoft.FSharp.Core.CLIMutableAttribute<br /><br />--------------------<br />new : unit -&gt; CLIMutableAttribute</div>
-<div class="tip" id="fs12">type PetCategory =<br />&#160;&#160;{Id: int;<br />&#160;&#160;&#160;Name: string;}<br /><br />Full name: Rest.PetCategory</div>
-<div class="tip" id="fs13">PetCategory.Id: int</div>
-<div class="tip" id="fs14">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;</div>
-<div class="tip" id="fs15">PetCategory.Name: string</div>
-<div class="tip" id="fs16">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
-<div class="tip" id="fs17">val r1 : (HttpContext -&gt; Async&lt;HttpContext option&gt;)<br /><br />Full name: Rest.r1</div>
-<div class="tip" id="fs18">val GET : WebPart<br /><br />Full name: Suave.Filters.GET</div>
-<div class="tip" id="fs19">val path : pathAfterDomain:string -&gt; WebPart<br /><br />Full name: Suave.Filters.path</div>
-<div class="tip" id="fs20">val JSON : v:&#39;a -&gt; (HttpContext -&gt; Async&lt;HttpContext option&gt;)<br /><br />Full name: Suave.Swagger.Rest.JSON</div>
-<div class="tip" id="fs21">val r2 : (HttpContext -&gt; Async&lt;HttpContext option&gt;)<br /><br />Full name: Rest.r2</div>
-<div class="tip" id="fs22">val XML : v:&#39;t -&gt; WebPart<br /><br />Full name: Suave.Swagger.Rest.XML</div>
-<div class="tip" id="fs23">val MODEL : m:&#39;t -&gt; x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Suave.Swagger.Rest.MODEL</div>
-<div class="tip" id="fs24">val POST : WebPart<br /><br />Full name: Suave.Filters.POST</div>
-<div class="tip" id="fs25">val JsonBody : f:(&#39;t -&gt; WebPart) -&gt; x:HttpContext -&gt; Async&lt;HttpContext option&gt;<br /><br />Full name: Suave.Swagger.Rest.JsonBody</div>
-<div class="tip" id="fs26">val model : PetCategory</div>
-<div class="tip" id="fs27">Multiple items<br />type Random =<br />&#160;&#160;new : unit -&gt; Random + 1 overload<br />&#160;&#160;member Next : unit -&gt; int + 2 overloads<br />&#160;&#160;member NextBytes : buffer:byte[] -&gt; unit<br />&#160;&#160;member NextDouble : unit -&gt; float<br /><br />Full name: System.Random<br /><br />--------------------<br />Random() : unit<br />Random(Seed: int) : unit</div>
+<div class="tip" id="fs11"></div>
 
         </div>
         <div class="span3">
