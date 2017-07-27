@@ -86,6 +86,9 @@ let api =
 
       for route in getting (urlFormat "/bonjour/%s" (fun x -> OK (sprintf "Bonjour %s" x))) do
         yield description Of route is "Say hello in french"
+      
+      for route in getting (pathTemplate "/hello/%s/%s" ["lastname";"firstname"] (fun (lastname, firstname) -> OK (sprintf "Bonjour %s %s" lastname firstname))) do
+        yield description Of route is "Say hello"
 
       // another syntax
       for route in getOf (path "/time2" >=> now) do

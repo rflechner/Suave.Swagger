@@ -58,7 +58,7 @@ This is a [proof of concept](https://en.wikipedia.org/wiki/Proof_of_concept) to 
 [Swagger UI](http://swagger.io/swagger-ui/) is embedded in resources and a `WebPart` serving it is automatically added.
 
 
-![Swagger UI 3](images/screen3.gif)
+![Swagger UI 3](images/swagger-3.0.21.screen-optim1.gif)
 
 
 Contributing and copyright

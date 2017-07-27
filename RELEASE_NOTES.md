@@ -1,4 +1,8 @@
 
+#### 2.2.0 Jully 27 2017
+* add pathTemplate helper to name discovered printformat params
+* update swagger UI to 3.0.21
+
 #### 2.1.0 Jully 26 2017
 * improve swagger validation
 * update swagger UI
