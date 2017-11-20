@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\dev\Suave.Swagger" t="IncludeFlat">
+      <e p=".paket" t="Include" />
+      <e p="build.cmd" t="Include" />
+      <e p="build.fsx" t="Include" />
+      <e p="build.sh" t="Include" />
+      <e p="buildSlides.fsx" t="Include" />
+      <e p="docs" t="Include">
+        <e p="content" t="Include">
+          <e p="index.fsx" t="Include" />
+          <e p="rest.fsx" t="Include" />
+          <e p="tutorial.fsx" t="Include" />
+        </e>
+        <e p="tools" t="Include">
+          <e p="generate.fsx" t="Include" />
+          <e p="templates\template.cshtml" t="Include" />
+        </e>
+      </e>
+      <e p="examples" t="Include">
+        <e p="Suave.Swagger.PetStoreAPi" t="IncludeRecursive">
+          <e p="App.config" t="Include" />
+          <e p="AssemblyInfo.fs" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="obj" t="ExcludeRecursive" />
+          <e p="Program.fs" t="Include" />
+          <e p="Suave.Swagger.PetStoreAPi.fsproj" t="IncludeRecursive" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="paket.dependencies" t="Include" />
+      <e p="paket.lock" t="Include" />
+      <e p="paket.template" t="Include" />
+      <e p="project" t="Include" />
+      <e p="README.md" t="Include" />
+      <e p="RELEASE_NOTES.md" t="Include" />
+      <e p="slides" t="Include">
+        <e p="custom.css" t="Include" />
+        <e p="images" t="Include">
+          <e p="logo.png" t="Include" />
+        </e>
+        <e p="index.fsx" t="Include" />
+      </e>
+      <e p="src\Suave.Swagger" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FunnyDsl.fs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="paket.references" t="Include" />
+        <e p="paket.template" t="Include" />
+        <e p="Rest.fs" t="Include" />
+        <e p="Suave.Swagger.fsproj" t="IncludeRecursive" />
+        <e p="swagger-ui.zip" t="Include" />
+        <e p="Swagger.fs" t="Include" />
+      </e>
+      <e p="Suave.Swagger.sln" t="IncludeFlat" />
+      <e p="tests" t="Include">
+        <e p="Suave.Swagger.Tests" t="IncludeRecursive">
+          <e p="App.config" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="obj" t="ExcludeRecursive" />
+          <e p="paket.references" t="Include" />
+          <e p="Suave.Swagger.Tests.fsproj" t="IncludeRecursive" />
+          <e p="Tests.fs" t="Include" />
+        </e>
+      </e>
+    </e>
+    <e p="C:\Users\flechner\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_Suave.Swagger.575421542.00" t="ExcludeRecursive" />
+  </component>
   <component name="RiderRiderContentModelStore">
     <excludedPaths />
   </component>
