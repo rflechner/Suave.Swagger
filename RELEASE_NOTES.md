@@ -1,4 +1,7 @@
 
+#### 2.3.0 November 20 2017
+* FIX: handle recursive schemas with optional properties (avoid stack overflow)
+
 #### 2.2.0 Jully 27 2017
 * add pathTemplate helper to name discovered printformat params
 * update swagger UI to 3.0.21
