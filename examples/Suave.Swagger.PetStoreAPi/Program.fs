@@ -42,10 +42,24 @@ type SubtractionRequest =
 [<CLIMutable>]
 type SubtractionResult = { Result:int }
 
+type OrderFile =
+  {  OrderNumber: string
+     Canceled : string option
+     Packages : string option
+     RejectedItems : RejectedItem option }
+and RejectedItem = 
+  { SerialNumber: string
+    NotShippedType: int
+    NotShippedNote: string option }
+
 let createCategory =
   JsonBody<PetCategory>(fun model -> MODEL { model with Id=(Random().Next()) })
 
-
+let createOrderFile =
+  JsonBody<OrderFile>(
+    fun _ -> 
+      MODEL (Random().Next())
+    )
 
 let subtract(a,b) = OK ((a-b).ToString())
 
@@ -134,6 +148,14 @@ let api =
         yield description Of route is "Create a category"
         yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<PetCategory>)
         yield parameter "body" Of route (fun p -> { p with Type = (Some typeof<PetCategory>); In=Body })
+        yield route |> supportsJsonAndXml
+        yield route |> tag "pets"
+        
+      for route in posting <| simpleUrl "/orderFile" |> thenReturns createOrderFile do
+        yield operationId Of route is "Create a OrderFile"
+        yield description Of route is "Create a OrderFile"
+        yield route |> addResponse 200 "returns the create model with assigned Id" (Some typeof<OrderFile>)
+        yield parameter "body" Of route (fun p -> { p with Type = (Some typeof<OrderFile>); In=Body })
         yield route |> supportsJsonAndXml
         yield route |> tag "pets"
         

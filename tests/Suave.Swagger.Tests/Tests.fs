@@ -23,6 +23,19 @@ and Car = {
 }
 and Rent = Car * Customer
 
+type OrderFile =
+  {  OrderNumber: string
+     Canceled : string option
+     Packages : string option
+     RejectedItems : RejectedItem option 
+     }
+and RejectedItem = 
+  { SerialNumber: string
+    NotShippedType: int
+    NotShippedNote: string option 
+    }
+
+
 [<Test>]
 let ``When describing a very simple schema`` () =
   let desc = typeof<Customer>.Describes()
@@ -65,5 +78,18 @@ let ``When describing a more complex schema`` () =
   Assert.AreEqual(brandDef.Properties.Item "CountryName", expBrandDef.Properties.Item "CountryName")
 
 [<Test>]
-let ``When serializing a simple schema`` () =
-  ()
+let ``When describing a recursive schemas with optional properties`` () =
+  let desc = typeof<OrderFile>.Describes()
+  let exp = 
+    { Id = "OrderFile"
+      Properties =
+        Map [ ("Canceled", Primitive ("string","string"))
+              ("OrderNumber", Primitive ("string","string"))
+              ("Packages", Primitive ("string","string"))
+              ("RejectedItems",
+                Ref { Id = "RejectedItem"
+                      Properties = 
+                        Map [ ("NotShippedNote", Primitive ("string","string"))
+                              ("NotShippedType", Primitive ("integer","int32"))
+                              ("SerialNumber", Primitive ("string","string"))] })] }
+  Assert.AreEqual(desc, exp)

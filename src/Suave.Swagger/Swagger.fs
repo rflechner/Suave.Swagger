@@ -385,16 +385,38 @@ module Swagger =
           | _ -> None
 
       member this.Describes() : ObjectDefinition =
-        let props =
-          this.GetProperties()
-          |> Seq.map (
-              fun p ->
-                match p.PropertyType.FormatAndName with
-                | Some (ty,na) -> p.Name, Primitive(ty,na)
-                | None ->
-                    p.Name, Ref(p.PropertyType.Describes())
-          ) |> dict
-        {Id=this.Name; Properties=props}
+
+        let optionalType (t:Type) = 
+          if (not t.IsGenericType) || t.GetGenericTypeDefinition() <> typedefof<Option<_>>
+          then None
+          else
+            let arg = t.GenericTypeArguments |> Seq.exactlyOne
+            Some arg
+
+        let rec describe (t:Type) = 
+          let descProp (tp:Type) name = 
+            match tp.FormatAndName with
+            | Some (ty,na) ->
+                Some (name, Primitive(ty,na))
+            | None ->
+                let t' = tp
+                if t = t'
+                then
+                  None
+                else
+                  let d = Ref(describe t')
+                  Some (name, d)
+          let props =
+            t.GetProperties()
+            |> Seq.choose (
+                fun p ->
+                  match optionalType p.PropertyType with
+                  | Some t' -> descProp t' p.Name
+                  | None -> descProp p.PropertyType p.Name
+            ) |> Map
+          {Id=t.Name; Properties=props}
+
+        describe this
 
   let combineUrls (u1:string) (u2:string) =
     let sp = if u2.StartsWith "/" then u2.Substring 1 else u2
