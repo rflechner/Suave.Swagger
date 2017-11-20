@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d339c27a-aa13-4b2a-850a-f2718747a1f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/.idea/contentModel.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/riderModule.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/any/netstandard1.6/FSharp.Core.optdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/any/netstandard1.6/FSharp.Core.sigdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Suave.Swagger/any/netstandard1.6/FSharp.Core.optdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Suave.Swagger/any/netstandard1.6/FSharp.Core.sigdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/any/netstandard1.6/FSharp.Core.optdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/any/netstandard1.6/FSharp.Core.sigdata" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/App.config" afterPath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/App.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Suave.Swagger.PetStoreAPi.fsproj" afterPath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Suave.Swagger.PetStoreAPi.fsproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paket.lock" afterPath="$PROJECT_DIR$/paket.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Suave.Swagger/App.config" afterPath="$PROJECT_DIR$/src/Suave.Swagger/App.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Suave.Swagger/Suave.Swagger.fsproj" afterPath="$PROJECT_DIR$/src/Suave.Swagger/Suave.Swagger.fsproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/App.config" afterPath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/App.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Suave.Swagger.Tests.fsproj" afterPath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Suave.Swagger.Tests.fsproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/.idea/contentModel.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/riderModule.iml" afterPath="$PROJECT_DIR$/.idea/.idea.Suave.Swagger/riderModule.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs" afterPath="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Suave.Swagger/Swagger.fs" afterPath="$PROJECT_DIR$/src/Suave.Swagger/Swagger.fs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs" afterPath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,15 +15,243 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Program.fs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs">
+      <file leaf-file-name="Tests.fs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="771">
-              <caret line="164" column="18" lean-forward="true" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="196">
+              <caret line="63" column="10" lean-forward="false" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+              <folding>
+                <marker date="1511186767977" expanded="true" signature="26:2327" ph=" ..." />
+                <marker date="1511186767977" expanded="false" signature="33:191" ph="..." />
+                <marker date="1511186767977" expanded="true" signature="207:262" ph="= { ..." />
+                <marker date="1511186767977" expanded="true" signature="273:313" ph="= { ..." />
+                <marker date="1511186767977" expanded="true" signature="322:360" ph="= { ..." />
+                <marker date="1511186767977" expanded="true" signature="403:538" ph="= ..." />
+                <marker date="1511186767977" expanded="true" signature="407:538" ph="{  OrderNumber: string ..." />
+                <marker date="1511186767977" expanded="true" signature="556:648" ph="=  ..." />
+                <marker date="1511186767977" expanded="true" signature="561:648" ph="{ SerialNumber: string ..." />
+                <marker date="1511186767977" expanded="true" signature="707:1341" ph=" = ..." />
+                <marker date="1511186767977" expanded="true" signature="766:981" ph=" =  ..." />
+                <marker date="1511186767977" expanded="true" signature="775:980" ph=" Id=&quot;Customer&quot; ..." />
+                <marker date="1511186767977" expanded="true" signature="819:966" ph=" (&quot;Name&quot;, Primitive(&quot;string&quot;,&quot;string&quot;)) ..." />
+                <marker date="1511186767977" expanded="true" signature="1400:2220" ph=" = ..." />
+                <marker date="1511186767977" expanded="true" signature="1457:1618" ph=" =  ..." />
+                <marker date="1511186767977" expanded="true" signature="1466:1617" ph=" Id=&quot;Brand&quot; ..." />
+                <marker date="1511186767977" expanded="true" signature="1507:1603" ph=" (&quot;Name&quot;, Primitive(&quot;string&quot;,&quot;string&quot;)) ..." />
+                <marker date="1511186767977" expanded="true" signature="1633:1779" ph=" =  ..." />
+                <marker date="1511186767977" expanded="true" signature="1642:1778" ph=" Id=&quot;Car&quot; ..." />
+                <marker date="1511186767977" expanded="true" signature="1681:1764" ph=" (&quot;ModelName&quot;, Primitive(&quot;string&quot;,&quot;string&quot;)) ..." />
+                <marker date="1511186767977" expanded="true" signature="1925:1985" ph=" =  ..." />
+                <marker date="1511186767977" expanded="true" signature="2276:2327" ph=" = ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Swagger.fs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Suave.Swagger/Swagger.fs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="321" column="48" lean-forward="false" selection-start-line="321" selection-start-column="48" selection-end-line="321" selection-end-column="48" />
+              <folding>
+                <marker date="1511186683061" expanded="true" signature="39:24049" ph=" = ..." />
+                <marker date="1511186683061" expanded="false" signature="50:136" ph="..." />
+                <marker date="1511186683061" expanded="false" signature="145:402" ph="..." />
+                <marker date="1511186683061" expanded="false" signature="411:604" ph="..." />
+                <marker date="1511186683061" expanded="true" signature="646:725" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="652:725" ph="| StringPart | CharPart | BoolPart | IntPart ..." />
+                <marker date="1511186683061" expanded="true" signature="744:803" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="750:803" ph="| Constant  of string ..." />
+                <marker date="1511186683061" expanded="true" signature="824:2891" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="830:929" ph="{ Parts:FormatPart list ref ..." />
+                <marker date="1511186683061" expanded="true" signature="955:1082" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="967:1073" ph=" Parts = ref List.empty ..." />
+                <marker date="1511186683061" expanded="true" signature="1110:1176" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1202:1240" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1273:1314" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1334:1462" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1367:1462" ph=" then ..." />
+                <marker date="1511186683061" expanded="true" signature="1489:1604" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1537:1604" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="1624:1689" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1720:1802" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1824:2891" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="1835:2789" ph="while x.Finished() |&gt; not do ..." />
+                <marker date="1511186683061" expanded="true" signature="1917:2789" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="2602:2767" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="2674:2767" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="2911:3021" ph="with  ..." />
+                <marker date="1511186683061" expanded="true" signature="2961:3021" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="3046:3568" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="3052:3326" ph="{ Template: Path ..." />
+                <marker date="1511186683061" expanded="true" signature="3350:3568" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="3427:3567" ph=" Template=&quot;&quot;; Description=&quot;&quot;; Params=[]; Verb=Get; Summary=&quot;&quot; ..." />
+                <marker date="1511186683061" expanded="true" signature="3587:3777" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="3593:3652" ph="{ Description:string ..." />
+                <marker date="1511186683061" expanded="true" signature="3793:4051" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="3878:4051" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="3900:4051" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="4074:4241" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="4080:4162" ph="{ Name:string ..." />
+                <marker date="1511186683061" expanded="true" signature="4188:4241" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="4317:4530" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="4391:4530" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="4413:4530" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="4559:4764" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="4565:4618" ph="{ WebPart:WebPart ..." />
+                <marker date="1511186683061" expanded="true" signature="4641:4764" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="4651:4763" ph=" WebPart=(w &gt;=&gt; Writers.addHeader &quot;Access-Control-Allow-Origin&quot; &quot;*&quot; ) ..." />
+                <marker date="1511186683061" expanded="true" signature="4787:5083" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="4793:4932" ph="{ Title:string ..." />
+                <marker date="1511186683061" expanded="true" signature="4956:5083" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="4966:5082" ph=" Title=&quot;&quot;; Description=&quot;&quot;; TermsOfService=&quot;&quot;; Version=&quot;&quot;; ..." />
+                <marker date="1511186683061" expanded="true" signature="5098:5210" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="5169:5210" ph=" =  ..." />
+                <marker date="1511186683061" expanded="true" signature="5230:5315" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="5287:5315" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="5339:5415" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="5345:5415" ph="{ Id:string ..." />
+                <marker date="1511186683061" expanded="true" signature="5437:5747" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="5443:5672" ph="{ Summary:string ..." />
+                <marker date="1511186683061" expanded="true" signature="5714:5747" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="5778:6673" ph=") = ..." />
+                <marker date="1511186683061" expanded="true" signature="5885:6483" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="6260:6316" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="6367:6423" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="6556:6577" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="6625:6673" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="6701:7533" ph=") = ..." />
+                <marker date="1511186683061" expanded="true" signature="6808:7346" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="7096:7252" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="7117:7230" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="7419:7440" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="7488:7533" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="7568:8060" ph=")= ..." />
+                <marker date="1511186683061" expanded="true" signature="7674:7866" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="7939:7960" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="8008:8060" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="8092:8508" ph=")= ..." />
+                <marker date="1511186683061" expanded="true" signature="8198:8317" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="8390:8411" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="8459:8508" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="8536:9229" ph=") = ..." />
+                <marker date="1511186683061" expanded="true" signature="8650:9006" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="8814:8947" ph="for k in d.Keys do ..." />
+                <marker date="1511186683061" expanded="true" signature="9077:9100" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="9146:9229" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="9262:10047" ph=") = ..." />
+                <marker date="1511186683061" expanded="true" signature="9369:9855" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="9642:9761" ph="for p in d.Properties do ..." />
+                <marker date="1511186683061" expanded="true" signature="9928:9949" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="9997:10047" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="10074:10524" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="10080:10150" ph="| Primitive of Type:string*Format:string ..." />
+                <marker date="1511186683061" expanded="true" signature="10176:10458" ph=" : JObject = ..." />
+                <marker date="1511186683061" expanded="true" signature="10232:10450" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="10256:10351" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="10481:10524" ph=" : string = ..." />
+                <marker date="1511186683061" expanded="true" signature="10547:11153" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="10553:10641" ph="{ Name:string ..." />
+                <marker date="1511186683061" expanded="true" signature="10667:11087" ph=" : JObject = ..." />
+                <marker date="1511186683061" expanded="true" signature="10873:11079" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="10888:11060" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="11110:11153" ph=" : string = ..." />
+                <marker date="1511186683061" expanded="true" signature="11177:12166" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="11183:11415" ph="{ Swagger:string ..." />
+                <marker date="1511186683061" expanded="true" signature="11438:12166" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="12189:13226" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="12277:13226" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="12293:13217" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="13242:14360" ph="with ..." />
+                <marker date="1511186683061" expanded="true" signature="13283:13361" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="13303:13361" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="13393:13698" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="13413:13698" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="13441:13698" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="13729:14360" ph=" : ObjectDefinition = ..." />
+                <marker date="1511186683061" expanded="true" signature="13784:14337" ph=" =  ..." />
+                <marker date="1511186683061" expanded="true" signature="13807:14294" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="13889:14273" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="13950:14273" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="14043:14273" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="14124:14273" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="14403:14479" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="14511:15012" ph=" : WebPart = ..." />
+                <marker date="1511186683061" expanded="true" signature="14535:15012" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="14575:14814" ph=" : SocketOp&lt;Connection&gt; = socket { ..." />
+                <marker date="1511186683061" expanded="true" signature="14822:14994" ph=" ctx with ..." />
+                <marker date="1511186683061" expanded="true" signature="14866:14992" ph=" ctx.response with ..." />
+                <marker date="1511186683061" expanded="true" signature="15093:17296" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="15106:17267" ph=" : WebPart = ..." />
+                <marker date="1511186683061" expanded="true" signature="15132:17267" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="15149:15308" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="15226:15308" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="15341:17240" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="15602:17240" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="15622:17167" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="15728:15862" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="15894:16159" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="15919:16158" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="16191:17167" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="16208:16827" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="16282:16461" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="16477:16815" ph=" ctx ..." />
+                <marker date="1511186683061" expanded="true" signature="16559:16799" ph=" ctx.response ..." />
+                <marker date="1511186683061" expanded="true" signature="16860:17141" ph=" ctx with ..." />
+                <marker date="1511186683061" expanded="true" signature="16920:17125" ph=" ctx.response with ..." />
+                <marker date="1511186683061" expanded="true" signature="17330:17417" ph=" =  ..." />
+                <marker date="1511186683061" expanded="true" signature="17584:23510" ph="= ..." />
+                <marker date="1511186683061" expanded="true" signature="17590:17853" ph="{ SwaggerJsonPath:string ..." />
+                <marker date="1511186683061" expanded="true" signature="17876:18181" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="17886:18180" ph=" Routes=[] ..." />
+                <marker date="1511186683061" expanded="true" signature="18244:18369" ph=" : DocBuildState = ..." />
+                <marker date="1511186683061" expanded="true" signature="18415:19956" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="18446:19956" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="18457:18624" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="18467:18623" ph=" this with ..." />
+                <marker date="1511186683061" expanded="true" signature="18968:19176" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="19246:19955" ph=" this with ..." />
+                <marker date="1511186683061" expanded="true" signature="19344:19922" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="19436:19906" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="20017:20072" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="20100:22896" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="20118:22896" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="20288:20376" ph="for m in __.Models do ..." />
+                <marker date="1511186683061" expanded="true" signature="20395:22459" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="20505:22423" ph=") -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="20532:22400" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="20558:22391" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="20579:22372" ph="for p in g do ..." />
+                <marker date="1511186683061" expanded="true" signature="20622:21410" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="20728:21409" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="20767:21220" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="20819:21220" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="20860:21100" ph=" when t.IsSwaggerPrimitive -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="21253:21408" ph=" Name=a.Name ..." />
+                <marker date="1511186683061" expanded="true" signature="21439:21942" ph=" =  ..." />
+                <marker date="1511186683061" expanded="true" signature="21519:21942" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="21673:21942" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="21832:21942" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="21971:22333" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="21999:22332" ph=" Summary=p.Summary ..." />
+                <marker date="1511186683061" expanded="true" signature="22469:22718" ph="for d in List.ofSeq definitions.Values do ..." />
+                <marker date="1511186683061" expanded="true" signature="22521:22718" ph="for p in d.Properties do ..." />
+                <marker date="1511186683061" expanded="true" signature="22576:22718" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="22596:22696" ph=" -&gt; ..." />
+                <marker date="1511186683061" expanded="true" signature="22729:22895" ph=" Definitions=definitions ..." />
+                <marker date="1511186683061" expanded="true" signature="22914:23510" ph=" ..." />
+                <marker date="1511186683061" expanded="true" signature="22932:23510" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="22961:23182" ph=" = ..." />
+                <marker date="1511186683061" expanded="true" signature="23211:23305" ph=" =  ..." />
+                <marker date="1511186683061" expanded="true" signature="23534:24011" ph="() = ..." />
+                <marker date="1511186683061" expanded="true" signature="23576:23602" ph=" : DocBuildState = ..." />
+                <marker date="1511186683061" expanded="true" signature="23667:23731" ph=" : DocBuildState = ..." />
+                <marker date="1511186683061" expanded="true" signature="23802:23833" ph=" : DocBuildState = ..." />
+                <marker date="1511186683061" expanded="true" signature="23895:23933" ph=" : DocBuildState = ..." />
+                <marker date="1511186683061" expanded="true" signature="23980:24011" ph=" : DocBuildState = ..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,7 +262,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5939249C-904C-F4DA-A745-03839C243959/90/5d410517/FSharpOption`1.cs" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Suave.Swagger/Swagger.fs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Suave.Swagger/Swagger.fs" />
+        <option value="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -55,10 +282,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="width" value="1932" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
@@ -77,76 +303,40 @@
     <panes>
       <pane id="SolutionExplorer">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger (3 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger (3 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger (3 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="examples" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger.PetStoreAPi" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger (3 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Suave.Swagger (3 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".paket" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Suave.Swagger (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Suave.Swagger (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="examples" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Suave.Swagger (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="examples" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Suave.Swagger.PetStoreAPi" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Suave.Swagger (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="tests" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Suave.Swagger (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="tests" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Suave.Swagger.Tests" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Suave.Swagger (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Suave.Swagger" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
         </subPane>
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
@@ -170,6 +360,27 @@
     </option>
   </component>
   <component name="RunManager" selected=".NET Project.Default">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/bin/Debug/Suave.RestFullKit.PetStoreAPi.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <envs />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Suave.Swagger.PetStoreAPi.fsproj" />
+      <option name="PROJECT_OUTPUT_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.5" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <configuration default="true" type="DotNetProject" factoryName=".NET Project">
       <option name="PROJECT_PATH" value="" />
       <option name="PROJECT_KIND" value="None" />
@@ -201,15 +412,6 @@
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -230,18 +432,6 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Suave.Swagger.PetStoreAPi.fsproj" />
-      <option name="PROJECT_KIND" value="Console" />
-      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.5" />
-      <option name="EXE_PATH" value="$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/bin/Debug/Suave.RestFullKit.PetStoreAPi.exe" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="USE_MONO" value="0" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <envs />
-      <method />
-    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
     </list>
@@ -258,11 +448,12 @@
       <updated>1500664508348</updated>
       <workItem from="1500664510663" duration="94000" />
       <workItem from="1500664634610" duration="249000" />
+      <workItem from="1511174097493" duration="4258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="343000" />
+    <option name="totallyTimeSpent" value="4601000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,22 +465,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993576" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -300,16 +492,57 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs</url>
+          <line>83</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs">
+            <startOffsets>
+              <startOffset value="2325" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="2327" />
+            </endOffsets>
+          </properties>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs</url>
+          <line>77</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs">
+            <startOffsets>
+              <startOffset value="2122" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="2220" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Unit Tests">
+        <watch expression="p.Name" language="F#" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -322,15 +555,257 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/Suave.Swagger.PetStoreAPi/Program.fs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="164" column="18" lean-forward="true" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
+        <state relative-caret-position="216">
+          <caret line="127" column="58" lean-forward="false" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5939249C-904C-F4DA-A745-03839C243959/90/5d410517/FSharpOption`1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="44" column="38" lean-forward="true" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Suave.Swagger/Swagger.fs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="321" column="48" lean-forward="false" selection-start-line="321" selection-start-column="48" selection-end-line="321" selection-end-column="48" />
+          <folding>
+            <marker date="1511186683061" expanded="true" signature="39:24049" ph=" = ..." />
+            <marker date="1511186683061" expanded="false" signature="50:136" ph="..." />
+            <marker date="1511186683061" expanded="false" signature="145:402" ph="..." />
+            <marker date="1511186683061" expanded="false" signature="411:604" ph="..." />
+            <marker date="1511186683061" expanded="true" signature="646:725" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="652:725" ph="| StringPart | CharPart | BoolPart | IntPart ..." />
+            <marker date="1511186683061" expanded="true" signature="744:803" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="750:803" ph="| Constant  of string ..." />
+            <marker date="1511186683061" expanded="true" signature="824:2891" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="830:929" ph="{ Parts:FormatPart list ref ..." />
+            <marker date="1511186683061" expanded="true" signature="955:1082" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="967:1073" ph=" Parts = ref List.empty ..." />
+            <marker date="1511186683061" expanded="true" signature="1110:1176" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1202:1240" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1273:1314" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1334:1462" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1367:1462" ph=" then ..." />
+            <marker date="1511186683061" expanded="true" signature="1489:1604" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1537:1604" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="1624:1689" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1720:1802" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1824:2891" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="1835:2789" ph="while x.Finished() |&gt; not do ..." />
+            <marker date="1511186683061" expanded="true" signature="1917:2789" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="2602:2767" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="2674:2767" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="2911:3021" ph="with  ..." />
+            <marker date="1511186683061" expanded="true" signature="2961:3021" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="3046:3568" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="3052:3326" ph="{ Template: Path ..." />
+            <marker date="1511186683061" expanded="true" signature="3350:3568" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="3427:3567" ph=" Template=&quot;&quot;; Description=&quot;&quot;; Params=[]; Verb=Get; Summary=&quot;&quot; ..." />
+            <marker date="1511186683061" expanded="true" signature="3587:3777" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="3593:3652" ph="{ Description:string ..." />
+            <marker date="1511186683061" expanded="true" signature="3793:4051" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="3878:4051" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="3900:4051" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="4074:4241" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="4080:4162" ph="{ Name:string ..." />
+            <marker date="1511186683061" expanded="true" signature="4188:4241" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="4317:4530" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="4391:4530" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="4413:4530" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="4559:4764" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="4565:4618" ph="{ WebPart:WebPart ..." />
+            <marker date="1511186683061" expanded="true" signature="4641:4764" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="4651:4763" ph=" WebPart=(w &gt;=&gt; Writers.addHeader &quot;Access-Control-Allow-Origin&quot; &quot;*&quot; ) ..." />
+            <marker date="1511186683061" expanded="true" signature="4787:5083" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="4793:4932" ph="{ Title:string ..." />
+            <marker date="1511186683061" expanded="true" signature="4956:5083" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="4966:5082" ph=" Title=&quot;&quot;; Description=&quot;&quot;; TermsOfService=&quot;&quot;; Version=&quot;&quot;; ..." />
+            <marker date="1511186683061" expanded="true" signature="5098:5210" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="5169:5210" ph=" =  ..." />
+            <marker date="1511186683061" expanded="true" signature="5230:5315" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="5287:5315" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="5339:5415" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="5345:5415" ph="{ Id:string ..." />
+            <marker date="1511186683061" expanded="true" signature="5437:5747" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="5443:5672" ph="{ Summary:string ..." />
+            <marker date="1511186683061" expanded="true" signature="5714:5747" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="5778:6673" ph=") = ..." />
+            <marker date="1511186683061" expanded="true" signature="5885:6483" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="6260:6316" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="6367:6423" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="6556:6577" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="6625:6673" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="6701:7533" ph=") = ..." />
+            <marker date="1511186683061" expanded="true" signature="6808:7346" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="7096:7252" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="7117:7230" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="7419:7440" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="7488:7533" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="7568:8060" ph=")= ..." />
+            <marker date="1511186683061" expanded="true" signature="7674:7866" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="7939:7960" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="8008:8060" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="8092:8508" ph=")= ..." />
+            <marker date="1511186683061" expanded="true" signature="8198:8317" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="8390:8411" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="8459:8508" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="8536:9229" ph=") = ..." />
+            <marker date="1511186683061" expanded="true" signature="8650:9006" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="8814:8947" ph="for k in d.Keys do ..." />
+            <marker date="1511186683061" expanded="true" signature="9077:9100" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="9146:9229" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="9262:10047" ph=") = ..." />
+            <marker date="1511186683061" expanded="true" signature="9369:9855" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="9642:9761" ph="for p in d.Properties do ..." />
+            <marker date="1511186683061" expanded="true" signature="9928:9949" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="9997:10047" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="10074:10524" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="10080:10150" ph="| Primitive of Type:string*Format:string ..." />
+            <marker date="1511186683061" expanded="true" signature="10176:10458" ph=" : JObject = ..." />
+            <marker date="1511186683061" expanded="true" signature="10232:10450" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="10256:10351" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="10481:10524" ph=" : string = ..." />
+            <marker date="1511186683061" expanded="true" signature="10547:11153" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="10553:10641" ph="{ Name:string ..." />
+            <marker date="1511186683061" expanded="true" signature="10667:11087" ph=" : JObject = ..." />
+            <marker date="1511186683061" expanded="true" signature="10873:11079" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="10888:11060" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="11110:11153" ph=" : string = ..." />
+            <marker date="1511186683061" expanded="true" signature="11177:12166" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="11183:11415" ph="{ Swagger:string ..." />
+            <marker date="1511186683061" expanded="true" signature="11438:12166" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="12189:13226" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="12277:13226" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="12293:13217" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="13242:14360" ph="with ..." />
+            <marker date="1511186683061" expanded="true" signature="13283:13361" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="13303:13361" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="13393:13698" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="13413:13698" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="13441:13698" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="13729:14360" ph=" : ObjectDefinition = ..." />
+            <marker date="1511186683061" expanded="true" signature="13784:14337" ph=" =  ..." />
+            <marker date="1511186683061" expanded="true" signature="13807:14294" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="13889:14273" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="13950:14273" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="14043:14273" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="14124:14273" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="14403:14479" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="14511:15012" ph=" : WebPart = ..." />
+            <marker date="1511186683061" expanded="true" signature="14535:15012" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="14575:14814" ph=" : SocketOp&lt;Connection&gt; = socket { ..." />
+            <marker date="1511186683061" expanded="true" signature="14822:14994" ph=" ctx with ..." />
+            <marker date="1511186683061" expanded="true" signature="14866:14992" ph=" ctx.response with ..." />
+            <marker date="1511186683061" expanded="true" signature="15093:17296" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="15106:17267" ph=" : WebPart = ..." />
+            <marker date="1511186683061" expanded="true" signature="15132:17267" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="15149:15308" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="15226:15308" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="15341:17240" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="15602:17240" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="15622:17167" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="15728:15862" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="15894:16159" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="15919:16158" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="16191:17167" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="16208:16827" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="16282:16461" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="16477:16815" ph=" ctx ..." />
+            <marker date="1511186683061" expanded="true" signature="16559:16799" ph=" ctx.response ..." />
+            <marker date="1511186683061" expanded="true" signature="16860:17141" ph=" ctx with ..." />
+            <marker date="1511186683061" expanded="true" signature="16920:17125" ph=" ctx.response with ..." />
+            <marker date="1511186683061" expanded="true" signature="17330:17417" ph=" =  ..." />
+            <marker date="1511186683061" expanded="true" signature="17584:23510" ph="= ..." />
+            <marker date="1511186683061" expanded="true" signature="17590:17853" ph="{ SwaggerJsonPath:string ..." />
+            <marker date="1511186683061" expanded="true" signature="17876:18181" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="17886:18180" ph=" Routes=[] ..." />
+            <marker date="1511186683061" expanded="true" signature="18244:18369" ph=" : DocBuildState = ..." />
+            <marker date="1511186683061" expanded="true" signature="18415:19956" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="18446:19956" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="18457:18624" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="18467:18623" ph=" this with ..." />
+            <marker date="1511186683061" expanded="true" signature="18968:19176" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="19246:19955" ph=" this with ..." />
+            <marker date="1511186683061" expanded="true" signature="19344:19922" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="19436:19906" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="20017:20072" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="20100:22896" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="20118:22896" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="20288:20376" ph="for m in __.Models do ..." />
+            <marker date="1511186683061" expanded="true" signature="20395:22459" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="20505:22423" ph=") -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="20532:22400" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="20558:22391" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="20579:22372" ph="for p in g do ..." />
+            <marker date="1511186683061" expanded="true" signature="20622:21410" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="20728:21409" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="20767:21220" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="20819:21220" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="20860:21100" ph=" when t.IsSwaggerPrimitive -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="21253:21408" ph=" Name=a.Name ..." />
+            <marker date="1511186683061" expanded="true" signature="21439:21942" ph=" =  ..." />
+            <marker date="1511186683061" expanded="true" signature="21519:21942" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="21673:21942" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="21832:21942" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="21971:22333" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="21999:22332" ph=" Summary=p.Summary ..." />
+            <marker date="1511186683061" expanded="true" signature="22469:22718" ph="for d in List.ofSeq definitions.Values do ..." />
+            <marker date="1511186683061" expanded="true" signature="22521:22718" ph="for p in d.Properties do ..." />
+            <marker date="1511186683061" expanded="true" signature="22576:22718" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="22596:22696" ph=" -&gt; ..." />
+            <marker date="1511186683061" expanded="true" signature="22729:22895" ph=" Definitions=definitions ..." />
+            <marker date="1511186683061" expanded="true" signature="22914:23510" ph=" ..." />
+            <marker date="1511186683061" expanded="true" signature="22932:23510" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="22961:23182" ph=" = ..." />
+            <marker date="1511186683061" expanded="true" signature="23211:23305" ph=" =  ..." />
+            <marker date="1511186683061" expanded="true" signature="23534:24011" ph="() = ..." />
+            <marker date="1511186683061" expanded="true" signature="23576:23602" ph=" : DocBuildState = ..." />
+            <marker date="1511186683061" expanded="true" signature="23667:23731" ph=" : DocBuildState = ..." />
+            <marker date="1511186683061" expanded="true" signature="23802:23833" ph=" : DocBuildState = ..." />
+            <marker date="1511186683061" expanded="true" signature="23895:23933" ph=" : DocBuildState = ..." />
+            <marker date="1511186683061" expanded="true" signature="23980:24011" ph=" : DocBuildState = ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Suave.Swagger.Tests/Tests.fs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="63" column="10" lean-forward="false" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+          <folding>
+            <marker date="1511186767977" expanded="true" signature="26:2327" ph=" ..." />
+            <marker date="1511186767977" expanded="false" signature="33:191" ph="..." />
+            <marker date="1511186767977" expanded="true" signature="207:262" ph="= { ..." />
+            <marker date="1511186767977" expanded="true" signature="273:313" ph="= { ..." />
+            <marker date="1511186767977" expanded="true" signature="322:360" ph="= { ..." />
+            <marker date="1511186767977" expanded="true" signature="403:538" ph="= ..." />
+            <marker date="1511186767977" expanded="true" signature="407:538" ph="{  OrderNumber: string ..." />
+            <marker date="1511186767977" expanded="true" signature="556:648" ph="=  ..." />
+            <marker date="1511186767977" expanded="true" signature="561:648" ph="{ SerialNumber: string ..." />
+            <marker date="1511186767977" expanded="true" signature="707:1341" ph=" = ..." />
+            <marker date="1511186767977" expanded="true" signature="766:981" ph=" =  ..." />
+            <marker date="1511186767977" expanded="true" signature="775:980" ph=" Id=&quot;Customer&quot; ..." />
+            <marker date="1511186767977" expanded="true" signature="819:966" ph=" (&quot;Name&quot;, Primitive(&quot;string&quot;,&quot;string&quot;)) ..." />
+            <marker date="1511186767977" expanded="true" signature="1400:2220" ph=" = ..." />
+            <marker date="1511186767977" expanded="true" signature="1457:1618" ph=" =  ..." />
+            <marker date="1511186767977" expanded="true" signature="1466:1617" ph=" Id=&quot;Brand&quot; ..." />
+            <marker date="1511186767977" expanded="true" signature="1507:1603" ph=" (&quot;Name&quot;, Primitive(&quot;string&quot;,&quot;string&quot;)) ..." />
+            <marker date="1511186767977" expanded="true" signature="1633:1779" ph=" =  ..." />
+            <marker date="1511186767977" expanded="true" signature="1642:1778" ph=" Id=&quot;Car&quot; ..." />
+            <marker date="1511186767977" expanded="true" signature="1681:1764" ph=" (&quot;ModelName&quot;, Primitive(&quot;string&quot;,&quot;string&quot;)) ..." />
+            <marker date="1511186767977" expanded="true" signature="1925:1985" ph=" =  ..." />
+            <marker date="1511186767977" expanded="true" signature="2276:2327" ph=" = ..." />
+          </folding>
         </state>
       </provider>
     </entry>
