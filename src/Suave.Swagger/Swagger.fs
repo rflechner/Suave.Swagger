@@ -348,7 +348,7 @@ module Swagger =
       JsonConvert.SerializeObject(__, settings)
 
    module TypeHelpers =
-        //http://swagger.io/specification/ -> Data Types
+        // https://swagger.io/specification/#dataTypes -> Data Types
         let typeFormatsNames =
             [
               typeof<string>, ("string", "string")
@@ -357,8 +357,8 @@ module Swagger =
               typeof<int32>, ("integer", "int32")
               typeof<int64>, ("integer", "int64")
               typeof<bool>, ("boolean", "")
-              typeof<float>, ("float", "float32")
-              typeof<float32>, ("float", "float32")
+              typeof<float>, ("number", "double")
+              typeof<float32>, ("number", "float")
               typeof<uint8>, ("integer", "int8")
               typeof<uint16>, ("integer", "int16")
               typeof<uint32>, ("integer", "int32")
