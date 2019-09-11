@@ -3,6 +3,7 @@ source https://api.nuget.org/v3/index.json
 nuget FSharp.Core
 nuget Newtonsoft.Json
 nuget suave
+nuget Microsoft.FSharpLu.Json
 
 group Build
   source https://api.nuget.org/v3/index.json
