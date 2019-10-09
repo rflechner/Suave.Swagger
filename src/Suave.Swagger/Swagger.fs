@@ -448,7 +448,7 @@ module Swagger =
 
         let streamZipContent () =
           let assembly = System.Reflection.Assembly.GetExecutingAssembly()
-          let fs = assembly.GetManifestResourceStream "swagger-ui.zip"
+          let fs = assembly.GetManifestResourceStream "Suave.Swagger.swagger-ui.zip"
           let zip = new ZipArchive(fs)
           match zip.Entries |> Seq.tryFind (fun e -> e.FullName = p) with
           | Some ze ->

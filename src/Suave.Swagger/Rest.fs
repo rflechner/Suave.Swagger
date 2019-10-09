@@ -8,25 +8,16 @@ open Suave.Operators
 open Suave.Filters
 open Suave.Writers
 open Suave.Successful
-open Newtonsoft.Json
-open Newtonsoft.Json.Serialization
+open Microsoft.FSharpLu.Json
 
 open Suave.RequestErrors
 open System.Xml.Serialization
 
 
-module Serialization =
-  let mutable CamelCase = true //quick fix, needs a refactoring
-  let toJson o =
-    let jsonSerializerSettings = new JsonSerializerSettings()
-    if CamelCase then
-      jsonSerializerSettings.ContractResolver <- new CamelCasePropertyNamesContractResolver()
-    JsonConvert.SerializeObject(o, jsonSerializerSettings)
-
 module Rest =
 
   let JSON v =
-    v |> Serialization.toJson |> OK
+    v |> Compact.serialize |> OK
     >=> Writers.setMimeType "application/json; charset=utf-8"
     //>=> Writers.addHeader "Access-Control-Allow-Origin" "*"
     >=> Writers.addHeader "Origin" "*"
@@ -68,12 +59,11 @@ module Rest =
           return! JSON m x
       }
 
-      
-  let JsonBody<'t> (f:'t->WebPart) : WebPart =
+  let inline JsonBody< ^T > (f: ^T -> WebPart) : WebPart =
     fun (x : HttpContext) ->
       async {
         let json = System.Text.Encoding.UTF8.GetString x.request.rawForm
-        let model = Newtonsoft.Json.JsonConvert.DeserializeObject<'t> json
+        let model = Microsoft.FSharpLu.Json.Compact.deserialize< ^T > json
       
         return! (f model) x
       }

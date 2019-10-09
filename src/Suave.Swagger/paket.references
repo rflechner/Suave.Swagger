@@ -1,3 +1,5 @@
 FSharp.Core
 suave
 Newtonsoft.Json
+Microsoft.FSharpLu.Json
+
